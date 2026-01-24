@@ -8,7 +8,7 @@ from .locations import SilksongLocation, create_locations, locations_by_name
 from .options.option_groups import silksong_option_groups
 from .options.options import SilksongOptions
 from .options.presets import silksong_options_presets
-from .regions import create_regions
+from .regions import create_regions, set_entrance_rules
 from .strings.generic_strings import GAME_NAME
 
 client_version = 0
@@ -58,8 +58,7 @@ class SilksongWorld(World):
         self.multiworld.regions.extend(world_regions.values())
 
     def set_rules(self):
-        pass
-        # set_rules(self.multiworld, self.player, self.options)
+        set_entrance_rules(self.multiworld, self.player, self.options)
 
     def create_items(self):
         self.precollect_abilities()

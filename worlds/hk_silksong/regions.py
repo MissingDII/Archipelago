@@ -1,9 +1,10 @@
 from typing import Protocol
 
-from BaseClasses import Region
+from BaseClasses import Region, MultiWorld
 from . import SilksongOptions
-from .data.connections_data import all_connections
+from .data.connections_data import all_connections, connections_by_name
 from .strings.region_names import all_region_names
+from ..generic.Rules import add_rule
 
 
 class RegionFactory(Protocol):
@@ -24,3 +25,11 @@ def create_regions(region_factory: RegionFactory, world_options: SilksongOptions
         origin_region.connect(destination_region, connection.entrance)
 
     return regions_by_name
+
+
+def set_entrance_rules(multiworld: MultiWorld, player: int, world_options: SilksongOptions) -> None:
+    for entrance_name, entrance in multiworld.regions.entrance_cache[player].items():
+        entrance_data = connections_by_name[entrance_name]
+        if entrance_data.requirements:
+            requirements = frozenset(entrance_data.requirements)
+            add_rule(entrance, lambda state, reqs=requirements, player=player: state.has_all(reqs, player))

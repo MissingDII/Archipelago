@@ -27,6 +27,7 @@ class LocationGroup(enum.Enum):
     BOSS_FIGHT = enum.auto()
     PICKUP = enum.auto()
     EVA = enum.auto()
+    WISH = enum.auto()
     SHARDS = enum.auto()
     ROSARIES = enum.auto()
 
@@ -67,7 +68,7 @@ all_locations = [
 
     LocationData("Save: The Threadspun Town", RegionName.citadel, [LocationGroup.OBJECTIVE, LocationGroup.ACT_1]),
     LocationData("Seek: The Great Citadel", RegionName.citadel, [LocationGroup.OBJECTIVE, LocationGroup.ACT_2]),
-    LocationData("Ring The Bell In The Marrow", RegionName.marrow, [LocationGroup.OBJECTIVE, LocationGroup.ACT_1]),
+    LocationData("Ring The Bell In The Marrow", RegionName.marrow_bellway, [LocationGroup.OBJECTIVE, LocationGroup.ACT_1]),
     LocationData("Ring The Bell In Far Fields", RegionName.far_fields, [LocationGroup.OBJECTIVE, LocationGroup.ACT_1]),
     LocationData("Ring The Bell In Greymoor", RegionName.greymoor, [LocationGroup.OBJECTIVE, LocationGroup.ACT_1]),
     LocationData("Ring The Bell In Bellhart", RegionName.bellhart, [LocationGroup.OBJECTIVE, LocationGroup.ACT_1]),
@@ -79,26 +80,17 @@ all_locations = [
     LocationData("Learn: Conductor's Melody", RegionName.citadel, [LocationGroup.OBJECTIVE, LocationGroup.SONG, LocationGroup.ACT_2]),
     LocationData("Learn: Architect's Melody", RegionName.citadel, [LocationGroup.OBJECTIVE, LocationGroup.SONG, LocationGroup.ACT_2]),
     LocationData("Learn: Vaultkeeper's Melody", RegionName.citadel, [LocationGroup.OBJECTIVE, LocationGroup.SONG, LocationGroup.ACT_2]),
-    LocationData("Defeat Grand Mother Silk", RegionName.citadel, [LocationGroup.OBJECTIVE, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_2]),
 
     LocationData("Seek: After The Fall", RegionName.choral_chambers, [LocationGroup.OBJECTIVE, LocationGroup.ACT_3]),
     LocationData("Seek: Awaiting The End", RegionName.moss_grotto, [LocationGroup.OBJECTIVE, LocationGroup.ACT_3]),
-    LocationData("Defeat Bell Eater", RegionName.choral_chambers, [LocationGroup.OBJECTIVE, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_3]),
     LocationData("Seek: The Dark Below", RegionName.abyss, [LocationGroup.OBJECTIVE, LocationGroup.ACT_3]),
     LocationData("Ascend: Return To Pharloom", RegionName.abyss, [LocationGroup.OBJECTIVE, LocationGroup.ACT_3]),
     LocationData("Seek: Spell Seeker", RegionName.citadel, [LocationGroup.OBJECTIVE, LocationGroup.ACT_3]),
     LocationData("Seek: The Old Hearts", RegionName.citadel, [LocationGroup.OBJECTIVE, LocationGroup.ACT_3]),
-    LocationData("Defeat Crust King Khann", RegionName.citadel, [LocationGroup.OBJECTIVE, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_3]),
-    LocationData("Defeat Nyleth", RegionName.citadel, [LocationGroup.OBJECTIVE, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_3]),
-    LocationData("Defeat Skarrsinger Karmelita", RegionName.citadel, [LocationGroup.OBJECTIVE, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_3]),
-    LocationData("Defeat Clover Dancers", RegionName.citadel, [LocationGroup.OBJECTIVE, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_3]),
-    LocationData("Defeat Lost Lace", RegionName.citadel, [LocationGroup.OBJECTIVE, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_3]),
 
     LocationData("Weaver Spire: Silkspear", RegionName.bone_bottom, [LocationGroup.SILK_COMBAT_ABILITY, LocationGroup.ACT_1]),
-    LocationData("Defeat Phantom", RegionName.mist, [LocationGroup.SILK_COMBAT_ABILITY, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_1]),
     LocationData("Weaver Spire: Thread Storm", RegionName.greymoor, [LocationGroup.SILK_COMBAT_ABILITY, LocationGroup.ACT_1]),
     LocationData("Weaver Spire: Sharpdart", RegionName.wormways, [LocationGroup.SILK_COMBAT_ABILITY, LocationGroup.ACT_2]),
-    LocationData("Defeat First Sinner", RegionName.the_slab, [LocationGroup.SILK_COMBAT_ABILITY, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_2]),
     LocationData("Acquire Pale Nails", RegionName.cradle, [LocationGroup.SILK_COMBAT_ABILITY, LocationGroup.ACT_3]),
 
     LocationData("Grant Flexile Spines", RegionName.far_fields, [LocationGroup.MOVEMENT_ABILITY, LocationGroup.ACT_1]),
@@ -110,12 +102,62 @@ all_locations = [
 
     LocationData("Learn Needle Strike", RegionName.blasted_steps, [LocationGroup.COMBAT_ABILITY, LocationGroup.ACT_1]),
 
-    LocationData("Defeat Bell Beast", RegionName.bone_bottom, [LocationGroup.SILK_OTHER_ABILITY, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_1]),
-    LocationData("Defeat The Unravelled", RegionName.whiteward, [LocationGroup.SILK_OTHER_ABILITY, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_2]),
-    LocationData("Defeat Lace (Cradle)", RegionName.cradle, [LocationGroup.SILK_OTHER_ABILITY, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_2]),
     LocationData("Eva: 32 Slots", RegionName.weavenest_atla, [LocationGroup.SILK_OTHER_ABILITY, LocationGroup.EVA, LocationGroup.ACT_2]),
     LocationData("Seek: The Old Hearts", RegionName.bone_bottom, [LocationGroup.SILK_OTHER_ABILITY, LocationGroup.OBJECTIVE, LocationGroup.ACT_3]),
     LocationData("Pickup Farsight", RegionName.weavenest_atla, [LocationGroup.SILK_OTHER_ABILITY, LocationGroup.PICKUP, LocationGroup.ACT_3]),
+
+    LocationData("Defeat Moss Mother", RegionName.moss_grotto, [LocationGroup.BOSS_FIGHT, LocationGroup.ACT_1]),
+    LocationData("Defeat Bell Beast", RegionName.marrow_bellway, [LocationGroup.SILK_OTHER_ABILITY, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_1]),
+    LocationData("Defeat Lace", RegionName.deep_docks, [LocationGroup.BOSS_FIGHT, LocationGroup.ACT_1]),
+    LocationData("Defeat Fourth Chorus", RegionName.far_fields, [LocationGroup.BOSS_FIGHT, LocationGroup.ACT_1]),
+    LocationData("Defeat Moorwing", RegionName.greymoor, [LocationGroup.BOSS_FIGHT, LocationGroup.ACT_1]),
+    LocationData("Defeat Sister Splinter", RegionName.shellwood, [LocationGroup.BOSS_FIGHT, LocationGroup.ACT_1]),
+    LocationData("Defeat Widow", RegionName.bellhart_upper, [LocationGroup.BOSS_FIGHT, LocationGroup.ACT_1]),
+    LocationData("Defeat Great Conchflies", RegionName.blasted_steps, [LocationGroup.BOSS_FIGHT, LocationGroup.ACT_1]),
+    LocationData("Defeat Last Judge", RegionName.blasted_steps_grand_gate, [LocationGroup.BOSS_FIGHT, LocationGroup.ACT_1]),
+    LocationData("Defeat Cogwork Dancers", RegionName.cogwork_core, [LocationGroup.BOSS_FIGHT, LocationGroup.ACT_2]),
+    LocationData("Defeat Trobbio", RegionName.choral_chambers, [LocationGroup.BOSS_FIGHT, LocationGroup.ACT_2]),
+    LocationData("Defeat Tormented Trobbio", RegionName.choral_chambers_act_3, [LocationGroup.BOSS_FIGHT, LocationGroup.ACT_3]),
+    LocationData("Defeat Groal the Great", RegionName.bilewater_upper, [LocationGroup.BOSS_FIGHT, LocationGroup.ACT_2]),
+    LocationData("Defeat The Unraveled", RegionName.whiteward, [LocationGroup.BOSS_FIGHT, LocationGroup.ACT_2]),
+    LocationData("Defeat Disgraced Chef Lugoli", RegionName.sinners_road, [LocationGroup.BOSS_FIGHT, LocationGroup.ACT_2]),
+    LocationData("Defeat Craggler", RegionName.wormways, [LocationGroup.BOSS_FIGHT, LocationGroup.ACT_1]),
+    LocationData("Defeat Father of the Flame", RegionName.wisp_thicket, [LocationGroup.BOSS_FIGHT, LocationGroup.ACT_2]),
+    LocationData("Defeat Voltvyrm", RegionName.sands_of_karak, [LocationGroup.BOSS_FIGHT, LocationGroup.ACT_2]),
+    LocationData("Defeat Second Sentinel", RegionName.high_halls, [LocationGroup.BOSS_FIGHT, LocationGroup.ACT_2]),
+    LocationData("Defeat Broodmother", RegionName.the_slab, [LocationGroup.BOSS_FIGHT, LocationGroup.ACT_2]),
+    LocationData("Defeat Plasmified Zango", RegionName.wormways_plasmium, [LocationGroup.BOSS_FIGHT, LocationGroup.ACT_3]),
+    LocationData("Defeat Shrine Guardian Seth", RegionName.grand_gate, [LocationGroup.BOSS_FIGHT, LocationGroup.ACT_3]),
+    LocationData("Defeat Palestag", RegionName.verdania, [LocationGroup.BOSS_FIGHT, LocationGroup.ACT_3]),
+    LocationData("Defeat Lost Garmond", RegionName.blasted_steps_act_3, [LocationGroup.BOSS_FIGHT, LocationGroup.ACT_3]),
+    LocationData("Defeat Pinstress", RegionName.mount_fay_act_3, [LocationGroup.BOSS_FIGHT, LocationGroup.ACT_3]),
+    LocationData("Defeat Gurr the Outcast", RegionName.far_fields, [LocationGroup.BOSS_FIGHT, LocationGroup.ACT_3]),
+    LocationData("Defeat Watcher at the Edge", RegionName.sands_of_karak, [LocationGroup.BOSS_FIGHT, LocationGroup.ACT_3]),
+    LocationData("Defeat Crawfather", RegionName.greymoor, [LocationGroup.BOSS_FIGHT, LocationGroup.ACT_3]),
+    # LocationData("Defeat Summoned Savior", RegionName., [LocationGroup.BOSS_FIGHT, LocationGroup.ACT_1]),
+    LocationData("Defeat Shakra", RegionName.greymoor, [LocationGroup.BOSS_FIGHT, LocationGroup.ACT_2]),
+    LocationData("Defeat Garmond and Zaza", RegionName.choral_chambers, [LocationGroup.BOSS_FIGHT, LocationGroup.ACT_2]),
+
+    LocationData("Defeat Savage Beastfly (Beast)", RegionName.chapel_of_beast, [LocationGroup.BOSS_FIGHT, LocationGroup.ACT_1]),
+    LocationData("Defeat Savage Beastfly (Wish)", RegionName.far_fields, [LocationGroup.WISH, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_1]),
+
+    LocationData("Defeat Skull Tyrant (Wish)", RegionName.marrow_east, [LocationGroup.WISH, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_1]),
+    LocationData("Defeat Skull Tyrant (Bone Bottom)", RegionName.bone_bottom, [LocationGroup.WISH, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_1]),
+
+    LocationData("Defeat Phantom", RegionName.mist, [LocationGroup.SILK_COMBAT_ABILITY, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_1]),
+
+    LocationData("Defeat Raging Conchfly", RegionName.sands_of_karak, [LocationGroup.BOSS_FIGHT, LocationGroup.ACT_2]),
+    LocationData("Defeat First Sinner", RegionName.the_slab, [LocationGroup.SILK_COMBAT_ABILITY, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_2]),
+    LocationData("Defeat The Unravelled", RegionName.whiteward, [LocationGroup.SILK_OTHER_ABILITY, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_2]),
+    LocationData("Defeat Lace (Cradle)", RegionName.cradle, [LocationGroup.SILK_OTHER_ABILITY, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_2]),
+    LocationData("Defeat Grand Mother Silk", RegionName.citadel, [LocationGroup.OBJECTIVE, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_2]),
+
+    LocationData("Defeat Bell Eater", RegionName.choral_chambers, [LocationGroup.OBJECTIVE, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_3]),
+    LocationData("Defeat Crust King Khann", RegionName.citadel, [LocationGroup.OBJECTIVE, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_3]),
+    LocationData("Defeat Nyleth", RegionName.citadel, [LocationGroup.OBJECTIVE, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_3]),
+    LocationData("Defeat Skarrsinger Karmelita", RegionName.citadel, [LocationGroup.OBJECTIVE, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_3]),
+    LocationData("Defeat Clover Dancers", RegionName.citadel, [LocationGroup.OBJECTIVE, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_3]),
+    LocationData("Defeat Lost Lace", RegionName.citadel, [LocationGroup.OBJECTIVE, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_3]),
 ]
 
 location_data_by_name = {location.name: location for location in all_locations}

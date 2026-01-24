@@ -5,6 +5,7 @@ from typing import Dict, List, Protocol, Union
 from BaseClasses import Item, ItemClassification
 from .options.options import ShuffleMovementAbilities, SilksongOptions
 from .strings.generic_strings import GAME_NAME
+from .strings.item_names import ItemName
 
 
 class SilksongItem(Item):
@@ -69,32 +70,32 @@ class SilksongItemFactory(Protocol):
 
 
 all_items = [
-    ItemData("Needolin", ItemClassification.progression, [ItemGroup.SONG, ItemGroup.ACT_1]),
-    ItemData("Beastling Call", ItemClassification.useful, [ItemGroup.SONG, ItemGroup.ACT_3]),
-    ItemData("Elegy of the Deep", ItemClassification.progression, [ItemGroup.SONG, ItemGroup.ACT_3]),
+    ItemData(ItemName.needolin, ItemClassification.progression, [ItemGroup.SONG, ItemGroup.ACT_1]),
+    ItemData(ItemName.beastling_call, ItemClassification.useful, [ItemGroup.SONG, ItemGroup.ACT_3]),
+    ItemData(ItemName.elegy_of_the_deep, ItemClassification.progression, [ItemGroup.SONG, ItemGroup.ACT_3]),
 
-    ItemData("Bind", ItemClassification.progression, [ItemGroup.BIND, ItemGroup.ACT_1]),
+    ItemData(ItemName.bind, ItemClassification.progression, [ItemGroup.BIND, ItemGroup.ACT_1]),
 
-    ItemData("Silkspear", ItemClassification.progression, [ItemGroup.SILK_COMBAT_ABILITY, ItemGroup.ACT_1]),
-    ItemData("Cross Stitch", ItemClassification.useful, [ItemGroup.SILK_COMBAT_ABILITY, ItemGroup.ACT_1]),
-    ItemData("Thread Storm", ItemClassification.useful, [ItemGroup.SILK_COMBAT_ABILITY, ItemGroup.ACT_1]),
-    ItemData("Sharpdart", ItemClassification.useful, [ItemGroup.SILK_COMBAT_ABILITY, ItemGroup.ACT_2]),
-    ItemData("Rune Rage", ItemClassification.useful, [ItemGroup.SILK_COMBAT_ABILITY, ItemGroup.ACT_2]),
-    ItemData("Pale Nails", ItemClassification.useful, [ItemGroup.SILK_COMBAT_ABILITY, ItemGroup.ACT_3]),
+    ItemData(ItemName.silkspear, ItemClassification.progression, [ItemGroup.SILK_COMBAT_ABILITY, ItemGroup.ACT_1]),
+    ItemData(ItemName.cross_stitch, ItemClassification.useful, [ItemGroup.SILK_COMBAT_ABILITY, ItemGroup.ACT_1]),
+    ItemData(ItemName.thread_storm, ItemClassification.useful, [ItemGroup.SILK_COMBAT_ABILITY, ItemGroup.ACT_1]),
+    ItemData(ItemName.sharpdart, ItemClassification.useful, [ItemGroup.SILK_COMBAT_ABILITY, ItemGroup.ACT_2]),
+    ItemData(ItemName.rune_rage, ItemClassification.useful, [ItemGroup.SILK_COMBAT_ABILITY, ItemGroup.ACT_2]),
+    ItemData(ItemName.pale_nails, ItemClassification.useful, [ItemGroup.SILK_COMBAT_ABILITY, ItemGroup.ACT_3]),
 
-    ItemData("Drifter's Cloak", ItemClassification.progression, [ItemGroup.MOVEMENT_ABILITY, ItemGroup.ACT_1]),
-    ItemData("Cling Grip", ItemClassification.progression, [ItemGroup.MOVEMENT_ABILITY, ItemGroup.ACT_1]),
-    ItemData("Swift Step", ItemClassification.progression, [ItemGroup.MOVEMENT_ABILITY, ItemGroup.ACT_1]),
-    ItemData("Faydown Cloak", ItemClassification.progression, [ItemGroup.MOVEMENT_ABILITY, ItemGroup.ACT_2]),
-    ItemData("Clawline", ItemClassification.progression, [ItemGroup.MOVEMENT_ABILITY, ItemGroup.ACT_2]),
-    ItemData("Silk Soar", ItemClassification.progression, [ItemGroup.MOVEMENT_ABILITY, ItemGroup.ACT_3]),
+    ItemData(ItemName.drifters_cloak, ItemClassification.progression, [ItemGroup.MOVEMENT_ABILITY, ItemGroup.ACT_1]),
+    ItemData(ItemName.cling_grip, ItemClassification.progression, [ItemGroup.MOVEMENT_ABILITY, ItemGroup.ACT_1]),
+    ItemData(ItemName.swift_step, ItemClassification.progression, [ItemGroup.MOVEMENT_ABILITY, ItemGroup.ACT_1]),
+    ItemData(ItemName.faydown_cloak, ItemClassification.progression, [ItemGroup.MOVEMENT_ABILITY, ItemGroup.ACT_2]),
+    ItemData(ItemName.clawline, ItemClassification.progression, [ItemGroup.MOVEMENT_ABILITY, ItemGroup.ACT_2]),
+    ItemData(ItemName.silk_soar, ItemClassification.progression, [ItemGroup.MOVEMENT_ABILITY, ItemGroup.ACT_3]),
 
-    ItemData("Needle Strike", ItemClassification.progression, [ItemGroup.COMBAT_ABILITY, ItemGroup.ACT_1]),
+    ItemData(ItemName.needle_strike, ItemClassification.progression, [ItemGroup.COMBAT_ABILITY, ItemGroup.ACT_1]),
 
-    ItemData("Silk Heart", ItemClassification.progression, [ItemGroup.SILK_OTHER_ABILITY, ItemGroup.ACT_1]),
-    ItemData("Sylphsong", ItemClassification.useful, [ItemGroup.SILK_OTHER_ABILITY, ItemGroup.ACT_2]),
-    ItemData("Farsight", ItemClassification.useful, [ItemGroup.SILK_OTHER_ABILITY, ItemGroup.ACT_3]),
-    ItemData("Everbloom", ItemClassification.progression, [ItemGroup.SILK_OTHER_ABILITY, ItemGroup.ACT_3]),
+    ItemData(ItemName.silk_heart, ItemClassification.progression, [ItemGroup.SILK_OTHER_ABILITY, ItemGroup.ACT_1]),
+    ItemData(ItemName.sylphsong, ItemClassification.useful, [ItemGroup.SILK_OTHER_ABILITY, ItemGroup.ACT_2]),
+    ItemData(ItemName.farsight, ItemClassification.useful, [ItemGroup.SILK_OTHER_ABILITY, ItemGroup.ACT_3]),
+    ItemData(ItemName.everbloom, ItemClassification.progression, [ItemGroup.SILK_OTHER_ABILITY, ItemGroup.ACT_3]),
 
     ItemData("50 Rosaries", ItemClassification.filler, [ItemGroup.FILLER]),
     ItemData("50 Shell Shards", ItemClassification.filler, [ItemGroup.FILLER]),
