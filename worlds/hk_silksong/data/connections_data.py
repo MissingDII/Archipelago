@@ -86,7 +86,7 @@ all_connections = [
     ConnectionData(RegionName.choral_chambers, RegionName.whiteward),
     ConnectionData(RegionName.choral_chambers, RegionName.cogwork_core),
     ConnectionData(RegionName.choral_chambers, RegionName.memorium, requirements=ItemName.faydown_cloak),
-    ConnectionData(RegionName.choral_chambers, RegionName.cradle, requirements=[ItemName.architect_melody, ItemName.vaultkeeper_melody, ItemName.conductor_melody]),
+    ConnectionData(RegionName.choral_chambers, RegionName.cradle),# , requirements=[ItemName.architect_melody, ItemName.vaultkeeper_melody, ItemName.conductor_melody]),
     ConnectionData(RegionName.choral_chambers, RegionName.high_halls),
     ConnectionData(RegionName.choral_chambers, RegionName.the_slab),
     ConnectionData(RegionName.choral_chambers, RegionName.choral_chambers_act_3),
