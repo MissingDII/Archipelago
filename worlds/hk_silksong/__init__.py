@@ -1,15 +1,17 @@
 from typing import Union, Optional
 
 from BaseClasses import ItemClassification, Region, Tutorial
+from Options import OptionError
 from worlds.AutoWorld import WebWorld, World
 from .items import ItemData, create_items, ItemGroup, items_by_name, item_names_by_groups, item_data_by_name
 from .items import SilksongItem
-from .locations import SilksongLocation, create_locations, locations_by_name
+from .locations import SilksongLocation, create_locations, locations_by_name, LocationData, location_data_by_name
 from .options.option_groups import silksong_option_groups
-from .options.options import SilksongOptions
+from .options.options import SilksongOptions, Goal
 from .options.presets import silksong_options_presets
 from .regions import create_regions, set_entrance_rules
 from .strings.generic_strings import GAME_NAME
+from .strings.goal_names import GoalName
 
 client_version = 0
 
@@ -59,6 +61,7 @@ class SilksongWorld(World):
 
     def set_rules(self):
         set_entrance_rules(self.multiworld, self.player, self.options)
+        self.multiworld.completion_condition[self.player] = lambda state: state.has("Victory", self.player)
 
     def create_items(self):
         self.precollect_abilities()
@@ -71,6 +74,29 @@ class SilksongWorld(World):
 
         created_items = create_items(self.create_item, self.options, locations_count, items_to_exclude, self.random)
         self.multiworld.itempool += created_items
+        self.setup_victory()
+
+    def setup_victory(self):
+        if self.options.goal == Goal.option_fanatic:
+            goal_location = location_data_by_name[GoalName.fanatic]
+        elif self.options.goal == Goal.option_act_1:
+            goal_location = location_data_by_name[GoalName.act_1]
+        elif self.options.goal == Goal.option_weaver_queen:
+            goal_location = location_data_by_name[GoalName.weaver_queen]
+        elif self.options.goal == Goal.option_snared_silk:
+            goal_location = location_data_by_name[GoalName.snared_silk]
+        elif self.options.goal == Goal.option_flea_friend:
+            goal_location = location_data_by_name[GoalName.flea_friend]
+        elif self.options.goal == Goal.option_sister_of_the_void:
+            goal_location = location_data_by_name[GoalName.sister_of_the_void]
+        elif self.options.goal == Goal.option_completion:
+            goal_location = location_data_by_name[GoalName.completion]
+        else:
+            raise OptionError(f"Invalid Goal: {self.options.goal}")
+
+        region = self.multiworld.get_region(goal_location.region, self.player)
+        region.add_event(goal_location.name, "Victory", None, SilksongLocation, SilksongItem)
+        self.multiworld.completion_condition[self.player] = lambda state: state.has("Victory", self.player)
 
     def precollect_abilities(self):
         pass
