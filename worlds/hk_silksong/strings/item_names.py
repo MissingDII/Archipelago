@@ -34,6 +34,7 @@ class ItemName:
     soul_snare = "Soul Snare"
     act_3 = "Act 3"
 
+    memory_locket = "Memory Locket"
     crest_slots = "Crest Slots"
 
     upslash = "Upslash"

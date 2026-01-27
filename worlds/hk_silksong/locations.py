@@ -114,6 +114,7 @@ def create_locations(location_collector: SilksongLocationCollector,
     enabled_groups.append(LocationGroup.EVA_EXTRA_LOCATIONS)
     enabled_groups.append(LocationGroup.MEMORY_LOCKET)
     enabled_groups.append(LocationGroup.WISH)
+    enabled_groups.append(LocationGroup.CREST)
 
     for loc_item_pair in all_locations_items_pairs:
         for group in enabled_groups:

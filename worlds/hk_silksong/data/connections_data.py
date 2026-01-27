@@ -31,6 +31,7 @@ all_connections = [
     ConnectionData(RegionName.menu, RegionName.moss_grotto, EntranceName.spawn_moss_grotto),
     ConnectionData(RegionName.moss_grotto, RegionName.bone_bottom),
     ConnectionData(RegionName.moss_grotto, RegionName.bonegrave, requirements=ItemName.cling_grip),
+    ConnectionData(RegionName.bonegrave, RegionName.chapel_of_the_wanderer),
     ConnectionData(RegionName.bone_bottom, RegionName.weavenest_atla, requirements=ItemName.needolin),
     ConnectionData(RegionName.bone_bottom, RegionName.craggler_cavern, requirements=ItemName.swift_step),
     ConnectionData(RegionName.bone_bottom, RegionName.marrow_west),

@@ -1,8 +1,9 @@
 from typing import Union, Optional, List
 
-from BaseClasses import ItemClassification, Region, Tutorial
+from BaseClasses import ItemClassification, Region, Tutorial, CollectionState
 from Options import OptionError
 from worlds.AutoWorld import WebWorld, World
+from worlds.hk_silksong.data.crests_data import crest_purchasable_slots, crest_default_slots, hunter_crest_purchasable_slots
 from .data.items_locations_data import all_locations_items_pairs, locations_items_pairs_by_name
 from .events import create_events
 from .items.items import items_by_name, create_items, SilksongItem, filler_items, item_data_by_name, ItemData
@@ -13,6 +14,7 @@ from .options.presets import silksong_options_presets
 from .regions import create_regions, set_entrance_rules
 from .strings.generic_strings import GAME_NAME
 from .strings.goal_names import GoalName
+from .strings.item_names import ItemName
 
 client_version = 0
 
@@ -136,3 +138,44 @@ class SilksongWorld(World):
             "seed": self.random.randrange(99999999)
         })
         return options_dict
+
+    def collect(self, state: CollectionState, item: SilksongItem) -> bool:
+        change = super().collect(state, item)
+        if not change:
+            return change
+
+        if item.name not in crest_purchasable_slots and item.name != ItemName.memory_locket:
+            return change
+
+        self.update_crest_slots(state)
+        return change
+
+    def remove(self, state: CollectionState, item: SilksongItem) -> bool:
+        change = super().remove(state, item)
+        if not change:
+            return change
+
+        if item.name not in crest_purchasable_slots and item.name != ItemName.memory_locket:
+            return change
+
+        self.update_crest_slots(state)
+        return change
+
+    def update_crest_slots(self, state: CollectionState):
+        current_slots = 0
+        for crest in crest_default_slots:
+            if state.prog_items[self.player][crest] >= 1:
+                current_slots += crest_default_slots[crest]
+
+        available_purchasable_slots = 0
+        for crest in crest_purchasable_slots:
+            if state.prog_items[self.player][crest] >= 1:
+                available_purchasable_slots += crest_purchasable_slots[crest]
+
+        number_lockets = state.prog_items[self.player][ItemName.memory_locket]
+        if state.prog_items[self.player][ItemName.crest_hunter_progressive] >= 1:
+            number_lockets -= hunter_crest_purchasable_slots  # We assume that the player might waste their lockets on Hunter Crest, which Eva doesn't count
+
+        current_slots += min(available_purchasable_slots, max(number_lockets, 0))
+
+        state.prog_items[self.player][ItemName.crest_slots] = current_slots
