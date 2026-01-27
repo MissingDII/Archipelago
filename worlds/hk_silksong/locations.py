@@ -89,13 +89,11 @@ goal_events_locations = [
     LocationData(GoalName.completion, RegionName.abyss, [LocationGroup.GOAL], True),
 ]
 
-location_data_by_name = {location.name: location for location in all_locations + events_locations}
-
 
 def create_locations(location_collector: SilksongLocationCollector,
                      options: SilksongOptions, all_locations_items_pairs,
                      random: Random):
-    randomized_location_names = []
+    randomized_locations = []
 
     enabled_groups = []
     enabled_groups.append(LocationGroup.ALWAYS_ACTIVE)
@@ -114,12 +112,11 @@ def create_locations(location_collector: SilksongLocationCollector,
 
     for loc_item_pair in all_locations_items_pairs:
         for group in enabled_groups:
-            if group in loc_item_pair.location.groups:
-                randomized_location_names.append(loc_item_pair.location.name)
+            if group in loc_item_pair.location_data.groups:
+                randomized_locations.append(loc_item_pair.location_data)
                 break
 
-    randomized_location_names = sorted(list(set(randomized_location_names)))
+    # randomized_locations = sorted(list(set(randomized_locations)))
 
-    for location_name in randomized_location_names:
-        location_data = location_data_by_name[location_name]
+    for location_data in randomized_locations:
         location_collector(location_data.name, location_data.id, location_data.region)

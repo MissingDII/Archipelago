@@ -35,7 +35,6 @@ all_locations_items_pairs: List[LocationItemData] = [
     item_location("Ring The Bell In Bellhart", RegionName.bellhart, [LocationGroup.OBJECTIVE, LocationGroup.ACT_1]),
     item_location("Ring The Bell In Shellwood", RegionName.shellwood, [LocationGroup.OBJECTIVE, LocationGroup.ACT_1]),
 
-    item_location("Ring The Bell In The Marrow", RegionName.citadel, [LocationGroup.OBJECTIVE, LocationGroup.ACT_2]),
     item_location("Search: Silent Halls", RegionName.citadel, [LocationGroup.OBJECTIVE, LocationGroup.ACT_2]),
     item_location("Ascend: Pharloom's Crown", RegionName.citadel, [LocationGroup.OBJECTIVE, LocationGroup.ACT_2]),
     item_location("Learn: Conductor's Melody", RegionName.citadel, [LocationGroup.OBJECTIVE, LocationGroup.SONG, LocationGroup.ACT_2], ItemName.conductor_melody),
@@ -47,7 +46,6 @@ all_locations_items_pairs: List[LocationItemData] = [
     item_location("Seek: The Dark Below", RegionName.abyss, [LocationGroup.OBJECTIVE, LocationGroup.ACT_3]),
     item_location("Ascend: Return To Pharloom", RegionName.abyss, [LocationGroup.OBJECTIVE, LocationGroup.ACT_3]),
     item_location("Seek: Spell Seeker", RegionName.citadel, [LocationGroup.OBJECTIVE, LocationGroup.ACT_3], ItemName.elegy_of_the_deep),
-    item_location("Seek: The Old Hearts", RegionName.citadel, [LocationGroup.OBJECTIVE, LocationGroup.ACT_3]),
 
     item_location("Weaver Spire: Silkspear", RegionName.bone_bottom, [LocationGroup.SILK_COMBAT_ABILITY, LocationGroup.ACT_1], ItemName.silkspear),
     item_location("Weaver Spire: Thread Storm", RegionName.greymoor_craw_lake, [LocationGroup.SILK_COMBAT_ABILITY, LocationGroup.ACT_1], ItemName.thread_storm, ItemClassification.useful),
@@ -63,7 +61,7 @@ all_locations_items_pairs: List[LocationItemData] = [
 
     item_location("Learn Needle Strike", RegionName.blasted_steps_pinstress, [LocationGroup.COMBAT_ABILITY, LocationGroup.ACT_1], ItemName.needle_strike),
 
-    item_location("Seek: The Old Hearts", RegionName.bone_bottom, [LocationGroup.SILK_OTHER_ABILITY, LocationGroup.OBJECTIVE, LocationGroup.ACT_3]),
+    item_location("Seek: The Old Hearts", RegionName.bone_bottom, [LocationGroup.OBJECTIVE, LocationGroup.ACT_3]),
     item_location("Complete Red Memory", RegionName.bone_bottom, [LocationGroup.SILK_OTHER_ABILITY, LocationGroup.OBJECTIVE, LocationGroup.ACT_3], ItemName.everbloom, ItemClassification.progression),
 
     item_location("Pickup Farsight", RegionName.weavenest_atla, [LocationGroup.SILK_OTHER_ABILITY, LocationGroup.UNIQUE_PICKUPS, LocationGroup.ACT_3], ItemName.farsight, ItemClassification.useful),
@@ -166,7 +164,7 @@ all_locations_items_pairs: List[LocationItemData] = [
     item_location("Memory locket - Chapel of the Beast", RegionName.chapel_of_beast, [LocationGroup.MEMORY_LOCKET, LocationGroup.ACT_1]),
     item_location("Memory locket - Mort", RegionName.far_fields_pilgrims_rest, [LocationGroup.MEMORY_LOCKET, LocationGroup.SHOP, LocationGroup.ACT_1]),
     # item_location("Memory locket - Grindle", RegionName.blasted_steps_grindle_shop_act_3, [LocationGroup.MEMORY_LOCKET, LocationGroup.SHOP, LocationGroup.ACT_3]),
-    item_location("Memory locket - Greymoor", RegionName.greymoor_bellway, [LocationGroup.MEMORY_LOCKET, LocationGroup.SHOP, LocationGroup.ACT_1]),
+    item_location("Memory locket - Greymoor Bellway", RegionName.greymoor_bellway, [LocationGroup.MEMORY_LOCKET, LocationGroup.SHOP, LocationGroup.ACT_1]),
     item_location("Memory locket - Volatiles FlintBeetles", RegionName.marrow_west, [LocationGroup.MEMORY_LOCKET, LocationGroup.WISH, LocationGroup.ACT_1]),
     # item_location("Memory locket - Survivor's Camp", RegionName.marrow_west, [LocationGroup.MEMORY_LOCKET, LocationGroup.ACT_3]),
     item_location("Memory locket - The Marrow", RegionName.marrow_bellway_north_alcove, [LocationGroup.MEMORY_LOCKET, LocationGroup.ACT_1]),
@@ -179,7 +177,7 @@ all_locations_items_pairs: List[LocationItemData] = [
     item_location("Memory locket - Deep Docks", RegionName.deep_docks_diving_bell, [LocationGroup.MEMORY_LOCKET, LocationGroup.ACT_2]),
     item_location("Memory locket - Whispering Vaults", RegionName.whispering_vaults_east, [LocationGroup.MEMORY_LOCKET, LocationGroup.ACT_2]),
     item_location("Memory locket - Sands of Karak", RegionName.sands_of_karak, [LocationGroup.MEMORY_LOCKET, LocationGroup.ACT_2]),
-    item_location("Memory locket - Greymoor", RegionName.halfway_home_alcove, [LocationGroup.MEMORY_LOCKET, LocationGroup.ACT_2]),
+    item_location("Memory locket - Halfway Home", RegionName.halfway_home_alcove, [LocationGroup.MEMORY_LOCKET, LocationGroup.ACT_2]),
     item_location("Memory locket - Memorium", RegionName.memorium, [LocationGroup.MEMORY_LOCKET, LocationGroup.ACT_2]),
     item_location("Memory locket - The Slab", RegionName.the_slab_shortcut_cave, [LocationGroup.MEMORY_LOCKET, LocationGroup.ACT_2]),
     item_location("Memory locket - Bilewater Upper", RegionName.bilewater_upper, [LocationGroup.MEMORY_LOCKET, LocationGroup.ACT_2]),

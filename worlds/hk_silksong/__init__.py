@@ -6,7 +6,7 @@ from worlds.AutoWorld import WebWorld, World
 from .data.items_locations_data import all_locations_items_pairs, locations_items_pairs_by_name
 from .events import create_events
 from .items.items import items_by_name, create_items, SilksongItem, filler_items, item_data_by_name, ItemData
-from .locations import SilksongLocation, create_locations, locations_by_name, LocationData, location_data_by_name
+from .locations import SilksongLocation, create_locations, locations_by_name, LocationData, goal_events_locations
 from .options.option_groups import silksong_option_groups
 from .options.options import SilksongOptions, Goal
 from .options.presets import silksong_options_presets
@@ -15,6 +15,10 @@ from .strings.generic_strings import GAME_NAME
 from .strings.goal_names import GoalName
 
 client_version = 0
+
+location_data_by_name = {location.name: location for location in goal_events_locations}
+for pair in all_locations_items_pairs:
+    location_data_by_name[pair.location_name] = pair.location_data
 
 
 class SilksongWebWorld(WebWorld):
@@ -52,6 +56,7 @@ class SilksongWorld(World):
         def create_region(name: str) -> Region:
             return Region(name, self.player, self.multiworld)
 
+        self.enabled_locations = []
         world_regions = create_regions(create_region, self.options)
 
         def add_location(name: str, code: Optional[int], region: str):
