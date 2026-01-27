@@ -11,6 +11,9 @@ class RegionName:
     moss_grotto = region("Moss Grotto")
     bone_bottom = region("Bone Bottom")
 
+    bonegrave = region("Bonegrave")
+    chapel_of_the_wanderer = region("Chapel of the Wanderer")
+
     marrow_west = region("The Marrow - West")
     marrow_bellway = region("The Marrow - Bellway Station")
     marrow_east = region("The Marrow - East")
@@ -33,12 +36,15 @@ class RegionName:
     far_fields_fields = region("Far Fields - Fields")
 
     hunters_march = region("Hunter's March")
-    chapel_of_beast = region("Chapel of the Beast")
+    chapel_of_the_beast = region("Chapel of the Beast")
 
     greymoor_above_far_fields = region("Greymoor - Above Far Fields")
     greymoor_craw_lake = region("Greymoor - Craw Lake")
     greymoor_spires = region("Greymoor - Spires")
     greymoor_bellway = region("Greymoor - Bellway")
+    chapel_of_the_reaper = region("Chapel of the Reaper")
+    yarnaby = region("Greymoor - Yarnaby's Home")
+    yarnaby_with_steel_spines = region("Greymoor - Yarnaby's Home with Steel Spines")
 
     halfway_home = region("Halfway Home")
     halfway_home_alcove = region("Halfway Home - Alcove")
@@ -73,8 +79,13 @@ class RegionName:
     cradle = region("The Cradle")
     cradle_with_soul_snare = region("The Cradle - Soul Snare")
     citadel = region("Citadel")
+
     underworks = region("Underworks")
     underworks_confessional = region("Underworks - Confessional")
+    underworks_cauldron = region("Underworks - The Cauldron")
+    twelfth_architect = region("Underworks - Twelfth Architect")
+    chapel_of_the_architect = region("Chapel of the Architect")
+
     grand_gate = region("Grand Gate")
     choral_chambers = region("Choral Chambers")
     choral_chambers_above_bellway = region("Choral Chambers - Above Bellway")
@@ -95,6 +106,8 @@ class RegionName:
     choral_chambers_act_3 = region("Choral Chambers (Act 3)")
     blasted_steps_act_3 = region("Blasted Steps (Act 3)")
     mount_fay_act_3 = region("Mount Fay (Act 3)")
+    moss_grotto_act_3 = region("Moss Grotto (Act 3)")
+    ruined_chapel = region("Ruined Chapel")
 
     eva_0 = region("Meet Eva")
     eva_1 = region("Eva - 1 Crest Slot")

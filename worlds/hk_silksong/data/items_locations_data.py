@@ -25,7 +25,12 @@ def item_location(location: str, region: str, groups: List[LocationGroup], item:
 
 
 all_locations_items_pairs: List[LocationItemData] = [
-    item_location("Escape Moss Grotto", RegionName.bone_bottom, [LocationGroup.ALWAYS_ACTIVE, LocationGroup.ACT_1], ItemName.bind),
+    item_location("Bound the Needle", RegionName.moss_grotto, [LocationGroup.RANDOMIZED_BIND, LocationGroup.ACT_1], ItemName.bind, ItemClassification.useful),
+    item_location("Tutorial: Breakable Walls 1", RegionName.moss_grotto, [LocationGroup.RANDOMIZED_STARTING_CREST, LocationGroup.ACT_1], ItemName.crest_hunter_progressive, ItemClassification.useful),
+    item_location("Tutorial: Breakable Walls 2", RegionName.moss_grotto, [LocationGroup.RANDOMIZED_SLASH, LocationGroup.ACT_1], ItemName.upslash, ItemClassification.useful),
+    item_location("Tutorial: Breakable Walls 3", RegionName.moss_grotto, [LocationGroup.RANDOMIZED_SLASH, LocationGroup.ACT_1], ItemName.downslash, ItemClassification.useful),
+    item_location("Tutorial: Mossgrub", RegionName.moss_grotto, [LocationGroup.RANDOMIZED_SLASH, LocationGroup.ACT_1], ItemName.leftslash, ItemClassification.useful),
+    item_location("Tutorial: Mossmir", RegionName.moss_grotto, [LocationGroup.RANDOMIZED_SLASH, LocationGroup.ACT_1], ItemName.rightslash, ItemClassification.useful),
 
     item_location("Save: The Threadspun Town", RegionName.citadel, [LocationGroup.OBJECTIVE, LocationGroup.ACT_1]),
     item_location("Seek: The Great Citadel", RegionName.citadel, [LocationGroup.OBJECTIVE, LocationGroup.ACT_2]),
@@ -98,7 +103,7 @@ all_locations_items_pairs: List[LocationItemData] = [
     item_location("Defeat Shakra", RegionName.greymoor_spires, [LocationGroup.BOSS_FIGHT, LocationGroup.ACT_2]),
     item_location("Defeat Garmond and Zaza", RegionName.choral_chambers_outside, [LocationGroup.BOSS_FIGHT, LocationGroup.ACT_2]),
 
-    item_location("Defeat Savage Beastfly (Beast)", RegionName.chapel_of_beast, [LocationGroup.BOSS_FIGHT, LocationGroup.ACT_1]),
+    item_location("Defeat Savage Beastfly (Beast)", RegionName.chapel_of_the_beast, [LocationGroup.BOSS_FIGHT, LocationGroup.ACT_1]),
     item_location("Defeat Savage Beastfly (Wish)", RegionName.far_fields_beastfly, [LocationGroup.WISH, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_1]),
 
     item_location("Defeat Skull Tyrant (Wish)", RegionName.marrow_east, [LocationGroup.WISH, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_1]),
@@ -120,7 +125,7 @@ all_locations_items_pairs: List[LocationItemData] = [
     item_location("Defeat Clover Dancers", RegionName.citadel, [LocationGroup.OBJECTIVE, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_3]),
     item_location("Defeat Lost Lace", RegionName.citadel, [LocationGroup.OBJECTIVE, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_3]),
 
-    item_location("Eva: 0 Slots", RegionName.eva_0, [LocationGroup.CREST_UPGRADE, LocationGroup.EVA, LocationGroup.ACT_1]),
+    item_location("Eva: 0 Slots", RegionName.eva_0, [LocationGroup.CREST_UPGRADE, LocationGroup.EVA, LocationGroup.ACT_1], ItemName.crest_hunter_progressive, ItemClassification.useful),
     item_location("Eva: 1 Slots", RegionName.eva_1, [LocationGroup.EVA_EXTRA_LOCATIONS, LocationGroup.EVA, LocationGroup.ACT_1]),
     item_location("Eva: 2 Slots", RegionName.eva_2, [LocationGroup.EVA_EXTRA_LOCATIONS, LocationGroup.EVA, LocationGroup.ACT_1]),
     item_location("Eva: 3 Slots", RegionName.eva_3, [LocationGroup.EVA_EXTRA_LOCATIONS, LocationGroup.EVA, LocationGroup.ACT_1]),
@@ -132,7 +137,7 @@ all_locations_items_pairs: List[LocationItemData] = [
     item_location("Eva: 9 Slots", RegionName.eva_9, [LocationGroup.EVA_EXTRA_LOCATIONS, LocationGroup.EVA, LocationGroup.ACT_1]),
     item_location("Eva: 10 Slots", RegionName.eva_10, [LocationGroup.EVA_EXTRA_LOCATIONS, LocationGroup.EVA, LocationGroup.ACT_1]),
     item_location("Eva: 11 Slots", RegionName.eva_11, [LocationGroup.EVA_EXTRA_LOCATIONS, LocationGroup.EVA, LocationGroup.ACT_1]),
-    item_location("Eva: 12 Slots", RegionName.eva_12, [LocationGroup.CREST_UPGRADE, LocationGroup.EVA, LocationGroup.ACT_1]),
+    item_location("Eva: 12 Slots", RegionName.eva_12, [LocationGroup.CREST_UPGRADE, LocationGroup.EVA, LocationGroup.ACT_1], ItemName.vesticrest, ItemClassification.useful),
     item_location("Eva: 13 Slots", RegionName.eva_13, [LocationGroup.EVA_EXTRA_LOCATIONS, LocationGroup.EVA, LocationGroup.ACT_1]),
     item_location("Eva: 14 Slots", RegionName.eva_14, [LocationGroup.EVA_EXTRA_LOCATIONS, LocationGroup.EVA, LocationGroup.ACT_1]),
     item_location("Eva: 15 Slots", RegionName.eva_15, [LocationGroup.EVA_EXTRA_LOCATIONS, LocationGroup.EVA, LocationGroup.ACT_1]),
@@ -140,14 +145,14 @@ all_locations_items_pairs: List[LocationItemData] = [
     item_location("Eva: 17 Slots", RegionName.eva_17, [LocationGroup.EVA_EXTRA_LOCATIONS, LocationGroup.EVA, LocationGroup.ACT_1]),
     item_location("Eva: 18 Slots", RegionName.eva_18, [LocationGroup.EVA_EXTRA_LOCATIONS, LocationGroup.EVA, LocationGroup.ACT_1]),
     item_location("Eva: 19 Slots", RegionName.eva_19, [LocationGroup.EVA_EXTRA_LOCATIONS, LocationGroup.EVA, LocationGroup.ACT_1]),
-    item_location("Eva: 20 Slots", RegionName.eva_20, [LocationGroup.CREST_UPGRADE, LocationGroup.EVA, LocationGroup.ACT_1]),
+    item_location("Eva: 20 Slots", RegionName.eva_20, [LocationGroup.CREST_UPGRADE, LocationGroup.EVA, LocationGroup.ACT_1], ItemName.vesticrest, ItemClassification.useful),
     item_location("Eva: 21 Slots", RegionName.eva_21, [LocationGroup.EVA_EXTRA_LOCATIONS, LocationGroup.EVA, LocationGroup.ACT_2]),
     item_location("Eva: 22 Slots", RegionName.eva_22, [LocationGroup.EVA_EXTRA_LOCATIONS, LocationGroup.EVA, LocationGroup.ACT_2]),
     item_location("Eva: 23 Slots", RegionName.eva_23, [LocationGroup.EVA_EXTRA_LOCATIONS, LocationGroup.EVA, LocationGroup.ACT_2]),
     item_location("Eva: 24 Slots", RegionName.eva_24, [LocationGroup.EVA_EXTRA_LOCATIONS, LocationGroup.EVA, LocationGroup.ACT_2]),
     item_location("Eva: 25 Slots", RegionName.eva_25, [LocationGroup.EVA_EXTRA_LOCATIONS, LocationGroup.EVA, LocationGroup.ACT_2]),
     item_location("Eva: 26 Slots", RegionName.eva_26, [LocationGroup.EVA_EXTRA_LOCATIONS, LocationGroup.EVA, LocationGroup.ACT_2]),
-    item_location("Eva: 27 Slots", RegionName.eva_27, [LocationGroup.CREST_UPGRADE, LocationGroup.EVA, LocationGroup.ACT_2]),
+    item_location("Eva: 27 Slots", RegionName.eva_27, [LocationGroup.CREST_UPGRADE, LocationGroup.EVA, LocationGroup.ACT_2], ItemName.crest_hunter_progressive, ItemClassification.useful),
     item_location("Eva: 28 Slots", RegionName.eva_28, [LocationGroup.EVA_EXTRA_LOCATIONS, LocationGroup.EVA, LocationGroup.ACT_2]),
     item_location("Eva: 29 Slots", RegionName.eva_29, [LocationGroup.EVA_EXTRA_LOCATIONS, LocationGroup.EVA, LocationGroup.ACT_2]),
     item_location("Eva: 30 Slots", RegionName.eva_30, [LocationGroup.EVA_EXTRA_LOCATIONS, LocationGroup.EVA, LocationGroup.ACT_2]),
@@ -162,7 +167,14 @@ all_locations_items_pairs: List[LocationItemData] = [
     item_location("Eva: 39 Slots", RegionName.eva_39, [LocationGroup.EVA_EXTRA_LOCATIONS, LocationGroup.EVA, LocationGroup.ACT_3]),
     item_location("Eva: 40 Slots", RegionName.eva_40, [LocationGroup.EVA_EXTRA_LOCATIONS, LocationGroup.EVA, LocationGroup.ACT_3]),
 
-    item_location("Memory locket - Chapel of the Beast", RegionName.chapel_of_beast, [LocationGroup.MEMORY_LOCKET, LocationGroup.ACT_1]),
+    item_location("Bound the Crest of Reaper", RegionName.chapel_of_the_reaper, [LocationGroup.CREST, LocationGroup.ACT_1], ItemName.crest_reaper, ItemClassification.useful),
+    item_location("Bound the Crest of Wanderer", RegionName.chapel_of_the_wanderer, [LocationGroup.CREST, LocationGroup.ACT_1], ItemName.crest_wanderer, ItemClassification.useful),
+    item_location("Bound the Crest of Beast", RegionName.chapel_of_the_beast, [LocationGroup.CREST, LocationGroup.ACT_1], ItemName.crest_beast, ItemClassification.useful),
+    item_location("Bound the Crest of Witch", RegionName.yarnaby_with_steel_spines, [LocationGroup.CREST, LocationGroup.ACT_1], ItemName.crest_witch, ItemClassification.useful),
+    item_location("Bound the Crest of Architect", RegionName.chapel_of_the_architect, [LocationGroup.CREST, LocationGroup.ACT_1], ItemName.crest_architect, ItemClassification.useful),
+    item_location("Bound the Crest of Shaman", RegionName.ruined_chapel, [LocationGroup.CREST, LocationGroup.ACT_1], ItemName.crest_shaman, ItemClassification.useful),
+
+    item_location("Memory locket - Chapel of the Beast", RegionName.chapel_of_the_beast, [LocationGroup.MEMORY_LOCKET, LocationGroup.ACT_1]),
     item_location("Memory locket - Mort", RegionName.far_fields_pilgrims_rest, [LocationGroup.MEMORY_LOCKET, LocationGroup.SHOP, LocationGroup.ACT_1]),
     # item_location("Memory locket - Grindle", RegionName.blasted_steps_grindle_shop_act_3, [LocationGroup.MEMORY_LOCKET, LocationGroup.SHOP, LocationGroup.ACT_3]),
     item_location("Memory locket - Greymoor Bellway", RegionName.greymoor_bellway, [LocationGroup.MEMORY_LOCKET, LocationGroup.SHOP, LocationGroup.ACT_1]),
@@ -201,6 +213,8 @@ all_locations_items_pairs: List[LocationItemData] = [
     # item_location("Wayfarer Wish: ", RegionName., [LocationGroup.WISH, LocationGroup.ACT_1]),
     # item_location("Wayfarer Wish: ", RegionName., [LocationGroup.WISH, LocationGroup.ACT_1]),
     # item_location("Wayfarer Wish: ", RegionName., [LocationGroup.WISH, LocationGroup.ACT_1]),
+
+    item_location("Twelfth Architect: Architect Key", RegionName.twelfth_architect, [LocationGroup.SHOP, LocationGroup.ACT_2], ItemName.architect_key),
 
 
 ]

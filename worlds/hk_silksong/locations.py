@@ -36,6 +36,11 @@ class LocationGroup(enum.Enum):
     YELLOW_TOOL = enum.auto()
     BLUE_TOOL = enum.auto()
     PALE_OIL = enum.auto()
+    CREST = enum.auto()
+    RANDOMIZED_STARTING_CREST = enum.auto()
+
+    RANDOMIZED_SLASH = enum.auto()
+    RANDOMIZED_BIND = enum.auto()
 
     UNIQUE_PICKUPS = enum.auto()
     PICKUP = enum.auto()

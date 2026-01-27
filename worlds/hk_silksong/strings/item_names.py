@@ -35,3 +35,19 @@ class ItemName:
     act_3 = "Act 3"
 
     crest_slots = "Crest Slots"
+
+    upslash = "Upslash"
+    downslash = "Downslash"
+    leftslash = "Leftslash"
+    rightslash = "Rightslash"
+
+    crest_hunter_progressive = "Progressive Hunter Crest"
+    crest_reaper = "Reaper Crest"
+    crest_wanderer = "Wanderer Crest"
+    crest_beast = "Beast Crest"
+    crest_witch = "Witch Crest"
+    crest_architect = "Architect Crest"
+    crest_shaman = "Shaman Crest"
+    vesticrest = "Progressive Vesticrest"
+
+    architect_key = "Architect Key"

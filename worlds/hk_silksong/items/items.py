@@ -43,6 +43,12 @@ class SilksongItemFactory(Protocol):
 
 
 orphan_items = [
+    ItemData("Progressive Hunter Crest", ItemClassification.useful),
+    ItemData("Bind", ItemClassification.useful),
+    ItemData("Downslash", ItemClassification.useful),
+    ItemData("Upslash", ItemClassification.useful),
+    ItemData("Leftslash", ItemClassification.useful),
+    ItemData("Rightslash", ItemClassification.useful),
 ]
 
 filler_items = [
