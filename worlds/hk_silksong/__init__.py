@@ -1,10 +1,11 @@
-from typing import Union, Optional
+from typing import Union, Optional, List
 
 from BaseClasses import ItemClassification, Region, Tutorial
 from Options import OptionError
 from worlds.AutoWorld import WebWorld, World
-from .items import ItemData, create_items, ItemGroup, items_by_name, item_names_by_groups, item_data_by_name
-from .items import SilksongItem
+from .data.items_locations_data import all_locations_items_pairs, locations_items_pairs_by_name
+from .events import create_events
+from .items.items import items_by_name, create_items, SilksongItem, filler_items, item_data_by_name, ItemData
 from .locations import SilksongLocation, create_locations, locations_by_name, LocationData, location_data_by_name
 from .options.option_groups import silksong_option_groups
 from .options.options import SilksongOptions, Goal
@@ -45,6 +46,8 @@ class SilksongWorld(World):
     options_dataclass = SilksongOptions
     options: SilksongOptions
 
+    enabled_locations: List[str]
+
     def create_regions(self):
         def create_region(name: str) -> Region:
             return Region(name, self.player, self.multiworld)
@@ -55,8 +58,9 @@ class SilksongWorld(World):
             region: Region = world_regions[region]
             location = SilksongLocation(self.player, name, code, region)
             region.locations.append(location)
+            self.enabled_locations.append(name)
 
-        create_locations(add_location, self.options, self.random)
+        create_locations(add_location, self.options, all_locations_items_pairs, self.random)
         self.multiworld.regions.extend(world_regions.values())
 
     def set_rules(self):
@@ -65,15 +69,17 @@ class SilksongWorld(World):
 
     def create_items(self):
         self.precollect_abilities()
+        my_locations = self.multiworld.get_locations(self.player)
         locations_count = len([location
-                               for location in self.multiworld.get_locations(self.player)
+                               for location in my_locations
                                if not location.advancement])
 
         items_to_exclude = [excluded_items.name
                             for excluded_items in self.multiworld.precollected_items[self.player]]
 
-        created_items = create_items(self.create_item, self.options, locations_count, items_to_exclude, self.random)
+        created_items = create_items(self.create_item, self.options, locations_items_pairs_by_name, self.enabled_locations, items_to_exclude, self.random)
         self.multiworld.itempool += created_items
+        create_events(self.multiworld, self.player, self.enabled_locations)
         self.setup_victory()
 
     def setup_victory(self):
@@ -114,8 +120,8 @@ class SilksongWorld(World):
         return SilksongItem(item.name, classification, item.id, self.player)
 
     def get_filler_item_name(self) -> str:
-        filler_name = self.multiworld.random.choice(item_names_by_groups[ItemGroup.FILLER])
-        return filler_name
+        filler = self.multiworld.random.choice(filler_items)
+        return filler.name
 
     def fill_slot_data(self):
         options_dict = self.options.as_dict(

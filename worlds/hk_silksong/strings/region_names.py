@@ -49,6 +49,7 @@ class RegionName:
     bellhart_upper = region("Upper Bellhart")
     bellhart_saved = region("Saved Bellhart")
     blasted_steps = region("Blasted Steps")
+    blasted_steps_pinstress = region("Blasted Steps - Pinstress")
     blasted_steps_grand_gate = region("Blasted Steps Grand Gate")
     weavenest_atla = region("Weavenest Atla")
 
@@ -70,6 +71,7 @@ class RegionName:
     putrified_ducts = region("Putrified Ducts")
     fleatopia = region("Fleatopia")
     cradle = region("The Cradle")
+    cradle_with_soul_snare = region("The Cradle - Soul Snare")
     citadel = region("Citadel")
     underworks = region("Underworks")
     underworks_confessional = region("Underworks - Confessional")
@@ -87,6 +89,8 @@ class RegionName:
     verdania = region("Verdania")
     abyss = region("The Abyss")
 
+    cradle_act_3 = region("The Cradle (Act 3)")
+    escaped_cradle_act_3 = region("Escaped Cradle (Act 3)")
     wormways_plasmium = region("Plasmified Wormways")
     choral_chambers_act_3 = region("Choral Chambers (Act 3)")
     blasted_steps_act_3 = region("Blasted Steps (Act 3)")

@@ -26,3 +26,10 @@ class ItemName:
     sylphsong = "Sylphsong"
     farsight = "Farsight"
     everbloom = "Everbloom"
+
+    conductor_melody = "Conductor's Melody"
+    vaultkeeper_melody = "Vaultkeeper's Melody"
+    architect_melody = "Architect's Melody"
+
+    soul_snare = "Soul Snare"
+    act_3 = "Act 3"

@@ -74,6 +74,7 @@ all_connections = [
     ConnectionData(RegionName.bellhart_upper, RegionName.bellhart_saved),
     ConnectionData(RegionName.shellwood, RegionName.blasted_steps, requirements=ItemName.cling_grip),
     ConnectionData(RegionName.blasted_steps, RegionName.sands_of_karak, requirements=ItemName.clawline),
+    ConnectionData(RegionName.blasted_steps, RegionName.blasted_steps_pinstress, requirements=[ItemName.swift_step, ItemName.cling_grip, ItemName.drifters_cloak]),
     ConnectionData(RegionName.blasted_steps, RegionName.blasted_steps_grand_gate, requirements=[ItemName.swift_step, ItemName.cling_grip, ItemName.drifters_cloak]),
     ConnectionData(RegionName.blasted_steps_grand_gate, RegionName.grand_gate),
     ConnectionData(RegionName.blasted_steps, RegionName.blasted_steps_act_3),
@@ -86,7 +87,7 @@ all_connections = [
     ConnectionData(RegionName.choral_chambers, RegionName.whiteward),
     ConnectionData(RegionName.choral_chambers, RegionName.cogwork_core),
     ConnectionData(RegionName.choral_chambers, RegionName.memorium, requirements=ItemName.faydown_cloak),
-    ConnectionData(RegionName.choral_chambers, RegionName.cradle),# , requirements=[ItemName.architect_melody, ItemName.vaultkeeper_melody, ItemName.conductor_melody]),
+    ConnectionData(RegionName.choral_chambers, RegionName.cradle, requirements=[ItemName.architect_melody, ItemName.vaultkeeper_melody, ItemName.conductor_melody]),
     ConnectionData(RegionName.choral_chambers, RegionName.high_halls),
     ConnectionData(RegionName.choral_chambers, RegionName.the_slab),
     ConnectionData(RegionName.choral_chambers, RegionName.choral_chambers_act_3),
@@ -108,6 +109,10 @@ all_connections = [
     ConnectionData(RegionName.memorium, RegionName.citadel),
     ConnectionData(RegionName.cogwork_core, RegionName.citadel),
     ConnectionData(RegionName.whiteward, RegionName.citadel),
+
+    ConnectionData(RegionName.cradle, RegionName.cradle_with_soul_snare, requirements=[ItemName.soul_snare, ItemName.needolin]),
+    ConnectionData(RegionName.cradle_with_soul_snare, RegionName.cradle_act_3, requirements=ItemName.act_3),
+    ConnectionData(RegionName.cradle_act_3, RegionName.escaped_cradle_act_3),
 ]
 
 connections_by_name: Dict[str, ConnectionData] = {(connection.entrance if connection.entrance else f"{connection.origin} -> {connection.destination}"): connection for connection in all_connections}
