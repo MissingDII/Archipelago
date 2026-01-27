@@ -115,6 +115,7 @@ all_connections = [
     ConnectionData(RegionName.the_slab, RegionName.mount_fay, requirements=ItemName.clawline),
     ConnectionData(RegionName.the_slab, RegionName.the_slab_shortcut_cave, requirements=ItemName.faydown_cloak),
     ConnectionData(RegionName.deep_docks_forge_daughter, RegionName.abyss),
+    ConnectionData(RegionName.abyss, RegionName.weavenest_absolom),
 
     ConnectionData(RegionName.choral_chambers, RegionName.citadel),
     ConnectionData(RegionName.grand_gate, RegionName.citadel),

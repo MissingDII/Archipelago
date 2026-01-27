@@ -31,5 +31,5 @@ def set_entrance_rules(multiworld: MultiWorld, player: int, world_options: Silks
     for entrance_name, entrance in multiworld.regions.entrance_cache[player].items():
         entrance_data = connections_by_name[entrance_name]
         if entrance_data.requirements:
-            requirements = frozenset(entrance_data.requirements)
-            add_rule(entrance, lambda state, reqs=requirements, player=player: state.has_all(reqs, player))
+            for requirement, amount in entrance_data.requirements.items():
+                add_rule(entrance, lambda state, req=requirement, player=player, count=amount: state.has(req, player, count))
