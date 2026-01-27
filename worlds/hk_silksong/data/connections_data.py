@@ -9,14 +9,21 @@ class ConnectionData:
     origin: str
     destination: str
     entrance: str
-    requirements: Optional[List[str]]
+    requirements: Optional[Dict[str, int]]
 
-    def __init__(self, origin: str, destination: str, entrance: str = "", requirements: Optional[List[str]] | str = None):
+    def __init__(self, origin: str, destination: str, entrance: str = "", requirements: None | List[str] | str | Dict[str, int] = None):
         self.origin = origin
         self.destination = destination
         self.entrance = entrance if entrance else ""
         if isinstance(requirements, str):
             requirements = [requirements]
+        if isinstance(requirements, list):
+            requirements_dict = dict()
+            for requirement in requirements:
+                if requirement not in requirements_dict:
+                    requirements_dict[requirement] = 0
+                requirements_dict[requirement] += 1
+            requirements = requirements_dict
         self.requirements = requirements
 
 
@@ -77,7 +84,6 @@ all_connections = [
     ConnectionData(RegionName.blasted_steps, RegionName.blasted_steps_pinstress, requirements=[ItemName.swift_step, ItemName.cling_grip, ItemName.drifters_cloak]),
     ConnectionData(RegionName.blasted_steps, RegionName.blasted_steps_grand_gate, requirements=[ItemName.swift_step, ItemName.cling_grip, ItemName.drifters_cloak]),
     ConnectionData(RegionName.blasted_steps_grand_gate, RegionName.grand_gate),
-    ConnectionData(RegionName.blasted_steps, RegionName.blasted_steps_act_3),
     ConnectionData(RegionName.grand_gate, RegionName.underworks),
     ConnectionData(RegionName.exhaust_organ, RegionName.underworks),
     ConnectionData(RegionName.underworks, RegionName.underworks_confessional),
@@ -90,7 +96,6 @@ all_connections = [
     ConnectionData(RegionName.choral_chambers, RegionName.cradle, requirements=[ItemName.architect_melody, ItemName.vaultkeeper_melody, ItemName.conductor_melody]),
     ConnectionData(RegionName.choral_chambers, RegionName.high_halls),
     ConnectionData(RegionName.choral_chambers, RegionName.the_slab),
-    ConnectionData(RegionName.choral_chambers, RegionName.choral_chambers_act_3),
     ConnectionData(RegionName.memorium, RegionName.putrified_ducts),
     ConnectionData(RegionName.putrified_ducts, RegionName.fleatopia),
     ConnectionData(RegionName.cogwork_core, RegionName.whispering_vaults),
@@ -99,7 +104,6 @@ all_connections = [
 
     ConnectionData(RegionName.the_slab, RegionName.mount_fay, requirements=ItemName.clawline),
     ConnectionData(RegionName.the_slab, RegionName.the_slab_shortcut_cave, requirements=ItemName.faydown_cloak),
-    ConnectionData(RegionName.mount_fay, RegionName.mount_fay_act_3),
     ConnectionData(RegionName.deep_docks_forge_daughter, RegionName.abyss),
 
     ConnectionData(RegionName.choral_chambers, RegionName.citadel),
@@ -113,6 +117,51 @@ all_connections = [
     ConnectionData(RegionName.cradle, RegionName.cradle_with_soul_snare, requirements=[ItemName.soul_snare, ItemName.needolin]),
     ConnectionData(RegionName.cradle_with_soul_snare, RegionName.cradle_act_3, requirements=ItemName.act_3),
     ConnectionData(RegionName.cradle_act_3, RegionName.escaped_cradle_act_3),
+    ConnectionData(RegionName.escaped_cradle_act_3, RegionName.choral_chambers_act_3),
+    ConnectionData(RegionName.choral_chambers_act_3, RegionName.mount_fay_act_3, requirements=[ItemName.clawline, ItemName.faydown_cloak]),
+    ConnectionData(RegionName.choral_chambers_act_3, RegionName.blasted_steps_act_3),
+
+    ConnectionData(RegionName.weavenest_atla, RegionName.eva_0),
+    ConnectionData(RegionName.eva_0, RegionName.eva_1, requirements={ItemName.crest_slots: 1}),
+    ConnectionData(RegionName.eva_1, RegionName.eva_2, requirements={ItemName.crest_slots: 2}),
+    ConnectionData(RegionName.eva_2, RegionName.eva_3, requirements={ItemName.crest_slots: 3}),
+    ConnectionData(RegionName.eva_3, RegionName.eva_4, requirements={ItemName.crest_slots: 4}),
+    ConnectionData(RegionName.eva_4, RegionName.eva_5, requirements={ItemName.crest_slots: 5}),
+    ConnectionData(RegionName.eva_5, RegionName.eva_6, requirements={ItemName.crest_slots: 6}),
+    ConnectionData(RegionName.eva_6, RegionName.eva_7, requirements={ItemName.crest_slots: 7}),
+    ConnectionData(RegionName.eva_7, RegionName.eva_8, requirements={ItemName.crest_slots: 8}),
+    ConnectionData(RegionName.eva_8, RegionName.eva_9, requirements={ItemName.crest_slots: 9}),
+    ConnectionData(RegionName.eva_9, RegionName.eva_10, requirements={ItemName.crest_slots: 10}),
+    ConnectionData(RegionName.eva_10, RegionName.eva_11, requirements={ItemName.crest_slots: 11}),
+    ConnectionData(RegionName.eva_11, RegionName.eva_12, requirements={ItemName.crest_slots: 12}),
+    ConnectionData(RegionName.eva_12, RegionName.eva_13, requirements={ItemName.crest_slots: 13}),
+    ConnectionData(RegionName.eva_13, RegionName.eva_14, requirements={ItemName.crest_slots: 14}),
+    ConnectionData(RegionName.eva_14, RegionName.eva_15, requirements={ItemName.crest_slots: 15}),
+    ConnectionData(RegionName.eva_15, RegionName.eva_16, requirements={ItemName.crest_slots: 16}),
+    ConnectionData(RegionName.eva_16, RegionName.eva_17, requirements={ItemName.crest_slots: 17}),
+    ConnectionData(RegionName.eva_17, RegionName.eva_18, requirements={ItemName.crest_slots: 18}),
+    ConnectionData(RegionName.eva_18, RegionName.eva_19, requirements={ItemName.crest_slots: 19}),
+    ConnectionData(RegionName.eva_19, RegionName.eva_20, requirements={ItemName.crest_slots: 20}),
+    ConnectionData(RegionName.eva_20, RegionName.eva_21, requirements={ItemName.crest_slots: 21}),
+    ConnectionData(RegionName.eva_21, RegionName.eva_22, requirements={ItemName.crest_slots: 22}),
+    ConnectionData(RegionName.eva_22, RegionName.eva_23, requirements={ItemName.crest_slots: 23}),
+    ConnectionData(RegionName.eva_23, RegionName.eva_24, requirements={ItemName.crest_slots: 24}),
+    ConnectionData(RegionName.eva_24, RegionName.eva_25, requirements={ItemName.crest_slots: 25}),
+    ConnectionData(RegionName.eva_25, RegionName.eva_26, requirements={ItemName.crest_slots: 26}),
+    ConnectionData(RegionName.eva_26, RegionName.eva_27, requirements={ItemName.crest_slots: 27}),
+    ConnectionData(RegionName.eva_27, RegionName.eva_28, requirements={ItemName.crest_slots: 28}),
+    ConnectionData(RegionName.eva_28, RegionName.eva_29, requirements={ItemName.crest_slots: 29}),
+    ConnectionData(RegionName.eva_29, RegionName.eva_30, requirements={ItemName.crest_slots: 30}),
+    ConnectionData(RegionName.eva_30, RegionName.eva_31, requirements={ItemName.crest_slots: 31}),
+    ConnectionData(RegionName.eva_31, RegionName.eva_32, requirements={ItemName.crest_slots: 32}),
+    ConnectionData(RegionName.eva_32, RegionName.eva_33, requirements={ItemName.crest_slots: 33}),
+    ConnectionData(RegionName.eva_33, RegionName.eva_34, requirements={ItemName.crest_slots: 34}),
+    ConnectionData(RegionName.eva_34, RegionName.eva_35, requirements={ItemName.crest_slots: 35}),
+    ConnectionData(RegionName.eva_35, RegionName.eva_36, requirements={ItemName.crest_slots: 36}),
+    ConnectionData(RegionName.eva_36, RegionName.eva_37, requirements={ItemName.crest_slots: 37}),
+    ConnectionData(RegionName.eva_37, RegionName.eva_38, requirements={ItemName.crest_slots: 38}),
+    ConnectionData(RegionName.eva_38, RegionName.eva_39, requirements={ItemName.crest_slots: 39}),
+    ConnectionData(RegionName.eva_39, RegionName.eva_40, requirements={ItemName.crest_slots: 40}),
 ]
 
 connections_by_name: Dict[str, ConnectionData] = {(connection.entrance if connection.entrance else f"{connection.origin} -> {connection.destination}"): connection for connection in all_connections}
