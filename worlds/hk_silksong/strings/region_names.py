@@ -65,8 +65,11 @@ class RegionName:
     weavenest_karn = region("Weavenest Karn")
 
     sands_of_karak = region("Sands Of Karak")
+
     the_slab = region("The Slab")
     the_slab_shortcut_cave = region("The Slab - Shortcut Cave")
+    the_slab_first_sinner_cave = region("The Slab - First Sinner Cave")
+
     mount_fay = region("Mount Fay")
     sinners_road = region("Sinner's Road")
     bilewater = region("Bilewater")
@@ -109,6 +112,8 @@ class RegionName:
     mount_fay_act_3 = region("Mount Fay (Act 3)")
     moss_grotto_act_3 = region("Moss Grotto (Act 3)")
     ruined_chapel = region("Ruined Chapel")
+    craw_lake_act_3 = region("Greymoor - Craw Lake (Act 3)")
+    court_of_craws = region("Court of Craws")
 
     eva_0 = region("Meet Eva")
     eva_1 = region("Eva - 1 Crest Slot")

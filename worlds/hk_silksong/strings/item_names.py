@@ -52,3 +52,8 @@ class ItemName:
     vesticrest = "Progressive Vesticrest"
 
     architect_key = "Architect Key"
+    craw_summons = "Craw Summons"
+
+    key_of_indolent = "Key of Indolent"
+    key_of_heretic = "Key of Heretic"
+    key_of_apostate = "Key of Apostate"

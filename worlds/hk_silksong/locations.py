@@ -111,7 +111,7 @@ def create_locations(location_collector: SilksongLocationCollector,
     enabled_groups.append(LocationGroup.BOSS_FIGHT)
     enabled_groups.append(LocationGroup.SONG)
     enabled_groups.append(LocationGroup.EVA)
-    enabled_groups.append(LocationGroup.EVA_EXTRA_LOCATIONS)
+    # enabled_groups.append(LocationGroup.EVA_EXTRA_LOCATIONS)
     enabled_groups.append(LocationGroup.MEMORY_LOCKET)
     enabled_groups.append(LocationGroup.WISH)
     enabled_groups.append(LocationGroup.CREST)

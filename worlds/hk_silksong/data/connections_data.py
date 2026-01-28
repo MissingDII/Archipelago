@@ -53,7 +53,7 @@ all_connections = [
     ConnectionData(RegionName.deep_docks_entrance, RegionName.deep_docks_lace, requirements=ItemName.swift_step),
     ConnectionData(RegionName.deep_docks_lace, RegionName.deep_docks_bell),
     ConnectionData(RegionName.deep_docks_bell, RegionName.far_fields_entrance),
-    ConnectionData(RegionName.deep_docks_forge_daughter, RegionName.deep_docks_diving_bell, requirements=ItemName.clawline),
+    ConnectionData(RegionName.deep_docks_forge_daughter, RegionName.deep_docks_diving_bell, requirements=[ItemName.swift_step, ItemName.clawline]),
     ConnectionData(RegionName.far_fields_entrance, RegionName.far_fields_pilgrims_rest),
     ConnectionData(RegionName.far_fields_entrance, RegionName.far_fields_seamstress),
     ConnectionData(RegionName.far_fields_seamstress, RegionName.far_fields_east),
@@ -113,8 +113,9 @@ all_connections = [
     ConnectionData(RegionName.whispering_vaults_east, RegionName.choral_chambers_outside),
 
     ConnectionData(RegionName.the_slab, RegionName.mount_fay, requirements=ItemName.clawline),
-    ConnectionData(RegionName.the_slab, RegionName.the_slab_shortcut_cave, requirements=ItemName.faydown_cloak),
-    ConnectionData(RegionName.deep_docks_forge_daughter, RegionName.abyss),
+    ConnectionData(RegionName.the_slab, RegionName.the_slab_shortcut_cave, requirements=[ItemName.faydown_cloak, ItemName.key_of_apostate]),
+    ConnectionData(RegionName.the_slab_shortcut_cave, RegionName.the_slab_first_sinner_cave, requirements=ItemName.key_of_heretic),
+    ConnectionData(RegionName.deep_docks_diving_bell, RegionName.abyss, requirements=ItemName.act_3),
     ConnectionData(RegionName.abyss, RegionName.weavenest_absolom),
 
     ConnectionData(RegionName.choral_chambers, RegionName.citadel),
@@ -131,6 +132,8 @@ all_connections = [
     ConnectionData(RegionName.escaped_cradle_act_3, RegionName.choral_chambers_act_3),
     ConnectionData(RegionName.choral_chambers_act_3, RegionName.mount_fay_act_3, requirements=[ItemName.clawline, ItemName.faydown_cloak]),
     ConnectionData(RegionName.choral_chambers_act_3, RegionName.blasted_steps_act_3),
+    ConnectionData(RegionName.choral_chambers_act_3, RegionName.craw_lake_act_3),
+    ConnectionData(RegionName.craw_lake_act_3, RegionName.court_of_craws, requirements=ItemName.craw_summons),
     ConnectionData(RegionName.blasted_steps_act_3, RegionName.moss_grotto_act_3),
     ConnectionData(RegionName.moss_grotto_act_3, RegionName.ruined_chapel),
 

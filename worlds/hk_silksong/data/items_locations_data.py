@@ -112,7 +112,7 @@ all_locations_items_pairs: List[LocationItemData] = [
     item_location("Defeat Phantom", RegionName.exhaust_organ, [LocationGroup.SILK_COMBAT_ABILITY, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_1], ItemName.cross_stitch, ItemClassification.useful),
 
     item_location("Defeat Raging Conchfly", RegionName.sands_of_karak, [LocationGroup.BOSS_FIGHT, LocationGroup.ACT_2]),
-    item_location("Defeat First Sinner", RegionName.the_slab, [LocationGroup.SILK_COMBAT_ABILITY, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_2], ItemName.rune_rage, ItemClassification.useful),
+    item_location("Defeat First Sinner", RegionName.the_slab_first_sinner_cave, [LocationGroup.SILK_COMBAT_ABILITY, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_2], ItemName.rune_rage, ItemClassification.useful),
     item_location("Defeat The Unravelled", RegionName.whiteward, [LocationGroup.SILK_OTHER_ABILITY, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_2]),
     item_location("Defeat Lace (Cradle)", RegionName.cradle, [LocationGroup.SILK_OTHER_ABILITY, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_2], ItemName.silk_heart),
     item_location("Defeat Grand Mother Silk", RegionName.cradle, [LocationGroup.OBJECTIVE, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_2]),
@@ -215,6 +215,10 @@ all_locations_items_pairs: List[LocationItemData] = [
     # item_location("Wayfarer Wish: ", RegionName., [LocationGroup.WISH, LocationGroup.ACT_1]),
 
     item_location("Twelfth Architect: Architect Key", RegionName.twelfth_architect, [LocationGroup.SHOP, LocationGroup.ACT_2], ItemName.architect_key),
+    item_location("Receive the Craw Summons", RegionName.craw_lake_act_3, [LocationGroup.UNIQUE_PICKUPS, LocationGroup.ACT_3], ItemName.craw_summons),
+    item_location("Pickup Key of Indolent", RegionName.the_slab, [LocationGroup.UNIQUE_PICKUPS, LocationGroup.ACT_1], ItemName.key_of_indolent),
+    item_location("Pickup Key of Heretic", RegionName.the_slab, [LocationGroup.UNIQUE_PICKUPS, LocationGroup.ACT_1], ItemName.key_of_heretic),
+    item_location("Pickup Key of Apostate", RegionName.putrified_ducts, [LocationGroup.UNIQUE_PICKUPS, LocationGroup.ACT_2], ItemName.key_of_apostate),
 
 
 ]
