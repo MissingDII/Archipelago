@@ -85,6 +85,22 @@ all_connections = [
     ConnectionData(RegionName.bellhart, RegionName.shellwood),
     ConnectionData(RegionName.shellwood, RegionName.bellhart_upper, requirements=ItemName.cling_grip),
     ConnectionData(RegionName.bellhart_upper, RegionName.bellhart_saved),
+    ConnectionData(RegionName.bellhart_saved, RegionName.pinmaster_home),
+    ConnectionData(RegionName.bellhart_saved, RegionName.bellhart_wishwall),
+    ConnectionData(RegionName.bellhart_wishwall, RegionName.shellwood_missing_courrier),
+    ConnectionData(RegionName.bellhart_wishwall, RegionName.bellhart_wishwall_after_tipp, requirements={ItemName.tipp_and_pill: 1}),
+    ConnectionData(RegionName.bellhart_wishwall_after_tipp, RegionName.bellhart_delivery_wishes, requirements={ItemName.tipp_and_pill: 2}),
+    ConnectionData(RegionName.bellhart_wishwall, RegionName.bellhart_wishwall_after_needle_and_relic),
+    ConnectionData(RegionName.bellhart_wishwall, RegionName.bellhart_wishwall_all_maps_faydown_and_two_melodies),  # Write logic for this
+    ConnectionData(RegionName.bellhart_wishwall_all_maps_two_melodies, RegionName.trail_end, requirements=[ItemName.cling_grip, ItemName.faydown_cloak]),
+    ConnectionData(RegionName.bellhart_wishwall, RegionName.bellhart_wishwall_after_beastfy, requirements=[ItemName.beastfly_defeat, ItemName.fourth_chorus_defeat, ItemName.songclave_discovered]), # Not sure if beast crest, or just killing first beastfly here
+    ConnectionData(RegionName.bellhart_wishwall, RegionName.bellhart_wishwall_bellhart_restored, requirements=[ItemName.bellhart_restoration, ItemName.clawline]),
+    ConnectionData(RegionName.bellhart_wishwall, RegionName.bellhart_wishwall_act_3, requirements=[ItemName.act_3]),
+    ConnectionData(RegionName.bellhart_wishwall_act_3, RegionName.bellhart_wishwall_with_strike, requirements=[ItemName.needle_strike]),
+
+    ConnectionData(RegionName.bellhart_wishwall_after_needle_and_relic, RegionName.shellwood_missing_courrier),
+    ConnectionData(RegionName.bellhart_wishwall_act_3, RegionName.wish_heros_call),
+
     ConnectionData(RegionName.shellwood, RegionName.blasted_steps, requirements=ItemName.cling_grip),
     ConnectionData(RegionName.blasted_steps, RegionName.sands_of_karak, requirements=ItemName.clawline),
     ConnectionData(RegionName.blasted_steps, RegionName.blasted_steps_pinstress, requirements=[ItemName.swift_step, ItemName.cling_grip, ItemName.drifters_cloak]),
@@ -106,6 +122,7 @@ all_connections = [
     ConnectionData(RegionName.choral_chambers, RegionName.cradle, requirements=[ItemName.architect_melody, ItemName.vaultkeeper_melody, ItemName.conductor_melody]),
     ConnectionData(RegionName.choral_chambers, RegionName.high_halls),
     ConnectionData(RegionName.choral_chambers, RegionName.the_slab),
+    ConnectionData(RegionName.choral_chambers, RegionName.songclave),
     ConnectionData(RegionName.memorium, RegionName.putrified_ducts),
     ConnectionData(RegionName.putrified_ducts, RegionName.fleatopia),
     ConnectionData(RegionName.cogwork_core, RegionName.whispering_vaults),

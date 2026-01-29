@@ -50,6 +50,7 @@ class ItemName:
     crest_architect = "Architect Crest"
     crest_shaman = "Shaman Crest"
     vesticrest = "Progressive Vesticrest"
+    crest_cursed = "Cursed Crest"
 
     architect_key = "Architect Key"
     craw_summons = "Craw Summons"
@@ -57,3 +58,9 @@ class ItemName:
     key_of_indolent = "Key of Indolent"
     key_of_heretic = "Key of Heretic"
     key_of_apostate = "Key of Apostate"
+
+    frey_inventory = "Frey's Inventory Upgrade"
+    jubilana = "Progressive Jubilana Shop"
+    tipp_and_pill = "Progressive Tipp and Pill"
+
+    throwing_ring = "Throwing Ring"

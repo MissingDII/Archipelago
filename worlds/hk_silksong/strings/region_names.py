@@ -94,6 +94,8 @@ class RegionName:
     choral_chambers_above_bellway = region("Choral Chambers - Above Bellway")
     choral_chambers_bellway = region("Choral Chambers - Bellway")
     choral_chambers_outside = region("Choral Chambers - Outside")
+    songclave = region("Choral Chambers - Songclave")
+
     whiteward = region("Whiteward")
     whispering_vaults = region("Whispering Vaults")
     whispering_vaults_east = region("Whispering Vaults - East")

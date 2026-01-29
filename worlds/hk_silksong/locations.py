@@ -37,13 +37,14 @@ class LocationGroup(enum.Enum):
     BLUE_TOOL = enum.auto()
     PALE_OIL = enum.auto()
     CREST = enum.auto()
-    RANDOMIZED_STARTING_CREST = enum.auto()
-
-    RANDOMIZED_SLASH = enum.auto()
-    RANDOMIZED_BIND = enum.auto()
+    SPOOL_FRAGMENT = enum.auto()
 
     UNIQUE_PICKUPS = enum.auto()
     PICKUP = enum.auto()
+
+    RANDOMIZED_STARTING_CREST = enum.auto()
+    RANDOMIZED_SLASH = enum.auto()
+    RANDOMIZED_BIND = enum.auto()
 
     SHARDS = enum.auto()
     ROSARIES = enum.auto()
@@ -115,6 +116,7 @@ def create_locations(location_collector: SilksongLocationCollector,
     enabled_groups.append(LocationGroup.MEMORY_LOCKET)
     enabled_groups.append(LocationGroup.WISH)
     enabled_groups.append(LocationGroup.CREST)
+    enabled_groups.append(LocationGroup.SHOP)
     enabled_groups.append(LocationGroup.UNIQUE_PICKUPS)
 
     for loc_item_pair in all_locations_items_pairs:
