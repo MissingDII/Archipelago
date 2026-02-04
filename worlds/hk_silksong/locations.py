@@ -15,6 +15,7 @@ class SilksongLocationCollector(Protocol):
 
 
 class LocationGroup(enum.Enum):
+    EVENT_ONLY = enum.auto()
     ACT_1 = enum.auto()
     ACT_2 = enum.auto()
     ACT_3 = enum.auto()

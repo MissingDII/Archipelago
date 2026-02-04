@@ -20,6 +20,9 @@ class ItemName:
     clawline = "Clawline"
     silk_soar = "Silk Soar"
 
+    pale_oil = "Pale Oil"
+    needle_upgrade = "Needle Upgrade"
+
     needle_strike = "Needle Strike"
 
     silk_heart = "Silk Heart"
@@ -64,3 +67,10 @@ class ItemName:
     tipp_and_pill = "Progressive Tipp and Pill"
 
     throwing_ring = "Throwing Ring"
+
+    bellhart_restoration = "Bellhart Restored"
+
+    beastfly_defeat = "Beastfly Defeated"
+    fourth_chorus_defeat = "Fourth Chorus Defeated"
+
+    songclave_discovered = "Songclave Discovered"

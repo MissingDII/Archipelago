@@ -43,7 +43,7 @@ class SilksongWorld(World):
     Hollow Knight: Silksong is the sequel to the renowned Action-Adventure Metroidvania Hollow Knight
     """
     game = GAME_NAME
-    topology_present = False
+    topology_present = True
     web = SilksongWebWorld()
 
     item_name_to_id = items_by_name

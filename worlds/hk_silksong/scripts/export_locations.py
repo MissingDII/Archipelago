@@ -8,7 +8,7 @@ To run the script, use `python -m worlds.stardew_valley.scripts.export_locations
 import json
 import os
 
-from worlds.hk_silksong.locations import all_locations
+from worlds.hk_silksong import location_data_by_name
 
 if not os.path.isdir("output"):
     os.mkdir("output")
@@ -22,11 +22,12 @@ if __name__ == "__main__":
                 {"code": -2, "region": "Archipelago"}
         }
         locations.update({
-            location.name: {
-                "code": location.id,
-                "region": location.region,
+            location_name: {
+                "code": location_data.id,
+                "region": location_data.region,
+                "groups": [group.name for group in location_data.groups],
             }
-            for location in all_locations
-            if location.id is not None
+            for location_name, location_data in location_data_by_name.items()
+            if location_data.id is not None
         })
         json.dump({"locations": locations}, f)

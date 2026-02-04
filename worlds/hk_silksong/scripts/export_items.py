@@ -8,7 +8,7 @@ To run the script, use `python -m worlds.stardew_valley.scripts.export_items` fr
 import json
 import os.path
 
-from worlds.hk_silksong.items import all_items
+from worlds.hk_silksong import item_data_by_name
 
 if not os.path.isdir("output"):
     os.mkdir("output")
@@ -16,11 +16,11 @@ if not os.path.isdir("output"):
 if __name__ == "__main__":
     with open("output/silksong_item_table.json", "w+") as f:
         items = {
-            item.name: {
-                "code": item.id,
-                "classification": item.classification.name
+            item_name: {
+                "code": item_data.id,
+                "classification": item_data.classification.name
             }
-            for item in all_items
-            if item.id is not None
+            for item_name, item_data in item_data_by_name.items()
+            if item_data.id is not None
         }
         json.dump({"items": items}, f)

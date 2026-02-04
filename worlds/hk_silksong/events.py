@@ -7,6 +7,8 @@ from .locations import SilksongLocation
 
 
 def get_event_location_name(location_name: str) -> str:
+    if location_name.startswith("Event: "):
+        return location_name
     return f"Event: {location_name}"
 
 
