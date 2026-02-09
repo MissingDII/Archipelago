@@ -84,7 +84,7 @@ all_locations_items_pairs: List[LocationItemData] = [
     item_location("Defeat Trobbio", RegionName.choral_chambers, [LocationGroup.BOSS_FIGHT, LocationGroup.ACT_2]),
     item_location("Defeat Tormented Trobbio", RegionName.choral_chambers_act_3, [LocationGroup.BOSS_FIGHT, LocationGroup.ACT_3]),
     item_location("Defeat Groal the Great", RegionName.bilewater_upper, [LocationGroup.BOSS_FIGHT, LocationGroup.ACT_2]),
-    item_location("Defeat The Unraveled", RegionName.whiteward, [LocationGroup.BOSS_FIGHT, LocationGroup.ACT_2], ItemName.silk_heart),
+    item_location("Defeat The Unraveled", RegionName.whiteward, [LocationGroup.SILK_OTHER_ABILITY, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_2], ItemName.silk_heart),
     item_location("Defeat Disgraced Chef Lugoli", RegionName.sinners_road, [LocationGroup.BOSS_FIGHT, LocationGroup.ACT_2]),
     item_location("Defeat Craggler", RegionName.craggler_cavern, [LocationGroup.BOSS_FIGHT, LocationGroup.ACT_1]),
     item_location("Defeat Father of the Flame", RegionName.wisp_thicket, [LocationGroup.BOSS_FIGHT, LocationGroup.ACT_2]),
@@ -114,7 +114,6 @@ all_locations_items_pairs: List[LocationItemData] = [
 
     item_location("Defeat Raging Conchfly", RegionName.sands_of_karak, [LocationGroup.BOSS_FIGHT, LocationGroup.ACT_2]),
     item_location("Defeat First Sinner", RegionName.the_slab_first_sinner_cave, [LocationGroup.SILK_COMBAT_ABILITY, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_2], ItemName.rune_rage, ItemClassification.useful),
-    item_location("Defeat The Unravelled", RegionName.whiteward, [LocationGroup.SILK_OTHER_ABILITY, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_2]),
     item_location("Defeat Lace (Cradle)", RegionName.cradle, [LocationGroup.SILK_OTHER_ABILITY, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_2], ItemName.silk_heart),
     item_location("Defeat Grand Mother Silk", RegionName.cradle, [LocationGroup.OBJECTIVE, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_2]),
     item_location("Snare Grand Mother Silk", RegionName.cradle_with_soul_snare, [LocationGroup.OBJECTIVE, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_2], ItemName.act_3),
