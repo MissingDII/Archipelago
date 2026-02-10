@@ -66,10 +66,10 @@ all_locations_items_pairs: List[LocationItemData] = [
 
     item_location("Learn Needle Strike", RegionName.blasted_steps_pinstress, [LocationGroup.COMBAT_ABILITY, LocationGroup.ACT_1], ItemName.needle_strike),
 
-    item_location("Seek: The Old Hearts", RegionName.ruined_chapel, [LocationGroup.OBJECTIVE, LocationGroup.ACT_3]),
-    item_location("Complete Red Memory", RegionName.ruined_chapel, [LocationGroup.SILK_OTHER_ABILITY, LocationGroup.OBJECTIVE, LocationGroup.ACT_3], ItemName.everbloom, ItemClassification.progression),
+    # item_location("Seek: The Old Hearts", RegionName.ruined_chapel, [LocationGroup.OBJECTIVE, LocationGroup.ACT_3]),
+    # item_location("Complete Red Memory", RegionName.ruined_chapel, [LocationGroup.SILK_OTHER_ABILITY, LocationGroup.OBJECTIVE, LocationGroup.ACT_3], ItemName.everbloom, ItemClassification.progression),
 
-    item_location("Pickup Farsight", RegionName.weavenest_absolom, [LocationGroup.SILK_OTHER_ABILITY, LocationGroup.UNIQUE_PICKUPS, LocationGroup.ACT_3], ItemName.farsight, ItemClassification.useful),
+    # item_location("Pickup Farsight", RegionName.weavenest_absolom, [LocationGroup.SILK_OTHER_ABILITY, LocationGroup.UNIQUE_PICKUPS, LocationGroup.ACT_3], ItemName.farsight, ItemClassification.useful),
 
     item_location("Defeat Moss Mother", RegionName.moss_grotto, [LocationGroup.BOSS_FIGHT, LocationGroup.ACT_1]),
     item_location("Defeat Bell Beast", RegionName.marrow_bellway, [LocationGroup.SILK_OTHER_ABILITY, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_1], ItemName.silk_heart),
@@ -116,7 +116,7 @@ all_locations_items_pairs: List[LocationItemData] = [
     item_location("Defeat First Sinner", RegionName.the_slab_first_sinner_cave, [LocationGroup.SILK_COMBAT_ABILITY, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_2], ItemName.rune_rage, ItemClassification.useful),
     item_location("Defeat Lace (Cradle)", RegionName.cradle, [LocationGroup.SILK_OTHER_ABILITY, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_2], ItemName.silk_heart),
     item_location("Defeat Grand Mother Silk", RegionName.cradle, [LocationGroup.OBJECTIVE, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_2]),
-    item_location("Snare Grand Mother Silk", RegionName.cradle_with_soul_snare, [LocationGroup.OBJECTIVE, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_2], ItemName.act_3),
+    item_location("Snare Grand Mother Silk", RegionName.cradle_with_soul_snare, [LocationGroup.OBJECTIVE, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_3], ItemName.act_3),
 
     item_location("Defeat Bell Eater", RegionName.choral_chambers, [LocationGroup.OBJECTIVE, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_3], ItemName.beastling_call, ItemClassification.useful),
     item_location("Defeat Crust King Khann", RegionName.citadel, [LocationGroup.OBJECTIVE, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_3]),
@@ -158,14 +158,11 @@ all_locations_items_pairs: List[LocationItemData] = [
     item_location("Eva: 30 Slots", RegionName.eva_30, [LocationGroup.EVA_EXTRA_LOCATIONS, LocationGroup.EVA, LocationGroup.ACT_2]),
     item_location("Eva: 31 Slots", RegionName.eva_31, [LocationGroup.EVA_EXTRA_LOCATIONS, LocationGroup.EVA, LocationGroup.ACT_2]),
     item_location("Eva: 32 Slots", RegionName.eva_32, [LocationGroup.SILK_OTHER_ABILITY, LocationGroup.EVA, LocationGroup.ACT_2], ItemName.sylphsong, ItemClassification.useful),
-    item_location("Eva: 33 Slots", RegionName.eva_33, [LocationGroup.EVA_EXTRA_LOCATIONS, LocationGroup.EVA, LocationGroup.ACT_2]),
-    item_location("Eva: 34 Slots", RegionName.eva_34, [LocationGroup.EVA_EXTRA_LOCATIONS, LocationGroup.EVA, LocationGroup.ACT_2]),
-    item_location("Eva: 35 Slots", RegionName.eva_35, [LocationGroup.EVA_EXTRA_LOCATIONS, LocationGroup.EVA, LocationGroup.ACT_2]),
+    item_location("Eva: 33 Slots", RegionName.eva_33, [LocationGroup.EVA_EXTRA_LOCATIONS, LocationGroup.EVA, LocationGroup.ACT_3]),
+    item_location("Eva: 34 Slots", RegionName.eva_34, [LocationGroup.EVA_EXTRA_LOCATIONS, LocationGroup.EVA, LocationGroup.ACT_3]),
+    item_location("Eva: 35 Slots", RegionName.eva_35, [LocationGroup.EVA_EXTRA_LOCATIONS, LocationGroup.EVA, LocationGroup.ACT_3]),
     item_location("Eva: 36 Slots", RegionName.eva_36, [LocationGroup.EVA_EXTRA_LOCATIONS, LocationGroup.EVA, LocationGroup.ACT_3]),
     item_location("Eva: 37 Slots", RegionName.eva_37, [LocationGroup.EVA_EXTRA_LOCATIONS, LocationGroup.EVA, LocationGroup.ACT_3]),
-    # item_location("Eva: 38 Slots", RegionName.eva_38, [LocationGroup.EVA_EXTRA_LOCATIONS, LocationGroup.EVA, LocationGroup.ACT_3]),
-    # item_location("Eva: 39 Slots", RegionName.eva_39, [LocationGroup.EVA_EXTRA_LOCATIONS, LocationGroup.EVA, LocationGroup.ACT_3]),
-    # item_location("Eva: 40 Slots", RegionName.eva_40, [LocationGroup.EVA_EXTRA_LOCATIONS, LocationGroup.EVA, LocationGroup.ACT_3]),
 
     item_location("Bound the Crest of Reaper", RegionName.chapel_of_the_reaper, [LocationGroup.CREST, LocationGroup.ACT_1], ItemName.crest_reaper),
     item_location("Bound the Crest of Wanderer", RegionName.chapel_of_the_wanderer, [LocationGroup.CREST, LocationGroup.ACT_1], ItemName.crest_wanderer),
@@ -198,26 +195,27 @@ all_locations_items_pairs: List[LocationItemData] = [
 
     # item_location("Wayfarer Wish: The Lost Fleas", RegionName.wish_lost_fleas, [LocationGroup.RED_TOOL, LocationGroup.WISH, LocationGroup.ACT_1]),
     # item_location("Wayfarer Wish: Pinmaster's Oil", RegionName.wish_pinmaster_oil, [LocationGroup.WISH, LocationGroup.ACT_2], ItemName.needle_upgrade),
-    # item_location("Wayfarer Wish: My Missing Courier", RegionName.shellwood_missing_courrier, [LocationGroup.WISH, LocationGroup.SHOP, LocationGroup.ACT_1], ItemName.frey_inventory),
-    # item_location("Wayfarer Wish: My Missing Brother", RegionName.wish_sinners_road, [LocationGroup.WISH, LocationGroup.ACT_2], ItemName.delivery_wishes),
+    item_location("Wayfarer Wish: My Missing Courier", RegionName.wish_shellwood_missing_courrier, [LocationGroup.WISH, LocationGroup.SHOP, LocationGroup.ACT_1], ItemName.tipp_and_pill),
+    item_location("Wayfarer Wish: My Missing Brother", RegionName.wish_sinners_road_missing_brother, [LocationGroup.WISH, LocationGroup.ACT_2], ItemName.tipp_and_pill),
     # item_location("Wayfarer Wish: Balm For The Wounded", RegionName.wish_whiteward, [LocationGroup.WISH, LocationGroup.SPOOL_FRAGMENT, LocationGroup.ACT_2]),
     # item_location("Wayfarer Wish: The Wandering Merchant", RegionName.wish_choral_chambers, [LocationGroup.WISH, LocationGroup.SHOP, LocationGroup.ACT_2], ItemName.jubilana),
     # item_location("Wayfarer Wish: The Lost Merchant", RegionName.wish_memorium_outside, [LocationGroup.WISH, LocationGroup.SHOP, LocationGroup.ACT_2], ItemName.jubilana),
-    # item_location("Wayfarer Wish: Rite Of Rebirth", RegionName.greyroot_with_twisted_bud, [LocationGroup.WISH, LocationGroup.ACT_2], ItemName.crest_cursed),
-    # item_location("Wayfarer Wish: Infestation Operation", RegionName.yarnaby_with_steel_spines, [LocationGroup.CREST, LocationGroup.WISH, LocationGroup.ACT_2], ItemName.crest_witch),
+    item_location("Wayfarer Wish: Rite Of Rebirth", RegionName.greyroot_with_twisted_bud, [LocationGroup.WISH, LocationGroup.ACT_2], ItemName.crest_cursed),
+    item_location("Wayfarer Wish: Infestation Operation", RegionName.yarnaby_with_steel_spines, [LocationGroup.CREST, LocationGroup.WISH, LocationGroup.ACT_2], ItemName.crest_witch),
     # item_location("Wayfarer Wish: Trail's End", RegionName.trail_end, [LocationGroup.RED_TOOL, LocationGroup.WISH, LocationGroup.ACT_2], ItemName.throwing_ring),
     # item_location("Wayfarer Wish: Final Audience", RegionName.wish_final_audience, [LocationGroup.WISH, LocationGroup.ACT_2]),
-    # item_location("Wayfarer Wish: Silk and Soul", RegionName.choral_chambers, [LocationGroup.WISH, LocationGroup.ACT_2], ItemName.soul_snare),
+    item_location("Wayfarer Wish: Silk and Soul", RegionName.choral_chambers, [LocationGroup.WISH, LocationGroup.ACT_2], ItemName.soul_snare),
     # item_location("Wayfarer Wish: ", RegionName., [LocationGroup.WISH, LocationGroup.ACT_1]),
     # item_location("Wayfarer Wish: ", RegionName., [LocationGroup.WISH, LocationGroup.ACT_1]),
     # item_location("Wayfarer Wish: ", RegionName., [LocationGroup.WISH, LocationGroup.ACT_1]),
     # item_location("Wayfarer Wish: ", RegionName., [LocationGroup.WISH, LocationGroup.ACT_1]),
 
     item_location("Twelfth Architect: Architect Key", RegionName.twelfth_architect, [LocationGroup.SHOP, LocationGroup.ACT_2], ItemName.architect_key),
-    item_location("Receive the Craw Summons", RegionName.craw_lake_act_3, [LocationGroup.UNIQUE_PICKUPS, LocationGroup.ACT_3], ItemName.craw_summons),
+    # item_location("Receive the Craw Summons", RegionName.craw_lake_act_3, [LocationGroup.UNIQUE_PICKUPS, LocationGroup.ACT_3], ItemName.craw_summons),
     item_location("Pickup Key of Indolent", RegionName.the_slab, [LocationGroup.UNIQUE_PICKUPS, LocationGroup.ACT_1], ItemName.key_of_indolent),
     item_location("Pickup Key of Heretic", RegionName.the_slab, [LocationGroup.UNIQUE_PICKUPS, LocationGroup.ACT_1], ItemName.key_of_heretic),
     item_location("Pickup Key of Apostate", RegionName.putrified_ducts, [LocationGroup.UNIQUE_PICKUPS, LocationGroup.ACT_2], ItemName.key_of_apostate),
+    item_location("Pickup Twisted Bud", RegionName.bilewater_upper, [LocationGroup.UNIQUE_PICKUPS, LocationGroup.ACT_2], ItemName.twisted_bud),
 
 
 ]

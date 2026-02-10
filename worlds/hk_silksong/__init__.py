@@ -76,6 +76,7 @@ class SilksongWorld(World):
 
     def create_items(self):
         self.precollect_abilities()
+        self.precollect_wip_stuff()
         my_locations = self.multiworld.get_locations(self.player)
         locations_count = len([location
                                for location in my_locations
@@ -117,6 +118,11 @@ class SilksongWorld(World):
         # if self.options.campaign == Options.Campaign.option_basic:
         #     if self.options.coinsanity == Options.CoinSanity.option_coin and self.options.coinbundlequantity >= 5:
         #         self.multiworld.push_precollected(self.create_item("DLC Quest: Coin Bundle"))
+
+    def precollect_wip_stuff(self):
+        pass
+        # self.multiworld.push_precollected(self.create_item(ItemName.twisted_bud))
+        # self.multiworld.push_precollected(self.create_item(ItemName.soul_snare))
 
     def create_item(self, item: Union[str, ItemData], classification: ItemClassification = None) -> SilksongItem:
         if isinstance(item, str):

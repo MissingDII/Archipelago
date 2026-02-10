@@ -57,12 +57,12 @@ class ItemName:
 
     architect_key = "Architect Key"
     craw_summons = "Craw Summons"
+    twisted_bud = "Twisted Bud"
 
     key_of_indolent = "Key of Indolent"
     key_of_heretic = "Key of Heretic"
     key_of_apostate = "Key of Apostate"
 
-    frey_inventory = "Frey's Inventory Upgrade"
     jubilana = "Progressive Jubilana Shop"
     tipp_and_pill = "Progressive Tipp and Pill"
 

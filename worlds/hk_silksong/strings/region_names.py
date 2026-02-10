@@ -57,6 +57,10 @@ class RegionName:
     bellhart_saved = region("Saved Bellhart")
     pinmaster_home = region("Bellhart - Pinmaster Home")
 
+    greyroot = region("Shellwood - GreyRoot")
+    greyroot_rite_of_pollip = region("Shellwood - GreyRoot Rite Of The Pollip")
+    greyroot_with_twisted_bud = region("Shellwood - GreyRoot With Twisted Bud")
+
     bellhart_wishwall = region("Bellhart Wishwall")
     bellhart_wishwall_after_tipp = region("Bellhart Wishwall - Tipp saved")
     bellhart_wishwall_bellhart_restored = region("Bellhart Wishwall - Bellhart Restored")
@@ -71,6 +75,7 @@ class RegionName:
     bellhart_wishwall_after_karmelita = region("Bellhart Wishwall - Met Karmelita")
 
     wish_shellwood_missing_courrier = region("Bellhart Wish - My Missing Courier")
+    wish_sinners_road_missing_brother = region("Bellhart Wish - My Missing Brother")
     wish_pinmaster_oil = region("Bellhart Wish - Pinmaster's Oil")
     bellhart_delivery_wishes = region("Bellhart - Delivery Wishes")
     trail_end = region("Bellhart Wish - The Hidden Hunter")

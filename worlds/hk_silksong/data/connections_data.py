@@ -1,6 +1,5 @@
 from typing import List, Optional, Dict
 
-from ..strings.entrance_names import EntranceName
 from ..strings.item_names import ItemName
 from ..strings.region_names import RegionName
 
@@ -28,7 +27,7 @@ class ConnectionData:
 
 
 all_connections = [
-    ConnectionData(RegionName.menu, RegionName.moss_grotto, EntranceName.spawn_moss_grotto),
+    ConnectionData(RegionName.menu, RegionName.moss_grotto),
     ConnectionData(RegionName.moss_grotto, RegionName.bone_bottom),
     ConnectionData(RegionName.moss_grotto, RegionName.bonegrave, requirements=ItemName.cling_grip),
     ConnectionData(RegionName.bonegrave, RegionName.chapel_of_the_wanderer),
@@ -84,11 +83,17 @@ all_connections = [
 
     ConnectionData(RegionName.bellhart, RegionName.shellwood),
     ConnectionData(RegionName.shellwood, RegionName.bellhart_upper, requirements=ItemName.cling_grip),
+
+    ConnectionData(RegionName.shellwood, RegionName.greyroot),
+    ConnectionData(RegionName.greyroot, RegionName.greyroot_rite_of_pollip, requirements=ItemName.cling_grip),
+    ConnectionData(RegionName.greyroot_rite_of_pollip, RegionName.greyroot_with_twisted_bud, requirements=ItemName.twisted_bud),
+
     ConnectionData(RegionName.bellhart_upper, RegionName.bellhart_saved),
     ConnectionData(RegionName.bellhart_saved, RegionName.pinmaster_home),
     ConnectionData(RegionName.bellhart_saved, RegionName.bellhart_wishwall),
     ConnectionData(RegionName.bellhart_wishwall, RegionName.wish_shellwood_missing_courrier, requirements=[ItemName.cling_grip]),
     ConnectionData(RegionName.bellhart_wishwall, RegionName.bellhart_wishwall_after_tipp, requirements={ItemName.tipp_and_pill: 1}),
+    ConnectionData(RegionName.bellhart_wishwall_after_tipp, RegionName.wish_sinners_road_missing_brother, requirements={ItemName.tipp_and_pill: 1}),
     ConnectionData(RegionName.bellhart_wishwall_after_tipp, RegionName.bellhart_delivery_wishes, requirements={ItemName.tipp_and_pill: 2}),
     ConnectionData(RegionName.bellhart_wishwall, RegionName.bellhart_wishwall_after_needle),  # TODO: Write logic for this
     ConnectionData(RegionName.bellhart_wishwall_after_needle, RegionName.bellhart_wishwall_after_needle_and_relic),  # TODO: Write logic for this
@@ -96,7 +101,7 @@ all_connections = [
     ConnectionData(RegionName.bellhart_wishwall, RegionName.bellhart_wishwall_all_maps_faydown_and_two_melodies),  # TODO: Write logic for this
     ConnectionData(RegionName.bellhart_wishwall_all_maps_faydown_and_two_melodies, RegionName.trail_end, requirements=[ItemName.cling_grip, ItemName.faydown_cloak]),
     ConnectionData(RegionName.bellhart_wishwall, RegionName.bellhart_wishwall_after_beastfy, requirements=[ItemName.beastfly_defeat, ItemName.fourth_chorus_defeat, ItemName.songclave_discovered]), # Not sure if beast crest, or just killing first beastfly here
-    ConnectionData(RegionName.bellhart_wishwall, RegionName.bellhart_wishwall_bellhart_restored, requirements=[ItemName.bellhart_restoration, ItemName.clawline]),
+    ConnectionData(RegionName.bellhart_wishwall, RegionName.bellhart_wishwall_bellhart_restored, requirements=[ItemName.bellhart_restoration, ItemName.clawline]), # TODO: Add one needle upgrade to this
 
     ConnectionData(RegionName.bellhart_wishwall, RegionName.bellhart_wishwall_act_3, requirements=[ItemName.act_3]),
     ConnectionData(RegionName.bellhart_wishwall_act_3, RegionName.bellhart_wishwall_with_strike, requirements=[ItemName.needle_strike]),

@@ -3,7 +3,7 @@ from random import Random
 from typing import List, Dict, Optional, Protocol
 
 from BaseClasses import Location
-from .options.options import ShuffleMovementAbilities, SilksongOptions
+from .options.options import ShuffleMovementAbilities, SilksongOptions, Goal
 from .strings.generic_strings import GAME_NAME
 from .strings.goal_names import GoalName
 from .strings.region_names import RegionName
@@ -120,9 +120,15 @@ def create_locations(location_collector: SilksongLocationCollector,
     enabled_groups.append(LocationGroup.SHOP)
     enabled_groups.append(LocationGroup.UNIQUE_PICKUPS)
 
+    allowed_acts = [LocationGroup.ACT_1]
+    if options.goal >= Goal.option_weaver_queen:
+        allowed_acts.append(LocationGroup.ACT_2)
+        if options.goal >= Goal.option_sister_of_the_void:
+            allowed_acts.append(LocationGroup.ACT_3)
+
     for loc_item_pair in all_locations_items_pairs:
         for group in enabled_groups:
-            if group in loc_item_pair.location_data.groups:
+            if group in loc_item_pair.location_data.groups and any([act in loc_item_pair.location_data.groups for act in allowed_acts]):
                 randomized_locations.append(loc_item_pair.location_data)
                 break
 
