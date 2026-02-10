@@ -34,11 +34,11 @@ all_locations_items_pairs: List[LocationItemData] = [
 
     item_location("Save: The Threadspun Town", RegionName.citadel, [LocationGroup.OBJECTIVE, LocationGroup.ACT_1]),
     item_location("Seek: The Great Citadel", RegionName.citadel, [LocationGroup.OBJECTIVE, LocationGroup.ACT_2]),
-    item_location("Ring The Bell In The Marrow", RegionName.marrow_bellway, [LocationGroup.OBJECTIVE, LocationGroup.ACT_1]),
-    item_location("Ring The Bell In Deep Docks", RegionName.deep_docks_bell, [LocationGroup.OBJECTIVE, LocationGroup.ACT_1]),
-    item_location("Ring The Bell In Greymoor", RegionName.greymoor_craw_lake, [LocationGroup.OBJECTIVE, LocationGroup.ACT_1]),
-    item_location("Ring The Bell In Bellhart", RegionName.bellhart, [LocationGroup.OBJECTIVE, LocationGroup.ACT_1]),
-    item_location("Ring The Bell In Shellwood", RegionName.shellwood, [LocationGroup.OBJECTIVE, LocationGroup.ACT_1]),
+    item_location("Ring The Bell In The Marrow", RegionName.marrow_bellway, [LocationGroup.OBJECTIVE, LocationGroup.ACT_1], ItemName.grand_gate_bell),
+    item_location("Ring The Bell In Deep Docks", RegionName.deep_docks_bell, [LocationGroup.OBJECTIVE, LocationGroup.ACT_1], ItemName.grand_gate_bell),
+    item_location("Ring The Bell In Greymoor", RegionName.greymoor_craw_lake, [LocationGroup.OBJECTIVE, LocationGroup.ACT_1], ItemName.grand_gate_bell),
+    item_location("Ring The Bell In Bellhart", RegionName.bellhart, [LocationGroup.OBJECTIVE, LocationGroup.ACT_1], ItemName.grand_gate_bell),
+    item_location("Ring The Bell In Shellwood", RegionName.shellwood, [LocationGroup.OBJECTIVE, LocationGroup.ACT_1], ItemName.grand_gate_bell),
 
     item_location("Search: Silent Halls", RegionName.citadel, [LocationGroup.OBJECTIVE, LocationGroup.ACT_2]),
     item_location("Ascend: Pharloom's Crown", RegionName.citadel, [LocationGroup.OBJECTIVE, LocationGroup.ACT_2]),
@@ -108,7 +108,8 @@ all_locations_items_pairs: List[LocationItemData] = [
     item_location("Defeat Savage Beastfly (Wish)", RegionName.far_fields_beastfly, [LocationGroup.WISH, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_1]),
 
     item_location("Defeat Skull Tyrant (Wish)", RegionName.marrow_east, [LocationGroup.WISH, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_1]),
-    item_location("Defeat Skull Tyrant (Bone Bottom)", RegionName.bone_bottom, [LocationGroup.WISH, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_1]),
+    item_location("Defeated Skull Tyrant (Wish)", RegionName.marrow_east, [LocationGroup.EVENT_ONLY, LocationGroup.ACT_1], ItemName.skull_tyrant_defeated),
+    item_location("Defeat Skull Tyrant (Bone Bottom)", RegionName.bone_bottom_after_skull_tyrant, [LocationGroup.WISH, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_1]),
 
     item_location("Defeat Phantom", RegionName.exhaust_organ, [LocationGroup.SILK_COMBAT_ABILITY, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_1], ItemName.cross_stitch, ItemClassification.useful),
 

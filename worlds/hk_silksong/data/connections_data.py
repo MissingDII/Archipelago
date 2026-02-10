@@ -46,6 +46,8 @@ all_connections = [
     ConnectionData(RegionName.marrow_bellway, RegionName.marrow_bellway_north_alcove, requirements=ItemName.cling_grip),
     ConnectionData(RegionName.marrow_east, RegionName.deep_docks_entrance),
     ConnectionData(RegionName.marrow_east, RegionName.hunters_march),
+    ConnectionData(RegionName.marrow_east, RegionName.bone_bottom_after_skull_tyrant, requirements=ItemName.skull_tyrant_defeated),
+
     ConnectionData(RegionName.hunters_march, RegionName.chapel_of_the_beast),
     ConnectionData(RegionName.deep_docks_entrance, RegionName.deep_docks_swift_step),
     ConnectionData(RegionName.deep_docks_entrance, RegionName.deep_docks_forge_daughter),
@@ -115,7 +117,7 @@ all_connections = [
     ConnectionData(RegionName.shellwood, RegionName.blasted_steps, requirements=ItemName.cling_grip),
     ConnectionData(RegionName.blasted_steps, RegionName.sands_of_karak, requirements=ItemName.clawline),
     ConnectionData(RegionName.blasted_steps, RegionName.blasted_steps_pinstress, requirements=[ItemName.swift_step, ItemName.cling_grip, ItemName.drifters_cloak]),
-    ConnectionData(RegionName.blasted_steps, RegionName.blasted_steps_grand_gate, requirements=[ItemName.swift_step, ItemName.cling_grip, ItemName.drifters_cloak]),
+    ConnectionData(RegionName.blasted_steps, RegionName.blasted_steps_grand_gate, requirements={ItemName.swift_step: 1, ItemName.cling_grip: 1, ItemName.drifters_cloak: 1, ItemName.grand_gate_bell: 5}),
     ConnectionData(RegionName.blasted_steps_grand_gate, RegionName.grand_gate),
     ConnectionData(RegionName.grand_gate, RegionName.underworks),
     ConnectionData(RegionName.exhaust_organ, RegionName.underworks),

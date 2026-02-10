@@ -18,6 +18,7 @@ class RegionName:
     marrow_bellway = region("The Marrow - Bellway Station")
     marrow_east = region("The Marrow - East")
     marrow_bellway_north_alcove = region("The Marrow - North Alcove")
+    bone_bottom_after_skull_tyrant = region("Bone Bottom - Skull Tyrant Defeated Once")
 
     deep_docks_entrance = region("Deep Docks - Entrance")
     deep_docks_swift_step = region("Deep Docks - Swift Step")

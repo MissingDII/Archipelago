@@ -30,6 +30,7 @@ class ItemName:
     farsight = "Farsight"
     everbloom = "Everbloom"
 
+    grand_gate_bell = "Grand Gate Bell"
     conductor_melody = "Conductor's Melody"
     vaultkeeper_melody = "Vaultkeeper's Melody"
     architect_melody = "Architect's Melody"
@@ -74,3 +75,4 @@ class ItemName:
     fourth_chorus_defeat = "Fourth Chorus Defeated"
 
     songclave_discovered = "Songclave Discovered"
+    skull_tyrant_defeated = "Skull Tyrant Defeated"
