@@ -3,7 +3,7 @@ from typing import Optional, List
 from BaseClasses import ItemClassification
 from ..items.items import ItemData
 from ..locations import LocationGroup, LocationData
-from ..strings.item_names import ItemName
+from ..strings.item_names import ItemName, EventName
 from ..strings.region_names import RegionName
 
 
@@ -80,6 +80,7 @@ all_locations_items_pairs: List[LocationItemData] = [
     item_location("Defeat Widow", RegionName.bellhart_upper, [LocationGroup.BOSS_FIGHT, LocationGroup.ACT_1], ItemName.needolin),
     item_location("Defeat Great Conchflies", RegionName.blasted_steps, [LocationGroup.BOSS_FIGHT, LocationGroup.ACT_1]),
     item_location("Defeat Last Judge", RegionName.blasted_steps_grand_gate, [LocationGroup.BOSS_FIGHT, LocationGroup.ACT_1]),
+    item_location("Last Judge Defeated", RegionName.blasted_steps_grand_gate, [LocationGroup.EVENT_ONLY, LocationGroup.ACT_1], EventName.last_judge_defeated),
     item_location("Defeat Cogwork Dancers", RegionName.cogwork_core, [LocationGroup.BOSS_FIGHT, LocationGroup.ACT_2]),
     item_location("Defeat Trobbio", RegionName.choral_chambers, [LocationGroup.BOSS_FIGHT, LocationGroup.ACT_2]),
     item_location("Defeat Tormented Trobbio", RegionName.choral_chambers_act_3, [LocationGroup.BOSS_FIGHT, LocationGroup.ACT_3]),
@@ -104,14 +105,17 @@ all_locations_items_pairs: List[LocationItemData] = [
     item_location("Defeat Garmond and Zaza", RegionName.choral_chambers_outside, [LocationGroup.BOSS_FIGHT, LocationGroup.ACT_2]),
 
     item_location("Defeat Savage Beastfly (Beast)", RegionName.chapel_of_the_beast, [LocationGroup.BOSS_FIGHT, LocationGroup.ACT_1]),
-    item_location("Event: Defeat Savage Beastfly (Beast)", RegionName.chapel_of_the_beast, [LocationGroup.EVENT_ONLY, LocationGroup.ACT_1], ItemName.beastfly_defeat),
+    item_location("Savage Beastfly Defeated (Beast)", RegionName.chapel_of_the_beast, [LocationGroup.EVENT_ONLY, LocationGroup.ACT_1], EventName.beastfly_defeated),
     item_location("Defeat Savage Beastfly (Wish)", RegionName.far_fields_beastfly, [LocationGroup.WISH, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_1]),
 
     item_location("Defeat Skull Tyrant (Wish)", RegionName.marrow_east, [LocationGroup.WISH, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_1]),
-    item_location("Defeated Skull Tyrant (Wish)", RegionName.marrow_east, [LocationGroup.EVENT_ONLY, LocationGroup.ACT_1], ItemName.skull_tyrant_defeated),
+    item_location("Skull Tyrant Defeated (Wish)", RegionName.marrow_east, [LocationGroup.EVENT_ONLY, LocationGroup.ACT_1], EventName.skull_tyrant_defeated),
     item_location("Defeat Skull Tyrant (Bone Bottom)", RegionName.bone_bottom_after_skull_tyrant, [LocationGroup.WISH, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_1]),
 
     item_location("Defeat Phantom", RegionName.exhaust_organ, [LocationGroup.SILK_COMBAT_ABILITY, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_1], ItemName.cross_stitch, ItemClassification.useful),
+    item_location("Phantom Defeated", RegionName.exhaust_organ, [LocationGroup.EVENT_ONLY, LocationGroup.ACT_1], EventName.phantom_defeated),
+
+    item_location("Enter Act 2", RegionName.underworks_act_2, [LocationGroup.EVENT_ONLY, LocationGroup.ACT_2], EventName.act_2_reached),
 
     item_location("Defeat Raging Conchfly", RegionName.sands_of_karak, [LocationGroup.BOSS_FIGHT, LocationGroup.ACT_2]),
     item_location("Defeat First Sinner", RegionName.the_slab_first_sinner_cave, [LocationGroup.SILK_COMBAT_ABILITY, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_2], ItemName.rune_rage, ItemClassification.useful),

@@ -1,6 +1,6 @@
 from typing import List, Optional, Dict
 
-from ..strings.item_names import ItemName
+from ..strings.item_names import ItemName, EventName
 from ..strings.region_names import RegionName
 
 
@@ -46,7 +46,7 @@ all_connections = [
     ConnectionData(RegionName.marrow_bellway, RegionName.marrow_bellway_north_alcove, requirements=ItemName.cling_grip),
     ConnectionData(RegionName.marrow_east, RegionName.deep_docks_entrance),
     ConnectionData(RegionName.marrow_east, RegionName.hunters_march),
-    ConnectionData(RegionName.marrow_east, RegionName.bone_bottom_after_skull_tyrant, requirements=ItemName.skull_tyrant_defeated),
+    ConnectionData(RegionName.marrow_east, RegionName.bone_bottom_after_skull_tyrant, requirements=EventName.skull_tyrant_defeated),
 
     ConnectionData(RegionName.hunters_march, RegionName.chapel_of_the_beast),
     ConnectionData(RegionName.deep_docks_entrance, RegionName.deep_docks_swift_step),
@@ -68,7 +68,7 @@ all_connections = [
     ConnectionData(RegionName.greymoor_spires, RegionName.halfway_home),
     ConnectionData(RegionName.greymoor_spires, RegionName.greymoor_bellway),
     ConnectionData(RegionName.greymoor_spires, RegionName.bellhart),
-    ConnectionData(RegionName.greymoor_spires, RegionName.sinners_road),
+    ConnectionData(RegionName.greymoor_spires, RegionName.sinners_road, requirements=ItemName.cling_grip),
     ConnectionData(RegionName.greymoor_spires, RegionName.wisp_thicket),
     ConnectionData(RegionName.greymoor_spires, RegionName.chapel_of_the_reaper),
     ConnectionData(RegionName.greymoor_spires, RegionName.yarnaby),
@@ -102,7 +102,7 @@ all_connections = [
     ConnectionData(RegionName.bellhart_wishwall_after_needle, RegionName.wish_pinmaster_oil, requirements=ItemName.pale_oil),  # TODO: Write logic for this
     ConnectionData(RegionName.bellhart_wishwall, RegionName.bellhart_wishwall_all_maps_faydown_and_two_melodies),  # TODO: Write logic for this
     ConnectionData(RegionName.bellhart_wishwall_all_maps_faydown_and_two_melodies, RegionName.trail_end, requirements=[ItemName.cling_grip, ItemName.faydown_cloak]),
-    ConnectionData(RegionName.bellhart_wishwall, RegionName.bellhart_wishwall_after_beastfy, requirements=[ItemName.beastfly_defeat, ItemName.fourth_chorus_defeat, ItemName.songclave_discovered]), # Not sure if beast crest, or just killing first beastfly here
+    ConnectionData(RegionName.bellhart_wishwall, RegionName.bellhart_wishwall_after_beastfy, requirements=[EventName.beastfly_defeated, EventName.fourth_chorus_defeat, EventName.songclave_discovered]), # Not sure if beast crest, or just killing first beastfly here
     ConnectionData(RegionName.bellhart_wishwall, RegionName.bellhart_wishwall_bellhart_restored, requirements=[ItemName.bellhart_restoration, ItemName.clawline]), # TODO: Add one needle upgrade to this
 
     ConnectionData(RegionName.bellhart_wishwall, RegionName.bellhart_wishwall_act_3, requirements=[ItemName.act_3]),
@@ -118,9 +118,10 @@ all_connections = [
     ConnectionData(RegionName.blasted_steps, RegionName.sands_of_karak, requirements=ItemName.clawline),
     ConnectionData(RegionName.blasted_steps, RegionName.blasted_steps_pinstress, requirements=[ItemName.swift_step, ItemName.cling_grip, ItemName.drifters_cloak]),
     ConnectionData(RegionName.blasted_steps, RegionName.blasted_steps_grand_gate, requirements={ItemName.swift_step: 1, ItemName.cling_grip: 1, ItemName.drifters_cloak: 1, ItemName.grand_gate_bell: 5}),
-    ConnectionData(RegionName.blasted_steps_grand_gate, RegionName.grand_gate),
-    ConnectionData(RegionName.grand_gate, RegionName.underworks),
-    ConnectionData(RegionName.exhaust_organ, RegionName.underworks),
+    ConnectionData(RegionName.blasted_steps_grand_gate, RegionName.grand_gate, requirements=[EventName.last_judge_defeated]),
+    ConnectionData(RegionName.grand_gate, RegionName.underworks_act_2),
+    ConnectionData(RegionName.exhaust_organ, RegionName.underworks_act_2, requirements=[EventName.phantom_defeated]),
+    ConnectionData(RegionName.underworks_act_2, RegionName.underworks, requirements=[EventName.act_2_reached]),
     ConnectionData(RegionName.underworks, RegionName.underworks_confessional),
     ConnectionData(RegionName.underworks, RegionName.choral_chambers_above_bellway),
     ConnectionData(RegionName.underworks_cauldron, RegionName.underworks),

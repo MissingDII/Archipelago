@@ -71,8 +71,14 @@ class ItemName:
 
     bellhart_restoration = "Bellhart Restored"
 
-    beastfly_defeat = "Beastfly Defeated"
+
+class EventName:
+    widow_defeated = "Widow Defeated"
+    phantom_defeated = "Phantom Defeated"
+    last_judge_defeated = "Last Judge Defeated"
+    act_2_reached = "Enter Act 2"
+    skull_tyrant_defeated = "Skull Tyrant Defeated"
+    beastfly_defeated = "Beastfly Defeated"
     fourth_chorus_defeat = "Fourth Chorus Defeated"
 
     songclave_discovered = "Songclave Discovered"
-    skull_tyrant_defeated = "Skull Tyrant Defeated"

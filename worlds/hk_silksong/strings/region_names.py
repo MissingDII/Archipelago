@@ -113,6 +113,7 @@ class RegionName:
     cradle_with_soul_snare = region("The Cradle - Soul Snare")
     citadel = region("Citadel")
 
+    underworks_act_2 = region("Underworks - Act 2")
     underworks = region("Underworks")
     underworks_confessional = region("Underworks - Confessional")
     underworks_cauldron = region("Underworks - The Cauldron")

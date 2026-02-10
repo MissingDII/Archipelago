@@ -9,7 +9,7 @@ from .events import create_events
 from .items.items import items_by_name, create_items, SilksongItem, filler_items, item_data_by_name, ItemData
 from .locations import SilksongLocation, create_locations, locations_by_name, LocationData, goal_events_locations
 from .options.option_groups import silksong_option_groups
-from .options.options import SilksongOptions, Goal
+from .options.options import SilksongOptions, Goal, ShuffleMovementAbilities
 from .options.presets import silksong_options_presets
 from .regions import create_regions, set_entrance_rules
 from .strings.generic_strings import GAME_NAME
@@ -138,6 +138,8 @@ class SilksongWorld(World):
 
     def fill_slot_data(self):
         options_dict = self.options.as_dict(
+            Goal.internal_name,
+            ShuffleMovementAbilities.internal_name,
             "death_link"
         )
         options_dict.update({
