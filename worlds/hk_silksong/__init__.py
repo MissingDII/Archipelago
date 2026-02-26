@@ -154,7 +154,7 @@ class SilksongWorld(World):
             "death_link"
         )
         options_dict.update({
-            "seed": self.random.randrange(99999999)
+            "seed": self.random.randrange(99999999),
             "client_version": self.world_version.as_simple_string(),
         })
         return options_dict
