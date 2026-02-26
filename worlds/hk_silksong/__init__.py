@@ -155,6 +155,7 @@ class SilksongWorld(World):
         )
         options_dict.update({
             "seed": self.random.randrange(99999999)
+            "client_version": self.world_version.as_simple_string(),
         })
         return options_dict
 
