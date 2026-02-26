@@ -107,6 +107,8 @@ class RegionName:
 
     mount_fay = region("Mount Fay")
     sinners_road = region("Sinner's Road")
+    sinners_road_chef_lugoli = region("Sinner's Road - Lugoli's Kitchen")
+
     bilewater = region("Bilewater")
     bilewater_bellway = region("Bilewater - Bellway")
     bilewater_upper = region("Upper Bilewater")

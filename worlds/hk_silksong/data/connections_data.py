@@ -72,7 +72,7 @@ all_connections = [
     ConnectionData(RegionName.greymoor_spires, RegionName.greymoor_bellway),
     ConnectionData(RegionName.greymoor_spires, RegionName.bellhart),
     ConnectionData(RegionName.greymoor_spires, RegionName.sinners_road, requirements=ItemName.cling_grip),
-    ConnectionData(RegionName.greymoor_spires, RegionName.wisp_thicket),
+    ConnectionData(RegionName.greymoor_spires, RegionName.wisp_thicket, requirements=ItemName.faydown_cloak),
     ConnectionData(RegionName.greymoor_spires, RegionName.chapel_of_the_reaper),
     ConnectionData(RegionName.greymoor_spires, RegionName.yarnaby),
     ConnectionData(RegionName.yarnaby, RegionName.yarnaby_with_steel_spines),  # Add requirement to get cursed
@@ -80,6 +80,7 @@ all_connections = [
     ConnectionData(RegionName.halfway_home, RegionName.halfway_home_alcove, requirements=ItemName.faydown_cloak),
 
     ConnectionData(RegionName.sinners_road, RegionName.bilewater),
+    ConnectionData(RegionName.sinners_road, RegionName.sinners_road_chef_lugoli, requirements=ItemName.faydown_cloak),
 
     ConnectionData(RegionName.bilewater, RegionName.bilewater_bellway),
     ConnectionData(RegionName.bilewater_bellway, RegionName.mist),
