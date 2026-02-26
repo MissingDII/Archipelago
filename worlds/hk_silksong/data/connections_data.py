@@ -45,10 +45,10 @@ all_connections = [
     ConnectionData(RegionName.marrow_bellway, RegionName.marrow_east),
     ConnectionData(RegionName.marrow_bellway, RegionName.marrow_bellway_north_alcove, requirements=ItemName.cling_grip),
     ConnectionData(RegionName.marrow_east, RegionName.deep_docks_entrance),
-    ConnectionData(RegionName.marrow_east, RegionName.hunters_march),
+    ConnectionData(RegionName.marrow_east, RegionName.hunters_march, requirements=ItemName.swift_step),
     ConnectionData(RegionName.marrow_east, RegionName.bone_bottom_after_skull_tyrant, requirements=EventName.skull_tyrant_defeated),
 
-    ConnectionData(RegionName.hunters_march, RegionName.chapel_of_the_beast),
+    ConnectionData(RegionName.hunters_march, RegionName.chapel_of_the_beast, requirements=ItemName.drifters_cloak),
     ConnectionData(RegionName.deep_docks_entrance, RegionName.deep_docks_swift_step),
     ConnectionData(RegionName.deep_docks_entrance, RegionName.deep_docks_forge_daughter),
     ConnectionData(RegionName.deep_docks_entrance, RegionName.deep_docks_lace, requirements=ItemName.swift_step),

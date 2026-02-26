@@ -47,7 +47,7 @@ all_locations_items_pairs: List[LocationItemData] = [
     item_location("Learn: Vaultkeeper's Melody", RegionName.citadel, [LocationGroup.OBJECTIVE, LocationGroup.SONG, LocationGroup.ACT_2], ItemName.vaultkeeper_melody),
 
     item_location("Seek: After The Fall", RegionName.choral_chambers, [LocationGroup.OBJECTIVE, LocationGroup.ACT_3]),
-    item_location("Seek: Awaiting The End", RegionName.moss_grotto, [LocationGroup.OBJECTIVE, LocationGroup.ACT_3]),
+    item_location("Seek: Awaiting The End", RegionName.ruined_chapel, [LocationGroup.OBJECTIVE, LocationGroup.ACT_3]),
     item_location("Seek: The Dark Below", RegionName.abyss, [LocationGroup.OBJECTIVE, LocationGroup.ACT_3]),
     item_location("Ascend: Return To Pharloom", RegionName.abyss, [LocationGroup.OBJECTIVE, LocationGroup.ACT_3]),
     item_location("Seek: Spell Seeker", RegionName.citadel, [LocationGroup.OBJECTIVE, LocationGroup.ACT_3], ItemName.elegy_of_the_deep),
