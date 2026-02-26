@@ -9,7 +9,8 @@ from .events import create_events
 from .items.items import items_by_name, create_items, SilksongItem, filler_items, item_data_by_name, ItemData
 from .locations import SilksongLocation, create_locations, locations_by_name, LocationData, goal_events_locations
 from .options.option_groups import silksong_option_groups
-from .options.options import SilksongOptions, Goal, ShuffleMovementAbilities
+from .options.options import SilksongOptions, Goal, RandomStartingCrest, RandomizeMovementAbilities, RandomizeCombatAbilities, RandomizePickups, \
+    RandomizeShopItems, RandomizeCrests, RandomizeWishRewards, RandomizeMemoryLockets, RandomizeEvaRewards, RandomizeBossRewards, RandomizeOtherAbilities
 from .options.presets import silksong_options_presets
 from .regions import create_regions, set_entrance_rules
 from .strings.generic_strings import GAME_NAME
@@ -75,7 +76,7 @@ class SilksongWorld(World):
         self.multiworld.completion_condition[self.player] = lambda state: state.has("Victory", self.player)
 
     def create_items(self):
-        self.precollect_abilities()
+        self.precollect_starting_crest()
         self.precollect_wip_stuff()
         my_locations = self.multiworld.get_locations(self.player)
         locations_count = len([location
@@ -112,12 +113,12 @@ class SilksongWorld(World):
         region.add_event(goal_location.name, "Victory", None, SilksongLocation, SilksongItem)
         self.multiworld.completion_condition[self.player] = lambda state: state.has("Victory", self.player)
 
-    def precollect_abilities(self):
-        pass
-        # early_items[self.player]["Incredibly Important Pack"] = 1
-        # if self.options.campaign == Options.Campaign.option_basic:
-        #     if self.options.coinsanity == Options.CoinSanity.option_coin and self.options.coinbundlequantity >= 5:
-        #         self.multiworld.push_precollected(self.create_item("DLC Quest: Coin Bundle"))
+    def precollect_starting_crest(self):
+        starting_crest = ItemName.crest_hunter_progressive
+        if self.options.random_starting_crests == RandomStartingCrest.option_true:
+            potential_crests = [starting_crest, ItemName.crest_wanderer, ItemName.crest_reaper, ItemName.crest_beast, ItemName.crest_witch, ItemName.crest_architect, ItemName.crest_shaman]
+            starting_crest = self.random.choice(potential_crests)
+        self.multiworld.push_precollected(self.create_item(starting_crest))
 
     def precollect_wip_stuff(self):
         pass
@@ -139,7 +140,17 @@ class SilksongWorld(World):
     def fill_slot_data(self):
         options_dict = self.options.as_dict(
             Goal.internal_name,
-            ShuffleMovementAbilities.internal_name,
+            RandomizeMovementAbilities.internal_name,
+            RandomizeCombatAbilities.internal_name,
+            RandomizeOtherAbilities.internal_name,
+            RandomizeBossRewards.internal_name,
+            RandomizeEvaRewards.internal_name,
+            RandomizeMemoryLockets.internal_name,
+            RandomizeWishRewards.internal_name,
+            RandomizeCrests.internal_name,
+            RandomStartingCrest.internal_name,
+            RandomizeShopItems.internal_name,
+            RandomizePickups.internal_name,
             "death_link"
         )
         options_dict.update({

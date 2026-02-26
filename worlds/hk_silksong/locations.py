@@ -3,7 +3,8 @@ from random import Random
 from typing import List, Dict, Optional, Protocol
 
 from BaseClasses import Location
-from .options.options import ShuffleMovementAbilities, SilksongOptions, Goal
+from .options.options import SilksongOptions, Goal, RandomizeMovementAbilities, RandomizeCombatAbilities, RandomizeOtherAbilities, RandomizeBossRewards, \
+    RandomizeEvaRewards, RandomizeMemoryLockets, RandomizeWishRewards, RandomizeCrests, RandomStartingCrest, RandomizeShopItems, RandomizePickups
 from .strings.generic_strings import GAME_NAME
 from .strings.goal_names import GoalName
 from .strings.region_names import RegionName
@@ -105,20 +106,35 @@ def create_locations(location_collector: SilksongLocationCollector,
     enabled_groups = []
     enabled_groups.append(LocationGroup.ALWAYS_ACTIVE)
     enabled_groups.append(LocationGroup.OBJECTIVE)
-    if options.shuffle_movement_abilities == ShuffleMovementAbilities.option_true:
+    if options.randomize_movement_abilities == RandomizeMovementAbilities.option_true:
         enabled_groups.append(LocationGroup.MOVEMENT_ABILITY)
-    enabled_groups.append(LocationGroup.COMBAT_ABILITY)
-    enabled_groups.append(LocationGroup.SILK_COMBAT_ABILITY)
-    enabled_groups.append(LocationGroup.SILK_OTHER_ABILITY)
-    enabled_groups.append(LocationGroup.BOSS_FIGHT)
+    if options.randomize_combat_abilities == RandomizeCombatAbilities.option_true:
+        enabled_groups.append(LocationGroup.COMBAT_ABILITY)
+        enabled_groups.append(LocationGroup.SILK_COMBAT_ABILITY)
+    if options.randomize_other_abilities == RandomizeOtherAbilities.option_true:
+        enabled_groups.append(LocationGroup.SILK_OTHER_ABILITY)
+    if options.randomize_boss_rewards == RandomizeBossRewards.option_true:
+        enabled_groups.append(LocationGroup.BOSS_FIGHT)
     enabled_groups.append(LocationGroup.SONG)
-    enabled_groups.append(LocationGroup.EVA)
-    # enabled_groups.append(LocationGroup.EVA_EXTRA_LOCATIONS)
-    enabled_groups.append(LocationGroup.MEMORY_LOCKET)
-    enabled_groups.append(LocationGroup.WISH)
-    enabled_groups.append(LocationGroup.CREST)
-    enabled_groups.append(LocationGroup.SHOP)
-    enabled_groups.append(LocationGroup.UNIQUE_PICKUPS)
+    if options.randomize_eva_rewards != RandomizeEvaRewards.option_none:
+        enabled_groups.append(LocationGroup.EVA)
+        if options.randomize_eva_rewards == RandomizeEvaRewards.option_evasanity:
+            enabled_groups.append(LocationGroup.EVA_EXTRA_LOCATIONS)
+    if options.randomize_memory_lockets == RandomizeMemoryLockets.option_true:
+        enabled_groups.append(LocationGroup.MEMORY_LOCKET)
+    if options.randomize_wish_rewards == RandomizeWishRewards.option_true:
+        enabled_groups.append(LocationGroup.WISH)
+    if options.randomize_crests == RandomizeCrests.option_true:
+        enabled_groups.append(LocationGroup.CREST)
+        enabled_groups.append(LocationGroup.CREST_UPGRADE)
+    if options.random_starting_crests == RandomStartingCrest.option_true:
+        enabled_groups.append(LocationGroup.RANDOMIZED_STARTING_CREST)
+    if options.randomize_shop_items == RandomizeShopItems.option_true:
+        enabled_groups.append(LocationGroup.SHOP)
+    if options.randomize_pickups != RandomizePickups.option_none:
+        enabled_groups.append(LocationGroup.UNIQUE_PICKUPS)
+        if options.randomize_pickups == RandomizePickups.option_all:
+            enabled_groups.append(LocationGroup.PICKUP)
 
     allowed_acts = [LocationGroup.ACT_1]
     if options.goal >= Goal.option_weaver_queen:

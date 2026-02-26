@@ -12,7 +12,17 @@ else:
     sv_option_groups = [
         OptionGroup("General", [
             options.Goal,
-            options.ShuffleMovementAbilities,
+            options.RandomizeMovementAbilities,
+            options.RandomizeCombatAbilities,
+            options.RandomizeOtherAbilities,
+            options.RandomizeBossRewards,
+            options.RandomizeEvaRewards,
+            options.RandomizeMemoryLockets,
+            options.RandomizeWishRewards,
+            options.RandomizeCrests,
+            options.RandomStartingCrest,
+            options.RandomizeShopItems,
+            options.RandomizePickups,
         ]),
         OptionGroup("Advanced Options", [
             ap_options.DeathLink,

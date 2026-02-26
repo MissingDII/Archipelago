@@ -7,7 +7,7 @@ all_random_settings = {
     "progression_balancing":                        "random",
     "accessibility":                                "random",
     options.Goal.internal_name:                     "random",
-    options.ShuffleMovementAbilities.internal_name: "random",
+    options.RandomizeMovementAbilities.internal_name: "random",
     "death_link":                                   "random",
 }
 # @formatter:on
