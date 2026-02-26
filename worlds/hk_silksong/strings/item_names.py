@@ -69,6 +69,7 @@ class ItemName:
 
     throwing_ring = "Throwing Ring"
 
+    bone_bottom_wishwall = "Bone Bottom Wishwall"
     bellhart_restoration = "Bellhart Restored"
 
 

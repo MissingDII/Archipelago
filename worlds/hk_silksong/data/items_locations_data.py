@@ -31,6 +31,7 @@ all_locations_items_pairs: List[LocationItemData] = [
     item_location("Tutorial: Breakable Walls 3", RegionName.moss_grotto, [LocationGroup.RANDOMIZED_SLASH, LocationGroup.ACT_1], ItemName.downslash, ItemClassification.useful),
     item_location("Tutorial: Mossgrub", RegionName.moss_grotto, [LocationGroup.RANDOMIZED_SLASH, LocationGroup.ACT_1], ItemName.leftslash, ItemClassification.useful),
     item_location("Tutorial: Mossmir", RegionName.moss_grotto, [LocationGroup.RANDOMIZED_SLASH, LocationGroup.ACT_1], ItemName.rightslash, ItemClassification.useful),
+    item_location("Enter Deep Docks", RegionName.deep_docks_entrance, [LocationGroup.ALWAYS_ACTIVE, LocationGroup.ACT_1], ItemName.bone_bottom_wishwall),
 
     item_location("Save: The Threadspun Town", RegionName.citadel, [LocationGroup.OBJECTIVE, LocationGroup.ACT_1]),
     item_location("Seek: The Great Citadel", RegionName.citadel, [LocationGroup.OBJECTIVE, LocationGroup.ACT_2]),
@@ -108,8 +109,8 @@ all_locations_items_pairs: List[LocationItemData] = [
     item_location("Savage Beastfly Defeated (Beast)", RegionName.chapel_of_the_beast, [LocationGroup.EVENT_ONLY, LocationGroup.ACT_1], EventName.beastfly_defeated),
     item_location("Defeat Savage Beastfly (Wish)", RegionName.far_fields_beastfly, [LocationGroup.WISH, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_1]),
 
-    item_location("Defeat Skull Tyrant (Wish)", RegionName.marrow_east, [LocationGroup.WISH, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_1]),
-    item_location("Skull Tyrant Defeated (Wish)", RegionName.marrow_east, [LocationGroup.EVENT_ONLY, LocationGroup.ACT_1], EventName.skull_tyrant_defeated),
+    item_location("Defeat Skull Tyrant (Wish)", RegionName.marrow_east_skull_tyrant, [LocationGroup.WISH, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_1]),
+    item_location("Skull Tyrant Defeated (Wish)", RegionName.marrow_east_skull_tyrant, [LocationGroup.EVENT_ONLY, LocationGroup.ACT_1], EventName.skull_tyrant_defeated),
     item_location("Defeat Skull Tyrant (Bone Bottom)", RegionName.bone_bottom_after_skull_tyrant, [LocationGroup.WISH, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_1]),
 
     item_location("Defeat Phantom", RegionName.exhaust_organ, [LocationGroup.SILK_COMBAT_ABILITY, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_1], ItemName.cross_stitch, ItemClassification.useful),
@@ -179,7 +180,7 @@ all_locations_items_pairs: List[LocationItemData] = [
     item_location("Memory locket - Mort", RegionName.far_fields_pilgrims_rest, [LocationGroup.MEMORY_LOCKET, LocationGroup.SHOP, LocationGroup.ACT_1], ItemName.memory_locket),
     # item_location("Memory locket - Grindle", RegionName.blasted_steps_grindle_shop_act_3, [LocationGroup.MEMORY_LOCKET, LocationGroup.SHOP, LocationGroup.ACT_3], ItemName.memory_locket),
     item_location("Memory locket - Greymoor Bellway", RegionName.greymoor_bellway, [LocationGroup.MEMORY_LOCKET, LocationGroup.SHOP, LocationGroup.ACT_1], ItemName.memory_locket),
-    item_location("Memory locket - Volatiles FlintBeetles", RegionName.marrow_west, [LocationGroup.MEMORY_LOCKET, LocationGroup.WISH, LocationGroup.ACT_1], ItemName.memory_locket),
+    item_location("Memory locket - Volatiles FlintBeetles", RegionName.marrow_east_flintbeetles, [LocationGroup.MEMORY_LOCKET, LocationGroup.WISH, LocationGroup.ACT_1], ItemName.memory_locket),
     # item_location("Memory locket - Survivor's Camp", RegionName.marrow_west, [LocationGroup.MEMORY_LOCKET, LocationGroup.ACT_3], ItemName.memory_locket),
     item_location("Memory locket - The Marrow", RegionName.marrow_bellway_north_alcove, [LocationGroup.MEMORY_LOCKET, LocationGroup.ACT_1], ItemName.memory_locket),
     item_location("Memory locket - Wormways", RegionName.wormways_bottom_left, [LocationGroup.MEMORY_LOCKET, LocationGroup.ACT_1], ItemName.memory_locket),

@@ -10,6 +10,7 @@ class RegionName:
     menu = region("Menu")
     moss_grotto = region("Moss Grotto")
     bone_bottom = region("Bone Bottom")
+    bone_bottom_wishwall = region("Bone Bottom Wishwall")
 
     bonegrave = region("Bonegrave")
     chapel_of_the_wanderer = region("Chapel of the Wanderer")
@@ -18,6 +19,10 @@ class RegionName:
     marrow_bellway = region("The Marrow - Bellway Station")
     marrow_east = region("The Marrow - East")
     marrow_bellway_north_alcove = region("The Marrow - North Alcove")
+
+    marrow_east_bone_bottom_wishes = region("The Marrow - East Started Bone Bottom Wishes")
+    marrow_east_flintbeetles = region("The Marrow - East - Volatile FlintBeetles")
+    marrow_east_skull_tyrant = region("The Marrow - East - Skull Tyrant")
     bone_bottom_after_skull_tyrant = region("Bone Bottom - Skull Tyrant Defeated Once")
 
     deep_docks_entrance = region("Deep Docks - Entrance")

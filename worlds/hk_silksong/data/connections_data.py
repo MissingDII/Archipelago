@@ -34,11 +34,11 @@ all_connections = [
     ConnectionData(RegionName.bone_bottom, RegionName.weavenest_atla, requirements=ItemName.needolin),
     ConnectionData(RegionName.bone_bottom, RegionName.craggler_cavern, requirements=ItemName.swift_step),
     ConnectionData(RegionName.bone_bottom, RegionName.marrow_west),
+    ConnectionData(RegionName.bone_bottom, RegionName.bone_bottom_wishwall, requirements=ItemName.bone_bottom_wishwall),
 
     ConnectionData(RegionName.craggler_cavern, RegionName.wormways_entrance), # Add Simple Key Requirement
     ConnectionData(RegionName.wormways_entrance, RegionName.wormways_bottom_left, requirements=ItemName.cling_grip),
     ConnectionData(RegionName.wormways_entrance, RegionName.weavenest_karn, requirements=ItemName.faydown_cloak),
-    ConnectionData(RegionName.wormways_entrance, RegionName.wormways_plasmium),
     ConnectionData(RegionName.wormways_entrance, RegionName.bonegrave),
 
     ConnectionData(RegionName.marrow_west, RegionName.marrow_bellway, requirements=ItemName.silkspear),
@@ -46,7 +46,10 @@ all_connections = [
     ConnectionData(RegionName.marrow_bellway, RegionName.marrow_bellway_north_alcove, requirements=ItemName.cling_grip),
     ConnectionData(RegionName.marrow_east, RegionName.deep_docks_entrance),
     ConnectionData(RegionName.marrow_east, RegionName.hunters_march, requirements=ItemName.swift_step),
-    ConnectionData(RegionName.marrow_east, RegionName.bone_bottom_after_skull_tyrant, requirements=EventName.skull_tyrant_defeated),
+    ConnectionData(RegionName.marrow_east, RegionName.marrow_east_bone_bottom_wishes, requirements=ItemName.bone_bottom_wishwall),
+    ConnectionData(RegionName.marrow_east_bone_bottom_wishes, RegionName.marrow_east_skull_tyrant),
+    ConnectionData(RegionName.marrow_east_bone_bottom_wishes, RegionName.marrow_east_flintbeetles),
+    ConnectionData(RegionName.marrow_east_skull_tyrant, RegionName.bone_bottom_after_skull_tyrant, requirements=EventName.skull_tyrant_defeated),
 
     ConnectionData(RegionName.hunters_march, RegionName.chapel_of_the_beast, requirements=ItemName.drifters_cloak),
     ConnectionData(RegionName.deep_docks_entrance, RegionName.deep_docks_swift_step),
@@ -166,6 +169,7 @@ all_connections = [
     ConnectionData(RegionName.choral_chambers_act_3, RegionName.craw_lake_act_3),
     ConnectionData(RegionName.craw_lake_act_3, RegionName.court_of_craws, requirements=ItemName.craw_summons),
     ConnectionData(RegionName.blasted_steps_act_3, RegionName.moss_grotto_act_3),
+    ConnectionData(RegionName.blasted_steps_act_3, RegionName.wormways_plasmium),
     ConnectionData(RegionName.moss_grotto_act_3, RegionName.ruined_chapel),
 
     ConnectionData(RegionName.weavenest_atla, RegionName.eva_0),
