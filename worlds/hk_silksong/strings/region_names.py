@@ -135,6 +135,7 @@ class RegionName:
     songclave = region("Choral Chambers - Songclave")
 
     whiteward = region("Whiteward")
+    whiteward_ceiling = region("Whiteward - Ceiling")
     whispering_vaults = region("Whispering Vaults")
     whispering_vaults_east = region("Whispering Vaults - East")
     memorium = region("Memorium")

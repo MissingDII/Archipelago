@@ -134,6 +134,7 @@ all_connections = [
     ConnectionData(RegionName.choral_chambers_above_bellway, RegionName.choral_chambers_bellway),
     ConnectionData(RegionName.choral_chambers_bellway, RegionName.choral_chambers),
     ConnectionData(RegionName.choral_chambers, RegionName.whiteward),
+    ConnectionData(RegionName.whiteward, RegionName.whiteward_ceiling, requirements=[ItemName.cling_grip, ItemName.clawline]),
     ConnectionData(RegionName.whiteward, RegionName.underworks_cauldron),
     ConnectionData(RegionName.choral_chambers, RegionName.cogwork_core),
     ConnectionData(RegionName.choral_chambers, RegionName.memorium, requirements=ItemName.faydown_cloak),
