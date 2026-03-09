@@ -30,6 +30,7 @@ class LocationGroup(enum.Enum):
     BOSS_FIGHT = enum.auto()
     CREST_UPGRADE = enum.auto
     EVA = enum.auto()
+    EVA_REWARD = enum.auto()
     EVA_EXTRA_LOCATIONS = enum.auto()
     MEMORY_LOCKET = enum.auto()
     SHOP = enum.auto()
@@ -117,7 +118,7 @@ def create_locations(location_collector: SilksongLocationCollector,
         enabled_groups.append(LocationGroup.BOSS_FIGHT)
     enabled_groups.append(LocationGroup.SONG)
     if options.randomize_eva_rewards != RandomizeEvaRewards.option_none:
-        enabled_groups.append(LocationGroup.EVA)
+        enabled_groups.append(LocationGroup.EVA_REWARD)
         if options.randomize_eva_rewards == RandomizeEvaRewards.option_evasanity:
             enabled_groups.append(LocationGroup.EVA_EXTRA_LOCATIONS)
     if options.randomize_memory_lockets == RandomizeMemoryLockets.option_true:
