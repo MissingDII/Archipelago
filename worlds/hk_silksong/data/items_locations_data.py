@@ -31,7 +31,7 @@ all_locations_items_pairs: List[LocationItemData] = [
     item_location("Tutorial: Breakable Walls 3", RegionName.moss_grotto, [LocationGroup.RANDOMIZED_SLASH, LocationGroup.ACT_1], ItemName.downslash, ItemClassification.useful),
     item_location("Tutorial: Mossgrub", RegionName.moss_grotto, [LocationGroup.RANDOMIZED_SLASH, LocationGroup.ACT_1], ItemName.leftslash, ItemClassification.useful),
     item_location("Tutorial: Mossmir", RegionName.moss_grotto, [LocationGroup.RANDOMIZED_SLASH, LocationGroup.ACT_1], ItemName.rightslash, ItemClassification.useful),
-    item_location("Enter Deep Docks", RegionName.deep_docks_entrance, [LocationGroup.ALWAYS_ACTIVE, LocationGroup.ACT_1], ItemName.bone_bottom_wishwall),
+    item_location("Enter Deep Docks", RegionName.deep_docks_entrance, [LocationGroup.EVENT_ONLY, LocationGroup.ACT_1], ItemName.bone_bottom_wishwall),
 
     item_location("Save: The Threadspun Town", RegionName.citadel, [LocationGroup.OBJECTIVE, LocationGroup.ACT_1]),
     item_location("Seek: The Great Citadel", RegionName.citadel, [LocationGroup.OBJECTIVE, LocationGroup.ACT_2]),
