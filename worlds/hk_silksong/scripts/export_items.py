@@ -21,6 +21,6 @@ if __name__ == "__main__":
                 "classification": item_data.classification.name
             }
             for item_name, item_data in item_data_by_name.items()
-            if item_data.id is not None
+            if item_data.id is not None and item_data.id >= 0
         }
         json.dump({"items": items}, f)

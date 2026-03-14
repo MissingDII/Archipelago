@@ -28,6 +28,6 @@ if __name__ == "__main__":
                 "groups": [group.name for group in location_data.groups],
             }
             for location_name, location_data in location_data_by_name.items()
-            if location_data.id is not None
+            if location_data.id is not None and location_data.id >= 0
         })
         json.dump({"locations": locations}, f)

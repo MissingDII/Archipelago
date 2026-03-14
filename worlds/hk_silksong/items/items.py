@@ -17,20 +17,33 @@ items_by_id: Dict[int, str] = dict()
 items_by_name: Dict[str, int] = dict()
 
 
+def generate_id(name: str) -> int:
+    id = 0
+    for char in name:
+        id = id * 26
+        id += (ord(char.lower()) - 96)
+    id = id % 1125899906842624
+    return id
+
+
 class ItemData:
     id: int
     name: str
     classification: ItemClassification
 
-    def __init__(self, name: str, classification: ItemClassification = ItemClassification.progression):
-        if name in items_by_name:
-            self.id = items_by_name[name]
+    def __init__(self, name: str, classification: ItemClassification = ItemClassification.progression, event_only: bool = False):
+        if event_only:
+            self.id = -1
         else:
-            self.id = len(items_by_name) + 1
+            if name in items_by_name:
+                self.id = items_by_name[name]
+            else:
+                self.id = generate_id(name)
         self.name = name
         self.classification = classification
-        items_by_name[self.name] = self.id
-        items_by_id[self.id] = self.name
+        if not event_only:
+            items_by_name[self.name] = self.id
+            items_by_id[self.id] = self.name
         item_data_by_name[self.name] = self
 
 
@@ -42,18 +55,17 @@ class SilksongItemFactory(Protocol):
         raise NotImplementedError
 
 
-orphan_items = [
-    ItemData("Progressive Hunter Crest", ItemClassification.useful),
-    ItemData("Bind", ItemClassification.useful),
-    ItemData("Downslash", ItemClassification.useful),
-    ItemData("Upslash", ItemClassification.useful),
-    ItemData("Leftslash", ItemClassification.useful),
-    ItemData("Rightslash", ItemClassification.useful),
-]
-
 filler_items = [
+    ItemData("10 Rosaries", ItemClassification.filler),
+    ItemData("10 Shell Shards", ItemClassification.filler),
+    ItemData("25 Rosaries", ItemClassification.filler),
+    ItemData("25 Shell Shards", ItemClassification.filler),
     ItemData("50 Rosaries", ItemClassification.filler),
     ItemData("50 Shell Shards", ItemClassification.filler),
+    ItemData("100 Rosaries", ItemClassification.filler),
+    ItemData("100 Shell Shards", ItemClassification.filler),
+    ItemData("150 Shell Shards", ItemClassification.filler),
+    ItemData("200 Shell Shards", ItemClassification.filler),
 ]
 
 

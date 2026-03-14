@@ -21,7 +21,8 @@ class LocationItemData:
 
 
 def item_location(location: str, region: str, groups: List[LocationGroup], item: None | str = None, classification: ItemClassification = ItemClassification.progression):
-    return LocationItemData(LocationData(location, region, groups), None if item is None else ItemData(item, classification))
+    event_only = LocationGroup.EVENT_ONLY in groups
+    return LocationItemData(LocationData(location, region, groups, event_only), None if item is None else ItemData(item, classification, event_only))
 
 
 all_locations_items_pairs: List[LocationItemData] = [

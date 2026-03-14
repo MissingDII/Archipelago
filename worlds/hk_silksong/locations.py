@@ -59,6 +59,15 @@ locations_by_name: Dict[str, int] = dict()
 location_names_by_groups: Dict[LocationGroup, List[str]] = dict()
 
 
+def generate_id(name: str) -> int:
+    id = 0
+    for char in name:
+        id = id * 26
+        id += (ord(char.lower()) - 96)
+    id = id % 1125899906842624
+    return id
+
+
 class LocationData:
     id: Optional[int]
     name: str
@@ -71,7 +80,7 @@ class LocationData:
         elif name in locations_by_name:
             self.id = locations_by_name[name]
         else:
-            self.id = len(locations_by_name) + 1
+            self.id = generate_id(name)
         self.name = name
         self.region = region
         self.groups = groups
