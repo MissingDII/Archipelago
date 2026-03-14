@@ -30,7 +30,12 @@ class ItemName:
     farsight = "Farsight"
     everbloom = "Everbloom"
 
-    grand_gate_bell = "Grand Gate Bell"
+    grand_gate_bell_marrow = "Grand Gate - Marrow Bell"
+    grand_gate_bell_deep_docks = "Grand Gate - Deep Docks Bell"
+    grand_gate_bell_greymoor = "Grand Gate - Greymoor Bell"
+    grand_gate_bell_bellhart = "Grand Gate - Bellhart Bell"
+    grand_gate_bell_shellwood = "Grand Gate - Shellwood Bell"
+
     conductor_melody = "Conductor's Melody"
     vaultkeeper_melody = "Vaultkeeper's Melody"
     architect_melody = "Architect's Melody"

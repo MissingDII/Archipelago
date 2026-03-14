@@ -121,7 +121,7 @@ all_connections = [
     ConnectionData(RegionName.shellwood, RegionName.blasted_steps, requirements=ItemName.cling_grip),
     ConnectionData(RegionName.blasted_steps, RegionName.sands_of_karak, requirements=ItemName.clawline),
     ConnectionData(RegionName.blasted_steps, RegionName.blasted_steps_pinstress, requirements=[ItemName.swift_step, ItemName.cling_grip, ItemName.drifters_cloak]),
-    ConnectionData(RegionName.blasted_steps, RegionName.blasted_steps_grand_gate, requirements={ItemName.swift_step: 1, ItemName.cling_grip: 1, ItemName.drifters_cloak: 1, ItemName.grand_gate_bell: 5}),
+    ConnectionData(RegionName.blasted_steps, RegionName.blasted_steps_grand_gate, requirements={ItemName.swift_step: 1, ItemName.cling_grip: 1, ItemName.drifters_cloak: 1, ItemName.grand_gate_bell_marrow: 1, ItemName.grand_gate_bell_deep_docks: 1, ItemName.grand_gate_bell_greymoor: 1, ItemName.grand_gate_bell_bellhart: 1, ItemName.grand_gate_bell_shellwood: 1}),
     ConnectionData(RegionName.blasted_steps_grand_gate, RegionName.grand_gate, requirements=[EventName.last_judge_defeated]),
     ConnectionData(RegionName.grand_gate, RegionName.underworks_act_2),
     ConnectionData(RegionName.exhaust_organ, RegionName.underworks_act_2, requirements=[EventName.phantom_defeated]),
