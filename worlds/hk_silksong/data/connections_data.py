@@ -153,6 +153,7 @@ all_connections = [
     ConnectionData(RegionName.the_slab_shortcut_cave, RegionName.the_slab_first_sinner_cave, requirements=ItemName.key_of_heretic),
     ConnectionData(RegionName.deep_docks_diving_bell, RegionName.abyss, requirements=ItemName.act_3),
     ConnectionData(RegionName.abyss, RegionName.weavenest_absolom),
+    ConnectionData(RegionName.abyss, RegionName.abyss_with_everbloom, requirements=ItemName.everbloom),
 
     ConnectionData(RegionName.choral_chambers, RegionName.citadel),
     ConnectionData(RegionName.grand_gate, RegionName.citadel),

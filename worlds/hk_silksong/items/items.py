@@ -68,6 +68,22 @@ filler_items = [
     ItemData("200 Shell Shards", ItemClassification.filler),
 ]
 
+trap_items = [
+    ItemData("Go To Jail Trap", ItemClassification.trap),
+    ItemData("Naked Trap", ItemClassification.trap),
+    ItemData("Frozen Trap", ItemClassification.trap),
+    ItemData("Cursed Trap", ItemClassification.trap),
+    ItemData("Invert Controls Trap", ItemClassification.trap),
+    ItemData("Maggots Trap", ItemClassification.trap),
+    ItemData("Headache Trap", ItemClassification.trap),
+    ItemData("Silk Syphon Trap", ItemClassification.trap),
+    ItemData("Shaw Trap", ItemClassification.trap),
+    ItemData("Encumbered Trap", ItemClassification.trap),
+    ItemData("Swarm Trap", ItemClassification.trap),
+    ItemData("Silk Soar Trap", ItemClassification.trap),
+    ItemData("Void Corruption Trap", ItemClassification.trap),
+]
+
 
 def create_items(item_factory: SilksongItemFactory, world_options: SilksongOptions, locations_items_pairs, enabled_locations: list[str],
                  excluded_items: list[str], random: Random) -> List[Item]:

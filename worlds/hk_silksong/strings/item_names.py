@@ -58,7 +58,8 @@ class ItemName:
     crest_witch = "Witch Crest"
     crest_architect = "Architect Crest"
     crest_shaman = "Shaman Crest"
-    vesticrest = "Progressive Vesticrest"
+    vesticrest_blue = "Blue Vesticrest"
+    vesticrest_yellow = "Yellow Vesticrest"
     crest_cursed = "Cursed Crest"
 
     architect_key = "Architect Key"

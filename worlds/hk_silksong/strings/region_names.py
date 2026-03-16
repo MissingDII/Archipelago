@@ -144,6 +144,7 @@ class RegionName:
     verdania = region("Verdania")
     abyss = region("The Abyss")
     weavenest_absolom = region("Weavenest Absolom")
+    abyss_with_everbloom = region("The Abyss With Everbloom")
 
     cradle_act_3 = region("The Cradle (Act 3)")
     escaped_cradle_act_3 = region("Escaped Cradle (Act 3)")
