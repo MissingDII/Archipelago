@@ -28,7 +28,7 @@ class LocationGroup(enum.Enum):
     SILK_OTHER_ABILITY = enum.auto()
     COMBAT_ABILITY = enum.auto()
     BOSS_FIGHT = enum.auto()
-    CREST_UPGRADE = enum.auto
+    CREST_UPGRADE = enum.auto()
     EVA = enum.auto()
     EVA_REWARD = enum.auto()
     EVA_EXTRA_LOCATIONS = enum.auto()
