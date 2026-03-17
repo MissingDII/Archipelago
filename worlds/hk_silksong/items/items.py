@@ -116,7 +116,7 @@ def choose_items_based_on_enabled_locations(world_options: SilksongOptions, loca
 def choose_fillers_and_traps(world_options: SilksongOptions, number_filler: int, random: Random) -> List[str]:
     valid_filler_names = []
     valid_filler_names.extend([item.name for item in filler_items])
-    # valid_filler_names.extend(item_names_by_groups[ItemGroup.TRAP])
+    valid_filler_names.extend([item.name for item in trap_items])
 
     chosen_filler = random.choices(valid_filler_names, k=number_filler)
 
