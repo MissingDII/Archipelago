@@ -68,8 +68,8 @@ all_locations_items_pairs: List[LocationItemData] = [
 
     item_location("Learn Needle Strike", RegionName.blasted_steps_pinstress, [LocationGroup.COMBAT_ABILITY, LocationGroup.ACT_1], ItemName.needle_strike),
 
-    # item_location("Seek: The Old Hearts", RegionName.ruined_chapel, [LocationGroup.OBJECTIVE, LocationGroup.ACT_3]),
-    # item_location("Complete Red Memory", RegionName.ruined_chapel, [LocationGroup.SILK_OTHER_ABILITY, LocationGroup.OBJECTIVE, LocationGroup.ACT_3], ItemName.everbloom, ItemClassification.progression),
+    item_location("Seek: The Old Hearts", RegionName.ruined_chapel, [LocationGroup.OBJECTIVE, LocationGroup.ACT_3]),
+    item_location("Complete Red Memory", RegionName.ruined_chapel, [LocationGroup.SILK_OTHER_ABILITY, LocationGroup.OBJECTIVE, LocationGroup.ACT_3], ItemName.everbloom, ItemClassification.progression),
 
     # item_location("Pickup Farsight", RegionName.weavenest_absolom, [LocationGroup.SILK_OTHER_ABILITY, LocationGroup.UNIQUE_PICKUPS, LocationGroup.ACT_3], ItemName.farsight, ItemClassification.useful),
 
