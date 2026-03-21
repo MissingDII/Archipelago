@@ -26,8 +26,8 @@ def item_location(location: str, region: str, groups: List[LocationGroup], item:
 
 
 all_locations_items_pairs: List[LocationItemData] = [
-    item_location("Bound the Needle", RegionName.moss_grotto, [LocationGroup.RANDOMIZED_BIND, LocationGroup.ACT_1], ItemName.bind, ItemClassification.useful),
-    item_location("Tutorial: Breakable Walls 1", RegionName.moss_grotto, [LocationGroup.RANDOMIZED_STARTING_CREST, LocationGroup.ACT_1], ItemName.crest_hunter_progressive),
+    item_location("Bound the Needle", RegionName.moss_grotto, [LocationGroup.RANDOMIZED_BIND, LocationGroup.ACT_1], ItemName.crest_hunter_progressive),
+    item_location("Tutorial: Breakable Walls 1", RegionName.moss_grotto, [LocationGroup.RANDOMIZED_STARTING_CREST, LocationGroup.ACT_1], ItemName.bind, ItemClassification.useful),
     item_location("Tutorial: Breakable Walls 2", RegionName.moss_grotto, [LocationGroup.RANDOMIZED_SLASH, LocationGroup.ACT_1], ItemName.upslash, ItemClassification.useful),
     item_location("Tutorial: Breakable Walls 3", RegionName.moss_grotto, [LocationGroup.RANDOMIZED_SLASH, LocationGroup.ACT_1], ItemName.downslash, ItemClassification.useful),
     item_location("Tutorial: Mossgrub", RegionName.moss_grotto, [LocationGroup.RANDOMIZED_SLASH, LocationGroup.ACT_1], ItemName.leftslash, ItemClassification.useful),
