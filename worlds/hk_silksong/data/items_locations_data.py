@@ -59,7 +59,7 @@ all_locations_items_pairs: List[LocationItemData] = [
     item_location("Weaver Spire: Sharpdart", RegionName.weavenest_karn, [LocationGroup.SILK_COMBAT_ABILITY, LocationGroup.ACT_2], ItemName.sharpdart, ItemClassification.useful),
     item_location("Acquire Pale Nails", RegionName.cradle, [LocationGroup.SILK_COMBAT_ABILITY, LocationGroup.ACT_3], ItemName.pale_nails, ItemClassification.useful),
 
-    item_location("Hunt Wish: Flexile Spines", RegionName.far_fields_seamstress, [LocationGroup.MOVEMENT_ABILITY, LocationGroup.ACT_1], ItemName.drifters_cloak),
+    item_location("Hunt Wish: Flexile Spines", RegionName.far_fields_seamstress, [LocationGroup.MOVEMENT_ABILITY, LocationGroup.WISH, LocationGroup.ACT_1], ItemName.drifters_cloak),
     item_location("Weaver Spire: Cling Grip", RegionName.shellwood, [LocationGroup.MOVEMENT_ABILITY, LocationGroup.ACT_1], ItemName.cling_grip),
     item_location("Weaver Spire: Swift Step", RegionName.deep_docks_swift_step, [LocationGroup.MOVEMENT_ABILITY, LocationGroup.ACT_1], ItemName.swift_step),
     item_location("Acquire Faydown Cloak", RegionName.mount_fay, [LocationGroup.MOVEMENT_ABILITY, LocationGroup.ACT_2], ItemName.faydown_cloak),
