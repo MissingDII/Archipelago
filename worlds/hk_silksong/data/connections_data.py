@@ -47,7 +47,7 @@ all_connections = [
     ConnectionData(RegionName.marrow_east, RegionName.deep_docks_entrance),
     ConnectionData(RegionName.marrow_east, RegionName.hunters_march, requirements=ItemName.swift_step),
     ConnectionData(RegionName.marrow_east, RegionName.marrow_east_bone_bottom_wishes, requirements=ItemName.bone_bottom_wishwall),
-    ConnectionData(RegionName.marrow_east_bone_bottom_wishes, RegionName.marrow_east_skull_tyrant),
+    ConnectionData(RegionName.marrow_east_bone_bottom_wishes, RegionName.marrow_east_skull_tyrant, requirements=ItemName.cling_grip),
     ConnectionData(RegionName.marrow_east_bone_bottom_wishes, RegionName.marrow_east_flintbeetles),
     ConnectionData(RegionName.marrow_east_skull_tyrant, RegionName.bone_bottom_after_skull_tyrant, requirements=EventName.skull_tyrant_defeated),
 
