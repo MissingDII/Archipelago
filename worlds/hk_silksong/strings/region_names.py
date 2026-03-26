@@ -72,6 +72,7 @@ class RegionName:
 
     bellhart = region("Bellhart")
     shellwood = region("Shellwood")
+    shellwood_entrance = region("Shellwood - Entrance")
     bellhart_upper = region("Upper Bellhart")
     bellhart_saved = region("Saved Bellhart")
     pinmaster_home = region("Bellhart - Pinmaster Home")

@@ -120,6 +120,12 @@ class RandomizeLostFleas(DefaultOnToggle):
     display_name = "Randomize Lost Fleas"
 
 
+class RandomizeBellways(DefaultOnToggle):
+    """Shuffles access to the Bell Beast in various Bellways"""
+    internal_name = "randomize_bellways"
+    display_name = "Randomize Bellways"
+
+
 @dataclass
 class SilksongOptions(PerGameCommonOptions):
     goal: Goal
@@ -135,4 +141,5 @@ class SilksongOptions(PerGameCommonOptions):
     randomize_shop_items: RandomizeShopItems
     randomize_pickups: RandomizePickups
     randomize_lost_fleas: RandomizeLostFleas
+    randomize_bellways: RandomizeBellways
     death_link: DeathLink

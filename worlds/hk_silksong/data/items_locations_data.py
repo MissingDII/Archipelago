@@ -75,7 +75,7 @@ all_locations_items_pairs: List[LocationItemData] = [
 
     item_location("Defeat Moss Mother", RegionName.moss_grotto, [LocationGroup.BOSS_FIGHT, LocationGroup.ACT_1]),
     item_location("Defeat Double Moss Mother", RegionName.weavenest_atla_moss_mothers, [LocationGroup.BOSS_FIGHT, LocationGroup.ACT_1]),#  ItemName.weavelight),
-    item_location("Defeat Bell Beast", RegionName.marrow_bellway, [LocationGroup.SILK_OTHER_ABILITY, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_1], ItemName.silk_heart),
+    item_location("Defeat Bell Beast", RegionName.marrow_bell_beast_fight, [LocationGroup.SILK_OTHER_ABILITY, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_1], ItemName.silk_heart),
     item_location("Defeat Lace", RegionName.deep_docks_lace, [LocationGroup.BOSS_FIGHT, LocationGroup.ACT_1]),
     item_location("Defeat Fourth Chorus", RegionName.far_fields_fourth_chorus, [LocationGroup.BOSS_FIGHT, LocationGroup.ACT_1]),
     item_location("Defeat Moorwing", RegionName.greymoor_spires, [LocationGroup.BOSS_FIGHT, LocationGroup.ACT_1]),
@@ -265,6 +265,19 @@ all_locations_items_pairs: List[LocationItemData] = [
     item_location("Visit Blasted Steps", RegionName.blasted_steps, [LocationGroup.EVENT_ONLY, LocationGroup.ACT_1], EventName.visited_blasted_steps),
     item_location("Visit Sinner's Road", RegionName.sinners_road, [LocationGroup.EVENT_ONLY, LocationGroup.ACT_1], EventName.visited_sinners_road),
     item_location("Visit Citadel", RegionName.citadel, [LocationGroup.EVENT_ONLY, LocationGroup.ACT_2], EventName.visited_citadel),
+
+    item_location("Unlock Marrow Bell Beast", RegionName.marrow_bellway, [LocationGroup.BELLWAY, LocationGroup.ACT_1], ItemName.the_marrow_bell_beast),
+    item_location("Unlock Bone Bottom Bell Beast", RegionName.bone_bottom_bellway, [LocationGroup.BELLWAY, LocationGroup.ACT_1], ItemName.bone_bottom_bell_beast),
+    item_location("Unlock Bellhart Bell Beast", RegionName.bellhart_bellway, [LocationGroup.BELLWAY, LocationGroup.ACT_1], ItemName.bellhart_bell_beast),
+    item_location("Unlock Bilewater Bell Beast", RegionName.bilewater_bellway, [LocationGroup.BELLWAY, LocationGroup.ACT_1], ItemName.bilewater_bell_beast),
+    item_location("Unlock Blasted Steps Bell Beast", RegionName.blasted_steps_bellway, [LocationGroup.BELLWAY, LocationGroup.ACT_1], ItemName.blasted_steps_bell_beast),
+    item_location("Unlock Deep Docks Bell Beast", RegionName.deep_docks_bellway, [LocationGroup.BELLWAY, LocationGroup.ACT_1], ItemName.deep_docks_bell_beast),
+    item_location("Unlock Far Fields Bell Beast", RegionName.far_fields_bellway, [LocationGroup.BELLWAY, LocationGroup.ACT_1], ItemName.far_fields_bell_beast),
+    item_location("Unlock Greymoor Bell Beast", RegionName.greymoor_bellway, [LocationGroup.BELLWAY, LocationGroup.ACT_1], ItemName.greymoor_bell_beast),
+    item_location("Unlock Shellwood Bell Beast", RegionName.shellwood_bellway, [LocationGroup.BELLWAY, LocationGroup.ACT_1], ItemName.shellwood_bell_beast),
+    item_location("Unlock The Slab Bell Beast", RegionName.the_slab_bellway, [LocationGroup.BELLWAY, LocationGroup.ACT_1], ItemName.the_slab_bell_beast),
+    item_location("Unlock Choral Chambers Bell Beast", RegionName.choral_chambers_bellway, [LocationGroup.BELLWAY, LocationGroup.ACT_2], ItemName.choral_chambers_bell_beast),
+    item_location("Unlock Putrified Ducts Bell Beast", RegionName.putrified_ducts_bellway, [LocationGroup.BELLWAY, LocationGroup.ACT_2], ItemName.putrified_ducts_bell_beast),
 ]
 
 locations_items_pairs_by_name = {pair.location_name: pair for pair in all_locations_items_pairs}

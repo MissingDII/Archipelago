@@ -40,7 +40,7 @@ all_connections = [
     ConnectionData(RegionName.bonegrave, RegionName.chapel_of_the_wanderer),
     ConnectionData(RegionName.bone_bottom, RegionName.craggler_cavern, requirements=[(ItemName.swift_step, ItemName.faydown_cloak, ItemName.clawline)]),
     ConnectionData(RegionName.bone_bottom, RegionName.marrow_west),
-    ConnectionData(RegionName.bone_bottom, RegionName.bone_bottom_bellway),
+    ConnectionData(RegionName.bone_bottom, RegionName.bone_bottom_bellway, requirements=[ItemName.bone_bottom_bell_beast, ItemName.the_marrow_bell_beast]),
     ConnectionData(RegionName.bone_bottom, RegionName.bone_bottom_wishwall, requirements=ItemName.bone_bottom_wishwall),
 
     ConnectionData(RegionName.craggler_cavern, RegionName.wormways_entrance), # Add Simple Key Requirement
@@ -100,13 +100,15 @@ all_connections = [
     ConnectionData(RegionName.sinners_road, RegionName.bilewater),
     ConnectionData(RegionName.sinners_road, RegionName.sinners_road_chef_lugoli, requirements=ItemName.faydown_cloak),
 
-    ConnectionData(RegionName.bilewater, RegionName.bilewater_bellway),
+    one_way_connection(RegionName.bilewater, RegionName.bilewater_bellway),
+    one_way_connection(RegionName.bilewater_bellway, RegionName.bilewater, requirements=[(ItemName.faydown_cloak, ItemName.silk_soar)]),
     ConnectionData(RegionName.bilewater_bellway, RegionName.mist),
     ConnectionData(RegionName.bilewater, RegionName.bilewater_upper, requirements=ItemName.faydown_cloak),
     ConnectionData(RegionName.mist, RegionName.exhaust_organ, requirements=ItemName.needolin),
 
-    ConnectionData(RegionName.bellhart, RegionName.shellwood),
+    ConnectionData(RegionName.bellhart, RegionName.shellwood_entrance),
 
+    ConnectionData(RegionName.shellwood_entrance, RegionName.shellwood, requirements=[(ItemName.swift_step, ItemName.clawline)]),
     ConnectionData(RegionName.shellwood, RegionName.bellhart_upper, requirements=ItemName.cling_grip),
     ConnectionData(RegionName.shellwood, RegionName.greyroot),
     one_way_connection(RegionName.shellwood, RegionName.shellwood_bellway, requirements=ItemName.cling_grip),
@@ -121,7 +123,7 @@ all_connections = [
     ConnectionData(RegionName.bellhart_saved, RegionName.bellhart_wishwall),
     ConnectionData(RegionName.bellhart_saved, RegionName.bellhart_bellway),
     ConnectionData(RegionName.bellhart_bellway, RegionName.bellhart_lower),
-    ConnectionData(RegionName.bellhart_lower, RegionName.marrow_east),
+    one_way_connection(RegionName.bellhart_lower, RegionName.marrow_east),
     one_way_connection(RegionName.bellhart_wishwall, RegionName.wish_shellwood_missing_courrier, requirements=[ItemName.cling_grip]),
     one_way_connection(RegionName.bellhart_wishwall, RegionName.bellhart_wishwall_after_tipp, requirements={ItemName.tipp_and_pill: 1}),
     one_way_connection(RegionName.bellhart_wishwall_after_tipp, RegionName.wish_sinners_road_missing_brother, requirements={ItemName.tipp_and_pill: 1}),
@@ -269,7 +271,7 @@ all_connections = [
     ConnectionData(RegionName.bellhart_bellway, RegionName.bellway_travel, requirements=ItemName.bellhart_bell_beast),
     ConnectionData(RegionName.bilewater_bellway, RegionName.bellway_travel, requirements=ItemName.bilewater_bell_beast),
     ConnectionData(RegionName.blasted_steps_bellway, RegionName.bellway_travel, requirements=ItemName.blasted_steps_bell_beast),
-    ConnectionData(RegionName.bone_bottom_bellway, RegionName.bellway_travel, requirements=ItemName.bone_bottom_bell_beast),
+    ConnectionData(RegionName.bone_bottom_bellway, RegionName.bellway_travel, requirements=[ItemName.bone_bottom_bell_beast, ItemName.the_marrow_bell_beast]),
     ConnectionData(RegionName.deep_docks_bellway, RegionName.bellway_travel, requirements=ItemName.deep_docks_bell_beast),
     ConnectionData(RegionName.far_fields_bellway, RegionName.bellway_travel, requirements=ItemName.far_fields_bell_beast),
     ConnectionData(RegionName.choral_chambers_bellway, RegionName.bellway_travel, requirements=ItemName.choral_chambers_bell_beast),
