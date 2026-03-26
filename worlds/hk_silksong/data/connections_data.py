@@ -8,9 +8,9 @@ class ConnectionData:
     origin: str
     destination: str
     entrance: str
-    requirements: Optional[Dict[str, int]]
+    requirements: Optional[Dict[str | tuple[str], int]]
 
-    def __init__(self, origin: str, destination: str, entrance: str = "", requirements: None | List[str] | str | Dict[str, int] = None):
+    def __init__(self, origin: str, destination: str, entrance: str = "", requirements: None | List[str | tuple[str, ...]] | str | Dict[str, int] = None):
         self.origin = origin
         self.destination = destination
         self.entrance = entrance if entrance else ""
@@ -50,8 +50,8 @@ all_connections = [
     ConnectionData(RegionName.marrow_east, RegionName.hunters_march, requirements=ItemName.swift_step),
     ConnectionData(RegionName.marrow_east, RegionName.marrow_east_bone_bottom_wishes, requirements=ItemName.bone_bottom_wishwall),
     ConnectionData(RegionName.marrow_east_bone_bottom_wishes, RegionName.marrow_east_skull_tyrant, requirements=ItemName.cling_grip),
-    ConnectionData(RegionName.marrow_east_bone_bottom_wishes, RegionName.marrow_east_flintbeetles),
-    ConnectionData(RegionName.marrow_east_skull_tyrant, RegionName.bone_bottom_after_skull_tyrant, requirements=EventName.skull_tyrant_defeated),
+    ConnectionData(RegionName.marrow_east_bone_bottom_wishes, RegionName.marrow_east_flintbeetles, requirements=[(EventName.visited_shellwood, EventName.visited_greymoor,)]),
+    ConnectionData(RegionName.marrow_east_skull_tyrant, RegionName.bone_bottom_after_skull_tyrant, requirements=[EventName.skull_tyrant_defeated, (EventName.visited_blasted_steps, EventName.visited_sinners_road, EventName.visited_citadel)]),
 
     ConnectionData(RegionName.hunters_march, RegionName.chapel_of_the_beast, requirements=ItemName.drifters_cloak),
     ConnectionData(RegionName.deep_docks_entrance, RegionName.deep_docks_swift_step),
@@ -116,7 +116,7 @@ all_connections = [
     ConnectionData(RegionName.bellhart_wishwall_after_needle, RegionName.wish_pinmaster_oil, requirements=ItemName.pale_oil),  # TODO: Write logic for this
     ConnectionData(RegionName.bellhart_wishwall, RegionName.bellhart_wishwall_all_maps_faydown_and_two_melodies),  # TODO: Write logic for this
     ConnectionData(RegionName.bellhart_wishwall_all_maps_faydown_and_two_melodies, RegionName.trail_end, requirements=[ItemName.cling_grip, ItemName.faydown_cloak]),
-    ConnectionData(RegionName.bellhart_wishwall, RegionName.bellhart_wishwall_after_beastfy, requirements=[EventName.beastfly_defeated, EventName.fourth_chorus_defeat, EventName.songclave_discovered]), # Not sure if beast crest, or just killing first beastfly here
+    ConnectionData(RegionName.bellhart_wishwall, RegionName.bellhart_wishwall_after_beastfy, requirements=[EventName.beastfly_defeated, EventName.fourth_chorus_defeat, EventName.visited_songclave]), # Not sure if beast crest, or just killing first beastfly here
     ConnectionData(RegionName.bellhart_wishwall, RegionName.bellhart_wishwall_bellhart_restored, requirements=[ItemName.bellhart_restoration, ItemName.clawline]), # TODO: Add one needle upgrade to this
 
     ConnectionData(RegionName.bellhart_wishwall, RegionName.bellhart_wishwall_act_3, requirements=[ItemName.act_3]),
@@ -208,6 +208,7 @@ all_connections = [
     ConnectionData(RegionName.blasted_steps_act_3, RegionName.wormways_plasmium),
     ConnectionData(RegionName.moss_grotto_act_3, RegionName.ruined_chapel),
 
+    ConnectionData(RegionName.weavenest_atla, RegionName.weavenest_atla_moss_mothers, requirements=[ItemName.swift_step]),
     ConnectionData(RegionName.weavenest_atla, RegionName.eva_0),
     ConnectionData(RegionName.eva_0, RegionName.eva_1, requirements={ItemName.crest_slots: 1}),
     ConnectionData(RegionName.eva_1, RegionName.eva_2, requirements={ItemName.crest_slots: 2}),

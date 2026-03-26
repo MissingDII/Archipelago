@@ -86,6 +86,13 @@ class ItemName:
 
 
 class EventName:
+    visited_greymoor = "Visited Greymoor"
+    visited_shellwood = "Visited Shellwood"
+    visited_blasted_steps = "Visited Blasted Steps"
+    visited_sinners_road = "Visited Sinner's Road"
+    visited_citadel = "Visited Citadel"
+    visited_songclave = "Visited Songclave"
+
     widow_defeated = "Widow Defeated"
     phantom_defeated = "Phantom Defeated"
     last_judge_defeated = "Last Judge Defeated"
@@ -93,5 +100,3 @@ class EventName:
     skull_tyrant_defeated = "Skull Tyrant Defeated"
     beastfly_defeated = "Beastfly Defeated"
     fourth_chorus_defeat = "Fourth Chorus Defeated"
-
-    songclave_discovered = "Songclave Discovered"

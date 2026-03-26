@@ -105,7 +105,9 @@ class RegionName:
     blasted_steps_bellway = region("Blasted Steps - Bellway")
     blasted_steps_grindle = region("Blasted Steps - Grindle Hiding Spot")
     blasted_steps_dice_pilgrim = region("Blasted Steps - Dice Pilgrim Cave")
+
     weavenest_atla = region("Weavenest Atla")
+    weavenest_atla_moss_mothers = region("Weavenest Atla - Moss Mothers")
 
     craggler_cavern = region("Craggler Cavern")
     wormways_entrance = region("Wormways - Entrance")

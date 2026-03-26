@@ -26,10 +26,10 @@ def item_location(location: str, region: str, groups: List[LocationGroup], item:
 
 
 all_locations_items_pairs: List[LocationItemData] = [
-    item_location("Bound the Needle", RegionName.moss_grotto, [LocationGroup.RANDOMIZED_BIND, LocationGroup.ACT_1], ItemName.crest_hunter_progressive),
-    item_location("Tutorial: Breakable Walls 1", RegionName.moss_grotto, [LocationGroup.RANDOMIZED_STARTING_CREST, LocationGroup.ACT_1], ItemName.bind, ItemClassification.useful),
-    item_location("Tutorial: Breakable Walls 2", RegionName.moss_grotto, [LocationGroup.RANDOMIZED_SLASH, LocationGroup.ACT_1], ItemName.upslash, ItemClassification.useful),
-    item_location("Tutorial: Breakable Walls 3", RegionName.moss_grotto, [LocationGroup.RANDOMIZED_SLASH, LocationGroup.ACT_1], ItemName.downslash, ItemClassification.useful),
+    item_location("Bound the Needle", RegionName.moss_grotto, [LocationGroup.RANDOMIZED_BIND, LocationGroup.ACT_1], ItemName.bind),
+    item_location("Tutorial: Breakable Walls 1", RegionName.moss_grotto, [LocationGroup.RANDOMIZED_STARTING_CREST, LocationGroup.ACT_1], ItemName.crest_hunter_progressive, ItemClassification.useful),
+    item_location("Tutorial: Breakable Walls 2", RegionName.moss_grotto, [LocationGroup.RANDOMIZED_SLASH, LocationGroup.ACT_1], ItemName.upslash, ItemClassification.progression),
+    item_location("Tutorial: Breakable Walls 3", RegionName.moss_grotto, [LocationGroup.RANDOMIZED_SLASH, LocationGroup.ACT_1], ItemName.downslash, ItemClassification.progression),
     item_location("Tutorial: Mossgrub", RegionName.moss_grotto, [LocationGroup.RANDOMIZED_SLASH, LocationGroup.ACT_1], ItemName.leftslash, ItemClassification.useful),
     item_location("Tutorial: Mossmir", RegionName.moss_grotto, [LocationGroup.RANDOMIZED_SLASH, LocationGroup.ACT_1], ItemName.rightslash, ItemClassification.useful),
     item_location("Enter Deep Docks", RegionName.deep_docks_entrance, [LocationGroup.EVENT_ONLY, LocationGroup.ACT_1], ItemName.bone_bottom_wishwall),
@@ -74,6 +74,7 @@ all_locations_items_pairs: List[LocationItemData] = [
     # item_location("Pickup Farsight", RegionName.weavenest_absolom, [LocationGroup.SILK_OTHER_ABILITY, LocationGroup.UNIQUE_PICKUPS, LocationGroup.ACT_3], ItemName.farsight, ItemClassification.useful),
 
     item_location("Defeat Moss Mother", RegionName.moss_grotto, [LocationGroup.BOSS_FIGHT, LocationGroup.ACT_1]),
+    item_location("Defeat Double Moss Mother", RegionName.weavenest_atla_moss_mothers, [LocationGroup.BOSS_FIGHT, LocationGroup.ACT_1]),#  ItemName.weavelight),
     item_location("Defeat Bell Beast", RegionName.marrow_bellway, [LocationGroup.SILK_OTHER_ABILITY, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_1], ItemName.silk_heart),
     item_location("Defeat Lace", RegionName.deep_docks_lace, [LocationGroup.BOSS_FIGHT, LocationGroup.ACT_1]),
     item_location("Defeat Fourth Chorus", RegionName.far_fields_fourth_chorus, [LocationGroup.BOSS_FIGHT, LocationGroup.ACT_1]),
@@ -127,6 +128,7 @@ all_locations_items_pairs: List[LocationItemData] = [
     item_location("Unleash The Void On Pharloom", RegionName.cradle_with_soul_snare, [LocationGroup.EVENT_ONLY, LocationGroup.ACT_3], ItemName.act_3),
 
     item_location("Defeat Bell Eater", RegionName.choral_chambers_act_3, [LocationGroup.OBJECTIVE, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_3], ItemName.beastling_call, ItemClassification.useful),
+    item_location("Defeat Black Thread Moss Mother", RegionName.moss_grotto_act_3, [LocationGroup.BOSS_FIGHT, LocationGroup.ACT_3]),
     item_location("Defeat Crust King Khann", RegionName.sands_of_karak_coral_tower_dream, [LocationGroup.OBJECTIVE, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_3]),
     item_location("Defeat Nyleth", RegionName.choral_chambers_act_3, [LocationGroup.OBJECTIVE, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_3]),
     item_location("Defeat Skarrsinger Karmelita", RegionName.choral_chambers_act_3, [LocationGroup.OBJECTIVE, LocationGroup.BOSS_FIGHT, LocationGroup.ACT_3]),
@@ -257,6 +259,12 @@ all_locations_items_pairs: List[LocationItemData] = [
     item_location("Giant Lost Flea - Memorium", RegionName.memorium_giant_flea, [LocationGroup.LOST_FLEA, LocationGroup.ACT_2], ItemName.giant_lost_flea),
     item_location("Lost Vog - Putrified Ducts", RegionName.putrified_ducts_vog_passage, [LocationGroup.LOST_FLEA, LocationGroup.ACT_2], ItemName.vog),
     item_location("Lost Flea - Sands Of Karak - Stuck In Spikes", RegionName.sands_of_karak_lower_right, [LocationGroup.LOST_FLEA, LocationGroup.ACT_2], ItemName.lost_flea),
+
+    item_location("Visit Greymoor", RegionName.greymoor_spires, [LocationGroup.EVENT_ONLY, LocationGroup.ACT_1], EventName.visited_greymoor),
+    item_location("Visit Shellwood", RegionName.shellwood, [LocationGroup.EVENT_ONLY, LocationGroup.ACT_1], EventName.visited_shellwood),
+    item_location("Visit Blasted Steps", RegionName.blasted_steps, [LocationGroup.EVENT_ONLY, LocationGroup.ACT_1], EventName.visited_blasted_steps),
+    item_location("Visit Sinner's Road", RegionName.sinners_road, [LocationGroup.EVENT_ONLY, LocationGroup.ACT_1], EventName.visited_sinners_road),
+    item_location("Visit Citadel", RegionName.citadel, [LocationGroup.EVENT_ONLY, LocationGroup.ACT_2], EventName.visited_citadel),
 ]
 
 locations_items_pairs_by_name = {pair.location_name: pair for pair in all_locations_items_pairs}

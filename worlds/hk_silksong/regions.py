@@ -27,8 +27,10 @@ def create_regions(region_factory: RegionFactory, world_options: SilksongOptions
     return regions_by_name
 
 
-def has_requirement(state, requirement, player, count):
-    return state.has(requirement, player, count)
+def has_requirement(state, requirement: str | tuple[str, ...], player, count):
+    if isinstance(requirement, str):
+        return state.has(requirement, player, count)
+    return state.has_from_list([*requirement], player, count)
 
 
 def set_entrance_rules(multiworld: MultiWorld, player: int, world_options: SilksongOptions) -> None:
