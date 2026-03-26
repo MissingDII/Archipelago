@@ -84,6 +84,19 @@ class ItemName:
     bone_bottom_wishwall = "Bone Bottom Wishwall"
     bellhart_restoration = "Bellhart Restored"
 
+    bellhart_bell_beast = "Bell Beast - Bellhart"
+    bilewater_bell_beast = "Bell Beast - Bilewater"
+    blasted_steps_bell_beast = "Bell Beast - Blasted Steps"
+    bone_bottom_bell_beast = "Bell Beast - Bone Bottom"
+    deep_docks_bell_beast = "Bell Beast - Deep Docks"
+    far_fields_bell_beast = "Bell Beast - Far Fields"
+    choral_chambers_bell_beast = "Bell Beast - Choral Chambers"
+    greymoor_bell_beast = "Bell Beast - Greymoor"
+    putrified_ducts_bell_beast = "Bell Beast - Putrified Ducts"
+    shellwood_bell_beast = "Bell Beast - Shellwood"
+    the_marrow_bell_beast = "Bell Beast - The Marrow"
+    the_slab_bell_beast = "Bell Beast - The Slab"
+
 
 class EventName:
     visited_greymoor = "Visited Greymoor"

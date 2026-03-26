@@ -9,8 +9,9 @@ class ConnectionData:
     destination: str
     entrance: str
     requirements: Optional[Dict[str | tuple[str], int]]
+    include_reverse: bool
 
-    def __init__(self, origin: str, destination: str, entrance: str = "", requirements: None | List[str | tuple[str, ...]] | str | Dict[str, int] = None):
+    def __init__(self, origin: str, destination: str, entrance: str = "", requirements: None | List[str | tuple[str, ...]] | str | Dict[str, int] = None, include_reverse: bool = True):
         self.origin = origin
         self.destination = destination
         self.entrance = entrance if entrance else ""
@@ -24,16 +25,22 @@ class ConnectionData:
                 requirements_dict[requirement] += 1
             requirements = requirements_dict
         self.requirements = requirements
+        self.include_reverse = include_reverse
+
+
+def one_way_connection(origin: str, destination: str, entrance: str = "", requirements: None | List[str | tuple[str, ...]] | str | Dict[str, int] = None) -> ConnectionData:
+    return ConnectionData(origin, destination, entrance, requirements, False)
 
 
 all_connections = [
     ConnectionData(RegionName.menu, RegionName.moss_grotto),
     ConnectionData(RegionName.moss_grotto, RegionName.bone_bottom),
     ConnectionData(RegionName.moss_grotto, RegionName.bonegrave, requirements=ItemName.cling_grip),
+    ConnectionData(RegionName.moss_grotto, RegionName.weavenest_atla, requirements=ItemName.needolin),
     ConnectionData(RegionName.bonegrave, RegionName.chapel_of_the_wanderer),
-    ConnectionData(RegionName.bone_bottom, RegionName.weavenest_atla, requirements=ItemName.needolin),
-    ConnectionData(RegionName.bone_bottom, RegionName.craggler_cavern, requirements=ItemName.swift_step),
+    ConnectionData(RegionName.bone_bottom, RegionName.craggler_cavern, requirements=[(ItemName.swift_step, ItemName.faydown_cloak, ItemName.clawline)]),
     ConnectionData(RegionName.bone_bottom, RegionName.marrow_west),
+    ConnectionData(RegionName.bone_bottom, RegionName.bone_bottom_bellway),
     ConnectionData(RegionName.bone_bottom, RegionName.bone_bottom_wishwall, requirements=ItemName.bone_bottom_wishwall),
 
     ConnectionData(RegionName.craggler_cavern, RegionName.wormways_entrance), # Add Simple Key Requirement
@@ -42,7 +49,8 @@ all_connections = [
     ConnectionData(RegionName.wormways_entrance, RegionName.weavenest_karn, requirements=ItemName.faydown_cloak),
     ConnectionData(RegionName.wormways_entrance, RegionName.bonegrave),
 
-    ConnectionData(RegionName.marrow_west, RegionName.marrow_bellway, requirements=ItemName.silkspear),
+    ConnectionData(RegionName.marrow_west, RegionName.marrow_bell_beast_fight, requirements=ItemName.silkspear),
+    ConnectionData(RegionName.marrow_bell_beast_fight, RegionName.marrow_bellway, requirements=ItemName.silkspear),
     ConnectionData(RegionName.marrow_bellway, RegionName.marrow_east),
     ConnectionData(RegionName.marrow_bellway, RegionName.marrow_bellway_north),
     ConnectionData(RegionName.marrow_bellway_north, RegionName.marrow_bellway_north_alcove, requirements=ItemName.cling_grip),
@@ -98,37 +106,44 @@ all_connections = [
     ConnectionData(RegionName.mist, RegionName.exhaust_organ, requirements=ItemName.needolin),
 
     ConnectionData(RegionName.bellhart, RegionName.shellwood),
-    ConnectionData(RegionName.shellwood, RegionName.bellhart_upper, requirements=ItemName.cling_grip),
 
+    ConnectionData(RegionName.shellwood, RegionName.bellhart_upper, requirements=ItemName.cling_grip),
     ConnectionData(RegionName.shellwood, RegionName.greyroot),
-    ConnectionData(RegionName.greyroot, RegionName.greyroot_rite_of_pollip, requirements=ItemName.cling_grip),
-    ConnectionData(RegionName.greyroot_rite_of_pollip, RegionName.greyroot_with_twisted_bud, requirements=ItemName.twisted_bud),
+    one_way_connection(RegionName.shellwood, RegionName.shellwood_bellway, requirements=ItemName.cling_grip),
+    one_way_connection(RegionName.shellwood_bellway, RegionName.shellwood),
+    ConnectionData(RegionName.shellwood_bellway, RegionName.blasted_steps),
+
+    one_way_connection(RegionName.greyroot, RegionName.greyroot_rite_of_pollip, requirements=ItemName.cling_grip),
+    one_way_connection(RegionName.greyroot_rite_of_pollip, RegionName.greyroot_with_twisted_bud, requirements=ItemName.twisted_bud),
 
     ConnectionData(RegionName.bellhart_upper, RegionName.bellhart_saved),
     ConnectionData(RegionName.bellhart_saved, RegionName.pinmaster_home),
     ConnectionData(RegionName.bellhart_saved, RegionName.bellhart_wishwall),
-    ConnectionData(RegionName.bellhart_wishwall, RegionName.wish_shellwood_missing_courrier, requirements=[ItemName.cling_grip]),
-    ConnectionData(RegionName.bellhart_wishwall, RegionName.bellhart_wishwall_after_tipp, requirements={ItemName.tipp_and_pill: 1}),
-    ConnectionData(RegionName.bellhart_wishwall_after_tipp, RegionName.wish_sinners_road_missing_brother, requirements={ItemName.tipp_and_pill: 1}),
-    ConnectionData(RegionName.bellhart_wishwall_after_tipp, RegionName.bellhart_delivery_wishes, requirements={ItemName.tipp_and_pill: 2}),
-    ConnectionData(RegionName.bellhart_wishwall, RegionName.bellhart_wishwall_after_needle),  # TODO: Write logic for this
-    ConnectionData(RegionName.bellhart_wishwall_after_needle, RegionName.bellhart_wishwall_after_needle_and_relic),  # TODO: Write logic for this
-    ConnectionData(RegionName.bellhart_wishwall_after_needle, RegionName.wish_pinmaster_oil, requirements=ItemName.pale_oil),  # TODO: Write logic for this
-    ConnectionData(RegionName.bellhart_wishwall, RegionName.bellhart_wishwall_all_maps_faydown_and_two_melodies),  # TODO: Write logic for this
-    ConnectionData(RegionName.bellhart_wishwall_all_maps_faydown_and_two_melodies, RegionName.trail_end, requirements=[ItemName.cling_grip, ItemName.faydown_cloak]),
-    ConnectionData(RegionName.bellhart_wishwall, RegionName.bellhart_wishwall_after_beastfy, requirements=[EventName.beastfly_defeated, EventName.fourth_chorus_defeat, EventName.visited_songclave]), # Not sure if beast crest, or just killing first beastfly here
-    ConnectionData(RegionName.bellhart_wishwall, RegionName.bellhart_wishwall_bellhart_restored, requirements=[ItemName.bellhart_restoration, ItemName.clawline]), # TODO: Add one needle upgrade to this
+    ConnectionData(RegionName.bellhart_saved, RegionName.bellhart_bellway),
+    ConnectionData(RegionName.bellhart_bellway, RegionName.bellhart_lower),
+    ConnectionData(RegionName.bellhart_lower, RegionName.marrow_east),
+    one_way_connection(RegionName.bellhart_wishwall, RegionName.wish_shellwood_missing_courrier, requirements=[ItemName.cling_grip]),
+    one_way_connection(RegionName.bellhart_wishwall, RegionName.bellhart_wishwall_after_tipp, requirements={ItemName.tipp_and_pill: 1}),
+    one_way_connection(RegionName.bellhart_wishwall_after_tipp, RegionName.wish_sinners_road_missing_brother, requirements={ItemName.tipp_and_pill: 1}),
+    one_way_connection(RegionName.bellhart_wishwall_after_tipp, RegionName.bellhart_delivery_wishes, requirements={ItemName.tipp_and_pill: 2}),
+    one_way_connection(RegionName.bellhart_wishwall, RegionName.bellhart_wishwall_after_needle),  # TODO: Write logic for this
+    one_way_connection(RegionName.bellhart_wishwall_after_needle, RegionName.bellhart_wishwall_after_needle_and_relic),  # TODO: Write logic for this
+    one_way_connection(RegionName.bellhart_wishwall_after_needle, RegionName.wish_pinmaster_oil, requirements=ItemName.pale_oil),  # TODO: Write logic for this
+    one_way_connection(RegionName.bellhart_wishwall, RegionName.bellhart_wishwall_all_maps_faydown_and_two_melodies),  # TODO: Write logic for this
+    one_way_connection(RegionName.bellhart_wishwall_all_maps_faydown_and_two_melodies, RegionName.trail_end, requirements=[ItemName.cling_grip, ItemName.faydown_cloak]),
+    one_way_connection(RegionName.bellhart_wishwall, RegionName.bellhart_wishwall_after_beastfy, requirements=[EventName.beastfly_defeated, EventName.fourth_chorus_defeat, EventName.visited_songclave]), # Not sure if beast crest, or just killing first beastfly here
+    one_way_connection(RegionName.bellhart_wishwall, RegionName.bellhart_wishwall_bellhart_restored, requirements=[ItemName.bellhart_restoration, ItemName.clawline]), # TODO: Add one needle upgrade to this
 
-    ConnectionData(RegionName.bellhart_wishwall, RegionName.bellhart_wishwall_act_3, requirements=[ItemName.act_3]),
-    ConnectionData(RegionName.bellhart_wishwall_act_3, RegionName.bellhart_wishwall_with_strike, requirements=[ItemName.needle_strike]),
-    ConnectionData(RegionName.bellhart_wishwall_act_3, RegionName.wish_heros_call),
-    ConnectionData(RegionName.bellhart_wishwall_act_3, RegionName.bellhart_wishwall_after_awaiting_end),
-    ConnectionData(RegionName.bellhart_wishwall_after_awaiting_end, RegionName.wish_dark_hearts),
-    ConnectionData(RegionName.bellhart_wishwall_after_awaiting_end, RegionName.bellhart_wishwall_with_silk_soar, requirements=ItemName.silk_soar),
-    ConnectionData(RegionName.bellhart_wishwall_with_silk_soar, RegionName.bellhart_wishwall_after_karmelita),
-    ConnectionData(RegionName.bellhart_wishwall_after_karmelita, RegionName.wish_hidden_hunter),
+    one_way_connection(RegionName.bellhart_wishwall, RegionName.bellhart_wishwall_act_3, requirements=[ItemName.act_3]),
+    one_way_connection(RegionName.bellhart_wishwall_act_3, RegionName.bellhart_wishwall_with_strike, requirements=[ItemName.needle_strike]),
+    one_way_connection(RegionName.bellhart_wishwall_act_3, RegionName.wish_heros_call),
+    one_way_connection(RegionName.bellhart_wishwall_act_3, RegionName.bellhart_wishwall_after_awaiting_end),
+    one_way_connection(RegionName.bellhart_wishwall_after_awaiting_end, RegionName.wish_dark_hearts),
+    one_way_connection(RegionName.bellhart_wishwall_after_awaiting_end, RegionName.bellhart_wishwall_with_silk_soar, requirements=ItemName.silk_soar),
+    one_way_connection(RegionName.bellhart_wishwall_with_silk_soar, RegionName.bellhart_wishwall_after_karmelita),
+    one_way_connection(RegionName.bellhart_wishwall_after_karmelita, RegionName.wish_hidden_hunter),
 
-    ConnectionData(RegionName.shellwood, RegionName.blasted_steps, requirements=ItemName.cling_grip),
+
     ConnectionData(RegionName.blasted_steps, RegionName.blasted_steps_shaft),
     ConnectionData(RegionName.blasted_steps, RegionName.blasted_steps_bellway),
     ConnectionData(RegionName.blasted_steps, RegionName.blasted_steps_grindle, requirements=ItemName.faydown_cloak),
@@ -145,7 +160,7 @@ all_connections = [
     ConnectionData(RegionName.underworks_cauldron, RegionName.underworks),
     ConnectionData(RegionName.underworks_cauldron, RegionName.twelfth_architect),
     ConnectionData(RegionName.twelfth_architect, RegionName.chapel_of_the_architect, requirements=ItemName.architect_key),
-    ConnectionData(RegionName.choral_chambers_above_bellway, RegionName.choral_chambers_bellway),
+    one_way_connection(RegionName.choral_chambers_above_bellway, RegionName.choral_chambers_bellway),
     ConnectionData(RegionName.choral_chambers_bellway, RegionName.choral_chambers),
     ConnectionData(RegionName.choral_chambers, RegionName.whiteward),
     ConnectionData(RegionName.whiteward, RegionName.whiteward_ceiling, requirements=[ItemName.cling_grip, ItemName.clawline]),
@@ -184,22 +199,22 @@ all_connections = [
     ConnectionData(RegionName.the_slab, RegionName.the_slab_indolent, requirements=ItemName.key_of_indolent),
     ConnectionData(RegionName.deep_docks_diving_bell, RegionName.abyss, requirements=ItemName.act_3),
     ConnectionData(RegionName.abyss, RegionName.weavenest_absolom),
-    ConnectionData(RegionName.abyss, RegionName.abyss_with_everbloom, requirements=ItemName.everbloom),
+    one_way_connection(RegionName.abyss, RegionName.abyss_with_everbloom, requirements=ItemName.everbloom),
 
     ConnectionData(RegionName.mount_fay, RegionName.mount_fay_ceiling_cave, requirements=ItemName.cling_grip),
 
-    ConnectionData(RegionName.choral_chambers, RegionName.citadel),
-    ConnectionData(RegionName.grand_gate, RegionName.citadel),
-    ConnectionData(RegionName.whispering_vaults, RegionName.citadel),
-    ConnectionData(RegionName.high_halls, RegionName.citadel),
-    ConnectionData(RegionName.memorium, RegionName.citadel),
-    ConnectionData(RegionName.cogwork_core, RegionName.citadel),
-    ConnectionData(RegionName.whiteward, RegionName.citadel),
+    one_way_connection(RegionName.choral_chambers, RegionName.citadel),
+    one_way_connection(RegionName.grand_gate, RegionName.citadel),
+    one_way_connection(RegionName.whispering_vaults, RegionName.citadel),
+    one_way_connection(RegionName.high_halls, RegionName.citadel),
+    one_way_connection(RegionName.memorium, RegionName.citadel),
+    one_way_connection(RegionName.cogwork_core, RegionName.citadel),
+    one_way_connection(RegionName.whiteward, RegionName.citadel),
 
-    ConnectionData(RegionName.cradle, RegionName.cradle_with_soul_snare, requirements=[ItemName.soul_snare, ItemName.needolin]),
-    ConnectionData(RegionName.cradle_with_soul_snare, RegionName.cradle_act_3, requirements=ItemName.act_3),
-    ConnectionData(RegionName.cradle_act_3, RegionName.escaped_cradle_act_3),
-    ConnectionData(RegionName.escaped_cradle_act_3, RegionName.choral_chambers_act_3),
+    one_way_connection(RegionName.cradle, RegionName.cradle_with_soul_snare, requirements=[ItemName.soul_snare, ItemName.needolin]),
+    one_way_connection(RegionName.cradle_with_soul_snare, RegionName.cradle_act_3, requirements=ItemName.act_3),
+    one_way_connection(RegionName.cradle_act_3, RegionName.escaped_cradle_act_3),
+    one_way_connection(RegionName.escaped_cradle_act_3, RegionName.choral_chambers_act_3),
     ConnectionData(RegionName.choral_chambers_act_3, RegionName.mount_fay_act_3, requirements=[ItemName.clawline, ItemName.faydown_cloak]),
     ConnectionData(RegionName.choral_chambers_act_3, RegionName.blasted_steps_act_3),
     ConnectionData(RegionName.choral_chambers_act_3, RegionName.craw_lake_act_3),
@@ -209,47 +224,66 @@ all_connections = [
     ConnectionData(RegionName.moss_grotto_act_3, RegionName.ruined_chapel),
 
     ConnectionData(RegionName.weavenest_atla, RegionName.weavenest_atla_moss_mothers, requirements=[ItemName.swift_step]),
-    ConnectionData(RegionName.weavenest_atla, RegionName.eva_0),
-    ConnectionData(RegionName.eva_0, RegionName.eva_1, requirements={ItemName.crest_slots: 1}),
-    ConnectionData(RegionName.eva_1, RegionName.eva_2, requirements={ItemName.crest_slots: 2}),
-    ConnectionData(RegionName.eva_2, RegionName.eva_3, requirements={ItemName.crest_slots: 3}),
-    ConnectionData(RegionName.eva_3, RegionName.eva_4, requirements={ItemName.crest_slots: 4}),
-    ConnectionData(RegionName.eva_4, RegionName.eva_5, requirements={ItemName.crest_slots: 5}),
-    ConnectionData(RegionName.eva_5, RegionName.eva_6, requirements={ItemName.crest_slots: 6}),
-    ConnectionData(RegionName.eva_6, RegionName.eva_7, requirements={ItemName.crest_slots: 7}),
-    ConnectionData(RegionName.eva_7, RegionName.eva_8, requirements={ItemName.crest_slots: 8}),
-    ConnectionData(RegionName.eva_8, RegionName.eva_9, requirements={ItemName.crest_slots: 9}),
-    ConnectionData(RegionName.eva_9, RegionName.eva_10, requirements={ItemName.crest_slots: 10}),
-    ConnectionData(RegionName.eva_10, RegionName.eva_11, requirements={ItemName.crest_slots: 11}),
-    ConnectionData(RegionName.eva_11, RegionName.eva_12, requirements={ItemName.crest_slots: 12}),
-    ConnectionData(RegionName.eva_12, RegionName.eva_13, requirements={ItemName.crest_slots: 13}),
-    ConnectionData(RegionName.eva_13, RegionName.eva_14, requirements={ItemName.crest_slots: 14}),
-    ConnectionData(RegionName.eva_14, RegionName.eva_15, requirements={ItemName.crest_slots: 15}),
-    ConnectionData(RegionName.eva_15, RegionName.eva_16, requirements={ItemName.crest_slots: 16}),
-    ConnectionData(RegionName.eva_16, RegionName.eva_17, requirements={ItemName.crest_slots: 17}),
-    ConnectionData(RegionName.eva_17, RegionName.eva_18, requirements={ItemName.crest_slots: 18}),
-    ConnectionData(RegionName.eva_18, RegionName.eva_19, requirements={ItemName.crest_slots: 19}),
-    ConnectionData(RegionName.eva_19, RegionName.eva_20, requirements={ItemName.crest_slots: 20}),
-    ConnectionData(RegionName.eva_20, RegionName.eva_21, requirements={ItemName.crest_slots: 21}),
-    ConnectionData(RegionName.eva_21, RegionName.eva_22, requirements={ItemName.crest_slots: 22}),
-    ConnectionData(RegionName.eva_22, RegionName.eva_23, requirements={ItemName.crest_slots: 23}),
-    ConnectionData(RegionName.eva_23, RegionName.eva_24, requirements={ItemName.crest_slots: 24}),
-    ConnectionData(RegionName.eva_24, RegionName.eva_25, requirements={ItemName.crest_slots: 25}),
-    ConnectionData(RegionName.eva_25, RegionName.eva_26, requirements={ItemName.crest_slots: 26}),
-    ConnectionData(RegionName.eva_26, RegionName.eva_27, requirements={ItemName.crest_slots: 27}),
-    ConnectionData(RegionName.eva_27, RegionName.eva_28, requirements={ItemName.crest_slots: 28}),
-    ConnectionData(RegionName.eva_28, RegionName.eva_29, requirements={ItemName.crest_slots: 29}),
-    ConnectionData(RegionName.eva_29, RegionName.eva_30, requirements={ItemName.crest_slots: 30}),
-    ConnectionData(RegionName.eva_30, RegionName.eva_31, requirements={ItemName.crest_slots: 31}),
-    ConnectionData(RegionName.eva_31, RegionName.eva_32, requirements={ItemName.crest_slots: 32}),
-    ConnectionData(RegionName.eva_32, RegionName.eva_33, requirements={ItemName.crest_slots: 33}),
-    ConnectionData(RegionName.eva_33, RegionName.eva_34, requirements={ItemName.crest_slots: 34}),
-    ConnectionData(RegionName.eva_34, RegionName.eva_35, requirements={ItemName.crest_slots: 35}),
-    ConnectionData(RegionName.eva_35, RegionName.eva_36, requirements={ItemName.crest_slots: 36}),
-    ConnectionData(RegionName.eva_36, RegionName.eva_37, requirements={ItemName.crest_slots: 37}),
-    ConnectionData(RegionName.eva_37, RegionName.eva_38, requirements={ItemName.crest_slots: 38}),
-    ConnectionData(RegionName.eva_38, RegionName.eva_39, requirements={ItemName.crest_slots: 39}),
-    ConnectionData(RegionName.eva_39, RegionName.eva_40, requirements={ItemName.crest_slots: 40}),
+    one_way_connection(RegionName.weavenest_atla, RegionName.eva_0),
+    one_way_connection(RegionName.eva_0, RegionName.eva_1, requirements={ItemName.crest_slots: 1}),
+    one_way_connection(RegionName.eva_1, RegionName.eva_2, requirements={ItemName.crest_slots: 2}),
+    one_way_connection(RegionName.eva_2, RegionName.eva_3, requirements={ItemName.crest_slots: 3}),
+    one_way_connection(RegionName.eva_3, RegionName.eva_4, requirements={ItemName.crest_slots: 4}),
+    one_way_connection(RegionName.eva_4, RegionName.eva_5, requirements={ItemName.crest_slots: 5}),
+    one_way_connection(RegionName.eva_5, RegionName.eva_6, requirements={ItemName.crest_slots: 6}),
+    one_way_connection(RegionName.eva_6, RegionName.eva_7, requirements={ItemName.crest_slots: 7}),
+    one_way_connection(RegionName.eva_7, RegionName.eva_8, requirements={ItemName.crest_slots: 8}),
+    one_way_connection(RegionName.eva_8, RegionName.eva_9, requirements={ItemName.crest_slots: 9}),
+    one_way_connection(RegionName.eva_9, RegionName.eva_10, requirements={ItemName.crest_slots: 10}),
+    one_way_connection(RegionName.eva_10, RegionName.eva_11, requirements={ItemName.crest_slots: 11}),
+    one_way_connection(RegionName.eva_11, RegionName.eva_12, requirements={ItemName.crest_slots: 12}),
+    one_way_connection(RegionName.eva_12, RegionName.eva_13, requirements={ItemName.crest_slots: 13}),
+    one_way_connection(RegionName.eva_13, RegionName.eva_14, requirements={ItemName.crest_slots: 14}),
+    one_way_connection(RegionName.eva_14, RegionName.eva_15, requirements={ItemName.crest_slots: 15}),
+    one_way_connection(RegionName.eva_15, RegionName.eva_16, requirements={ItemName.crest_slots: 16}),
+    one_way_connection(RegionName.eva_16, RegionName.eva_17, requirements={ItemName.crest_slots: 17}),
+    one_way_connection(RegionName.eva_17, RegionName.eva_18, requirements={ItemName.crest_slots: 18}),
+    one_way_connection(RegionName.eva_18, RegionName.eva_19, requirements={ItemName.crest_slots: 19}),
+    one_way_connection(RegionName.eva_19, RegionName.eva_20, requirements={ItemName.crest_slots: 20}),
+    one_way_connection(RegionName.eva_20, RegionName.eva_21, requirements={ItemName.crest_slots: 21}),
+    one_way_connection(RegionName.eva_21, RegionName.eva_22, requirements={ItemName.crest_slots: 22}),
+    one_way_connection(RegionName.eva_22, RegionName.eva_23, requirements={ItemName.crest_slots: 23}),
+    one_way_connection(RegionName.eva_23, RegionName.eva_24, requirements={ItemName.crest_slots: 24}),
+    one_way_connection(RegionName.eva_24, RegionName.eva_25, requirements={ItemName.crest_slots: 25}),
+    one_way_connection(RegionName.eva_25, RegionName.eva_26, requirements={ItemName.crest_slots: 26}),
+    one_way_connection(RegionName.eva_26, RegionName.eva_27, requirements={ItemName.crest_slots: 27}),
+    one_way_connection(RegionName.eva_27, RegionName.eva_28, requirements={ItemName.crest_slots: 28}),
+    one_way_connection(RegionName.eva_28, RegionName.eva_29, requirements={ItemName.crest_slots: 29}),
+    one_way_connection(RegionName.eva_29, RegionName.eva_30, requirements={ItemName.crest_slots: 30}),
+    one_way_connection(RegionName.eva_30, RegionName.eva_31, requirements={ItemName.crest_slots: 31}),
+    one_way_connection(RegionName.eva_31, RegionName.eva_32, requirements={ItemName.crest_slots: 32}),
+    one_way_connection(RegionName.eva_32, RegionName.eva_33, requirements={ItemName.crest_slots: 33}),
+    one_way_connection(RegionName.eva_33, RegionName.eva_34, requirements={ItemName.crest_slots: 34}),
+    one_way_connection(RegionName.eva_34, RegionName.eva_35, requirements={ItemName.crest_slots: 35}),
+    one_way_connection(RegionName.eva_35, RegionName.eva_36, requirements={ItemName.crest_slots: 36}),
+    one_way_connection(RegionName.eva_36, RegionName.eva_37, requirements={ItemName.crest_slots: 37}),
+    one_way_connection(RegionName.eva_37, RegionName.eva_38, requirements={ItemName.crest_slots: 38}),
+    one_way_connection(RegionName.eva_38, RegionName.eva_39, requirements={ItemName.crest_slots: 39}),
+    one_way_connection(RegionName.eva_39, RegionName.eva_40, requirements={ItemName.crest_slots: 40}),
+
+    ConnectionData(RegionName.bellhart_bellway, RegionName.bellway_travel, requirements=ItemName.bellhart_bell_beast),
+    ConnectionData(RegionName.bilewater_bellway, RegionName.bellway_travel, requirements=ItemName.bilewater_bell_beast),
+    ConnectionData(RegionName.blasted_steps_bellway, RegionName.bellway_travel, requirements=ItemName.blasted_steps_bell_beast),
+    ConnectionData(RegionName.bone_bottom_bellway, RegionName.bellway_travel, requirements=ItemName.bone_bottom_bell_beast),
+    ConnectionData(RegionName.deep_docks_bellway, RegionName.bellway_travel, requirements=ItemName.deep_docks_bell_beast),
+    ConnectionData(RegionName.far_fields_bellway, RegionName.bellway_travel, requirements=ItemName.far_fields_bell_beast),
+    ConnectionData(RegionName.choral_chambers_bellway, RegionName.bellway_travel, requirements=ItemName.choral_chambers_bell_beast),
+    ConnectionData(RegionName.greymoor_bellway, RegionName.bellway_travel, requirements=ItemName.greymoor_bell_beast),
+    ConnectionData(RegionName.putrified_ducts_bellway, RegionName.bellway_travel, requirements=ItemName.putrified_ducts_bell_beast),
+    ConnectionData(RegionName.shellwood_bellway, RegionName.bellway_travel, requirements=ItemName.shellwood_bell_beast),
+    ConnectionData(RegionName.marrow_bellway, RegionName.bellway_travel, requirements=ItemName.the_marrow_bell_beast),
+    ConnectionData(RegionName.the_slab_bellway, RegionName.bellway_travel, requirements=ItemName.the_slab_bell_beast),
 ]
+
+# Create all the inverse connections
+for connection_data in all_connections:
+    if not connection_data.include_reverse:
+        continue
+    all_connections.append(ConnectionData(connection_data.destination, connection_data.origin, "", connection_data.requirements, False))
 
 connections_by_name: Dict[str, ConnectionData] = {(connection.entrance if connection.entrance else f"{connection.origin} -> {connection.destination}"): connection for connection in all_connections}

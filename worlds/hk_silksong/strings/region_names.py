@@ -8,14 +8,18 @@ def region(name: str) -> str:
 
 class RegionName:
     menu = region("Menu")
+    bellway_travel = region("Bellway Travel")
+
     moss_grotto = region("Moss Grotto")
     bone_bottom = region("Bone Bottom")
     bone_bottom_wishwall = region("Bone Bottom Wishwall")
+    bone_bottom_bellway = region("Bone Bottom - Bellway")
 
     bonegrave = region("Bonegrave")
     chapel_of_the_wanderer = region("Chapel of the Wanderer")
 
     marrow_west = region("The Marrow - West")
+    marrow_bell_beast_fight = region("The Marrow - Bell Beast Fight")
     marrow_bellway = region("The Marrow - Bellway Station")
     marrow_bellway_north = region("The Marrow - North After Bellway")
     marrow_east = region("The Marrow - East")
@@ -71,10 +75,13 @@ class RegionName:
     bellhart_upper = region("Upper Bellhart")
     bellhart_saved = region("Saved Bellhart")
     pinmaster_home = region("Bellhart - Pinmaster Home")
+    bellhart_bellway = region("Bellhart - Bellway")
+    bellhart_lower = region("Lower Bellhart")
 
     greyroot = region("Shellwood - GreyRoot")
     greyroot_rite_of_pollip = region("Shellwood - GreyRoot Rite Of The Pollip")
     greyroot_with_twisted_bud = region("Shellwood - GreyRoot With Twisted Bud")
+    shellwood_bellway = region("Shellwood - Bellway")
 
     bellhart_wishwall = region("Bellhart Wishwall")
     bellhart_wishwall_after_tipp = region("Bellhart Wishwall - Tipp saved")
