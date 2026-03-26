@@ -27,9 +27,13 @@ def create_regions(region_factory: RegionFactory, world_options: SilksongOptions
     return regions_by_name
 
 
+def has_requirement(state, requirement, player, count):
+    return state.has(requirement, player, count)
+
+
 def set_entrance_rules(multiworld: MultiWorld, player: int, world_options: SilksongOptions) -> None:
     for entrance_name, entrance in multiworld.regions.entrance_cache[player].items():
         entrance_data = connections_by_name[entrance_name]
         if entrance_data.requirements:
             for requirement, amount in entrance_data.requirements.items():
-                add_rule(entrance, lambda state, req=requirement, player=player, count=amount: state.has(req, player, count))
+                add_rule(entrance, lambda state, req=requirement, player=player, count=amount: has_requirement(state, req, player, count))

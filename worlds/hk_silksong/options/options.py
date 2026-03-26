@@ -114,6 +114,12 @@ class RandomizePickups(Choice):
     option_all = 2
 
 
+class RandomizeLostFleas(DefaultOnToggle):
+    """Shuffles lost fleas around the world"""
+    internal_name = "randomize_lost_fleas"
+    display_name = "Randomize Lost Fleas"
+
+
 @dataclass
 class SilksongOptions(PerGameCommonOptions):
     goal: Goal
@@ -128,4 +134,5 @@ class SilksongOptions(PerGameCommonOptions):
     random_starting_crests: RandomStartingCrest
     randomize_shop_items: RandomizeShopItems
     randomize_pickups: RandomizePickups
+    randomize_lost_fleas: RandomizeLostFleas
     death_link: DeathLink

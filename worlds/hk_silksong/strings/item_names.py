@@ -45,6 +45,10 @@ class ItemName:
 
     memory_locket = "Memory Locket"
     crest_slots = "Crest Slots"
+    lost_flea = "Lost Flea"
+    giant_lost_flea = "Giant Lost Flea"
+    kratt = "Kratt"
+    vog = "Vog"
 
     upslash = "Upslash"
     downslash = "Downslash"
