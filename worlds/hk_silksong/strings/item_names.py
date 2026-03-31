@@ -80,6 +80,7 @@ class ItemName:
 
     throwing_ring = "Throwing Ring"
     flea_brew = "Flea Brew"
+    egg_of_flealia = "Egg of Flealia"
 
     bone_bottom_wishwall = "Bone Bottom Wishwall"
     bellhart_restoration = "Bellhart Restored"
@@ -121,3 +122,10 @@ class EventName:
     skull_tyrant_defeated = "Skull Tyrant Defeated"
     beastfly_defeated = "Beastfly Defeated"
     fourth_chorus_defeat = "Fourth Chorus Defeated"
+
+    started_great_tasted_of_pharloom = "Started Great Taste of Pharloom"
+    mossberry_stew = "Mossberry Stew"
+    vintage_nectar = "Vintage Nectar"
+    courier_rasher = "Courier's Rasher"
+    crustnut = "Crustnut"
+    pickled_muckmaggot = "Pickled Muckmaggot"

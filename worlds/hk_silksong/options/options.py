@@ -50,6 +50,12 @@ class RandomizeOtherAbilities(DefaultOnToggle):
     display_name = "Randomize Other Abilities"
 
 
+class RandomizeNeedleUpgrades(DefaultOnToggle):
+    """Shuffles the 4 needle upgrades"""
+    internal_name = "randomize_needle_upgrades"
+    display_name = "Randomize Needle Upgrades"
+
+
 class RandomizeBossRewards(DefaultOnToggle):
     """Shuffles rewards from beating every boss in the game. This also adds a location reward to bosses that don't usually have a reward, increasing filler."""
     internal_name = "randomize_boss_rewards"
@@ -132,6 +138,7 @@ class SilksongOptions(PerGameCommonOptions):
     randomize_movement_abilities: RandomizeMovementAbilities
     randomize_combat_abilities: RandomizeCombatAbilities
     randomize_other_abilities: RandomizeOtherAbilities
+    randomize_needle_upgrades: RandomizeNeedleUpgrades
     randomize_boss_rewards: RandomizeBossRewards
     randomize_eva_rewards: RandomizeEvaRewards
     randomize_memory_lockets: RandomizeMemoryLockets

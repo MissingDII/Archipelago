@@ -40,6 +40,8 @@ class ItemData:
             else:
                 self.id = generate_id(name)
         self.name = name
+        if name in item_data_by_name:
+            classification = item_data_by_name[name].classification | classification
         self.classification = classification
         if not event_only:
             items_by_name[self.name] = self.id

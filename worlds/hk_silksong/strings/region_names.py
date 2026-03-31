@@ -20,6 +20,7 @@ class RegionName:
     chapel_of_the_wanderer = region("Chapel of the Wanderer")
 
     marrow_west = region("The Marrow - West")
+    mosshome = region("The Marrow - Mosshome")
     marrow_bell_beast_fight = region("The Marrow - Bell Beast Fight")
     marrow_bellway = region("The Marrow - Bellway Station")
     marrow_bellway_north = region("The Marrow - North After Bellway")
@@ -70,6 +71,7 @@ class RegionName:
 
     halfway_home = region("Halfway Home")
     halfway_home_alcove = region("Halfway Home - Alcove")
+    halfway_home_basement = region("Halfway Home - Basement")
 
     wisp_thicket = region("Wisp Thicket")
     underworks_from_wisp_thicket = region("Underworks - From Wisp Thicket")
@@ -82,6 +84,9 @@ class RegionName:
     pinmaster_home = region("Bellhart - Pinmaster Home")
     bellhart_bellway = region("Bellhart - Bellway")
     bellhart_lower = region("Lower Bellhart")
+    pinmaster_home_1_pale_oil = region("Bellhart - Pinmaster Home With 1 Pale Oil")
+    pinmaster_home_2_pale_oils = region("Bellhart - Pinmaster Home With 2 Pale Oils")
+    pinmaster_home_3_pale_oils = region("Bellhart - Pinmaster Home With 3 Pale Oils")
 
     greyroot = region("Shellwood - GreyRoot")
     greyroot_rite_of_pollip = region("Shellwood - GreyRoot Rite Of The Pollip")
@@ -131,6 +136,7 @@ class RegionName:
     sands_of_karak_shaft = region("Sands Of Karak - Vertical Shaft")
     sands_of_karak_lower_right = region("Sands Of Karak - Lower Right")
     sands_of_karak_upper_right = region("Sands Of Karak - Upper Right")
+    sands_of_karak_crustnut_room = region("Sands Of Karak - Crustnut Room")
     sands_of_karak_voltnest = region("Sands Of Karak - Voltnest")
     sands_of_karak_upper_left = region("Sands Of Karak - Upper Left")
     sands_of_karak_coral_tower = region("Sands Of Karak - Coral Tower")
@@ -148,6 +154,7 @@ class RegionName:
 
     sinners_road = region("Sinner's Road")
     sinners_road_chef_lugoli = region("Sinner's Road - Lugoli's Kitchen")
+    sinners_road_after_chef_lugoli = region("Sinner's Road - After Chef Lugoli")
 
     bilewater = region("Bilewater")
     bilewater_bellway = region("Bilewater - Bellway")
@@ -158,6 +165,7 @@ class RegionName:
     putrified_ducts_bellway = region("Putrified Ducts - Bellway")
     putrified_ducts_vog_passage = region("Putrified Ducts - Vog's Camp")
     fleatopia = region("Fleatopia")
+    festival_of_the_flea = region("Fleatopia - Festival of the Flea")
     cradle = region("The Cradle")
     terminus_ventrica = region("Terminus - Ventrica")
     cradle_with_soul_snare = region("The Cradle - Soul Snare")
@@ -177,10 +185,13 @@ class RegionName:
     choral_chambers_above_bellway = region("Choral Chambers - Above Bellway")
     choral_chambers_bellway = region("Choral Chambers - Grand Bellway")
     grand_bellway_ventrica = region("Grand Bellway - Ventrica")
+    choral_chambers_great_gourmand = region("Choral Chambers - Great Gourmand Room")
+    choral_chambers_great_gourmand_with_5_delicacies = region("Choral Chambers - Great Gourmand Room with 5 Delicacies")
     choral_chambers_outside = region("Choral Chambers - Outside")
     choral_chambers_outside_alcove = region("Choral Chambers - Outside Alcove")
     choral_chambers_vent = region("Choral Chambers - Vent")
     songclave = region("Choral Chambers - Songclave")
+    choral_chambers_pale_oil_room = region("Choral Chambers - Pale Oil Room")
     first_shrine_ventrica = region("First Shrine - Ventrica")
 
     whiteward = region("Whiteward")

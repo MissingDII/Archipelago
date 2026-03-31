@@ -88,7 +88,7 @@ class SilksongWorld(World):
 
         created_items = create_items(self.create_item, self.options, locations_items_pairs_by_name, self.enabled_locations, items_to_exclude, self.random)
         self.multiworld.itempool += created_items
-        create_events(self.multiworld, self.player, self.enabled_locations)
+        create_events(self.multiworld, self.player, self.enabled_locations, self.options)
         self.setup_victory()
 
     def setup_victory(self):

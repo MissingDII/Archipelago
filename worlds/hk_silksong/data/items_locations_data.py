@@ -27,7 +27,7 @@ def item_location(location: str, region: str, groups: List[LocationGroup], item:
 
 all_locations_items_pairs: List[LocationItemData] = [
     item_location("Bound the Needle", RegionName.moss_grotto, [LocationGroup.RANDOMIZED_BIND, LocationGroup.ACT_1], ItemName.bind),
-    item_location("Tutorial: Breakable Walls 1", RegionName.moss_grotto, [LocationGroup.RANDOMIZED_STARTING_CREST, LocationGroup.ACT_1], ItemName.crest_hunter_progressive, ItemClassification.useful),
+    item_location("Tutorial: Breakable Walls 1", RegionName.moss_grotto, [LocationGroup.RANDOMIZED_STARTING_CREST, LocationGroup.ACT_1], ItemName.crest_hunter_progressive, ItemClassification.progression),
     item_location("Tutorial: Breakable Walls 2", RegionName.moss_grotto, [LocationGroup.RANDOMIZED_SLASH, LocationGroup.ACT_1], ItemName.upslash, ItemClassification.progression),
     item_location("Tutorial: Breakable Walls 3", RegionName.moss_grotto, [LocationGroup.RANDOMIZED_SLASH, LocationGroup.ACT_1], ItemName.downslash, ItemClassification.progression),
     item_location("Tutorial: Mossgrub", RegionName.moss_grotto, [LocationGroup.RANDOMIZED_SLASH, LocationGroup.ACT_1], ItemName.leftslash, ItemClassification.useful),
@@ -153,9 +153,9 @@ all_locations_items_pairs: List[LocationItemData] = [
     item_location("Eva: 15 Slots", RegionName.eva_15, [LocationGroup.EVA_EXTRA_LOCATIONS, LocationGroup.EVA, LocationGroup.ACT_1]),
     item_location("Eva: 16 Slots", RegionName.eva_16, [LocationGroup.EVA_EXTRA_LOCATIONS, LocationGroup.EVA, LocationGroup.ACT_1]),
     item_location("Eva: 17 Slots", RegionName.eva_17, [LocationGroup.EVA_EXTRA_LOCATIONS, LocationGroup.EVA, LocationGroup.ACT_1]),
-    item_location("Eva: 18 Slots", RegionName.eva_18, [LocationGroup.EVA_EXTRA_LOCATIONS, LocationGroup.EVA, LocationGroup.ACT_1]),
-    item_location("Eva: 19 Slots", RegionName.eva_19, [LocationGroup.EVA_EXTRA_LOCATIONS, LocationGroup.EVA, LocationGroup.ACT_1]),
-    item_location("Eva: 20 Slots", RegionName.eva_20, [LocationGroup.CREST_UPGRADE, LocationGroup.EVA_REWARD, LocationGroup.EVA, LocationGroup.ACT_1], ItemName.vesticrest_blue, ItemClassification.useful),
+    item_location("Eva: 18 Slots", RegionName.eva_18, [LocationGroup.EVA_EXTRA_LOCATIONS, LocationGroup.EVA, LocationGroup.ACT_2]),
+    item_location("Eva: 19 Slots", RegionName.eva_19, [LocationGroup.EVA_EXTRA_LOCATIONS, LocationGroup.EVA, LocationGroup.ACT_2]),
+    item_location("Eva: 20 Slots", RegionName.eva_20, [LocationGroup.CREST_UPGRADE, LocationGroup.EVA_REWARD, LocationGroup.EVA, LocationGroup.ACT_2], ItemName.vesticrest_blue, ItemClassification.useful),
     item_location("Eva: 21 Slots", RegionName.eva_21, [LocationGroup.EVA_EXTRA_LOCATIONS, LocationGroup.EVA, LocationGroup.ACT_2]),
     item_location("Eva: 22 Slots", RegionName.eva_22, [LocationGroup.EVA_EXTRA_LOCATIONS, LocationGroup.EVA, LocationGroup.ACT_2]),
     item_location("Eva: 23 Slots", RegionName.eva_23, [LocationGroup.EVA_EXTRA_LOCATIONS, LocationGroup.EVA, LocationGroup.ACT_2]),
@@ -204,7 +204,10 @@ all_locations_items_pairs: List[LocationItemData] = [
     item_location("Memory locket - Far Fields East", RegionName.far_fields_fields, [LocationGroup.MEMORY_LOCKET, LocationGroup.ACT_3], ItemName.memory_locket),
 
     item_location("Wayfarer Wish: The Lost Fleas", RegionName.flea_caravan_marrow_with_5_fleas, [LocationGroup.RED_TOOL, LocationGroup.WISH, LocationGroup.ACT_1], ItemName.flea_brew),
-    # item_location("Wayfarer Wish: Pinmaster's Oil", RegionName.wish_pinmaster_oil_with_pale_oil, [LocationGroup.WISH, LocationGroup.NEEDLE_UPGRADE, LocationGroup.ACT_2], ItemName.needle_upgrade),
+    item_location("Sharpened Needle Upgrade", RegionName.pinmaster_home, [LocationGroup.NEEDLE_UPGRADE, LocationGroup.ACT_1], ItemName.needle_upgrade),
+    item_location("Wayfarer Wish: Pinmaster's Oil", RegionName.pinmaster_home_1_pale_oil, [LocationGroup.WISH, LocationGroup.NEEDLE_UPGRADE, LocationGroup.ACT_2], ItemName.needle_upgrade),
+    item_location("Hivesteel Needle Upgrade", RegionName.pinmaster_home_2_pale_oils, [LocationGroup.NEEDLE_UPGRADE, LocationGroup.ACT_2], ItemName.needle_upgrade),
+    item_location("Pale Steel Needle Upgrade", RegionName.pinmaster_home_3_pale_oils, [LocationGroup.NEEDLE_UPGRADE, LocationGroup.ACT_3], ItemName.needle_upgrade),
     item_location("Wayfarer Wish: My Missing Courier", RegionName.wish_shellwood_missing_courrier, [LocationGroup.WISH, LocationGroup.SHOP, LocationGroup.ACT_1], ItemName.tipp_and_pill),
     item_location("Wayfarer Wish: My Missing Brother", RegionName.wish_sinners_road_missing_brother, [LocationGroup.WISH, LocationGroup.ACT_2], ItemName.tipp_and_pill),
     # item_location("Wayfarer Wish: Balm For The Wounded", RegionName.wish_whiteward, [LocationGroup.WISH, LocationGroup.SPOOL_FRAGMENT, LocationGroup.ACT_2]),
@@ -215,16 +218,21 @@ all_locations_items_pairs: List[LocationItemData] = [
     # item_location("Wayfarer Wish: Trail's End", RegionName.trail_end, [LocationGroup.RED_TOOL, LocationGroup.WISH, LocationGroup.ACT_2], ItemName.throwing_ring),
     # item_location("Wayfarer Wish: Final Audience", RegionName.wish_final_audience, [LocationGroup.WISH, LocationGroup.ACT_2]),
     item_location("Wayfarer Wish: Silk and Soul", RegionName.choral_chambers, [LocationGroup.WISH, LocationGroup.ACT_2], ItemName.soul_snare),
-    # item_location("Wayfarer Wish: ", RegionName., [LocationGroup.WISH, LocationGroup.ACT_1]),
-    # item_location("Wayfarer Wish: ", RegionName., [LocationGroup.WISH, LocationGroup.ACT_1]),
-    # item_location("Wayfarer Wish: ", RegionName., [LocationGroup.WISH, LocationGroup.ACT_1]),
-    # item_location("Wayfarer Wish: ", RegionName., [LocationGroup.WISH, LocationGroup.ACT_1]),
+    # item_location("Wayfarer Wish: Fatal Resolve", RegionName., [LocationGroup.WISH, LocationGroup.ACT_1]),
+    # item_location("Wayfarer Wish: Pain, Anguish and Misery", RegionName., [LocationGroup.WISH, LocationGroup.ACT_1]),
+    # item_location("Wayfarer Wish: Hero's Call", RegionName., [LocationGroup.WISH, LocationGroup.ACT_1]),
+    item_location("Wayfarer Wish: Ecstasy Of The End", RegionName.festival_of_the_flea, [LocationGroup.WISH, LocationGroup.ACT_3], ItemName.pale_oil),
 
+    item_location("Gather Wish: Great Taste of Pharloom", RegionName.choral_chambers_great_gourmand_with_5_delicacies, [LocationGroup.WISH, LocationGroup.ACT_2], ItemName.pale_oil),
+
+    item_location("Donate Wish: Restoration of Bellhart", RegionName.bellhart_wishwall_after_needle_and_relic, [LocationGroup.WISH, LocationGroup.ACT_1], ItemName.bellhart_restoration),
+
+    item_location("Pickup Pale Oil (Choral Chambers)", RegionName.choral_chambers_pale_oil_room, [LocationGroup.UNIQUE_PICKUPS, LocationGroup.ACT_2], ItemName.pale_oil),
     item_location("Twelfth Architect: Architect Key", RegionName.twelfth_architect, [LocationGroup.SHOP, LocationGroup.ACT_2], ItemName.architect_key),
     # item_location("Receive the Craw Summons", RegionName.craw_lake_act_3, [LocationGroup.UNIQUE_PICKUPS, LocationGroup.ACT_3], ItemName.craw_summons),
     item_location("Pickup White Key", RegionName.songclave, [LocationGroup.UNIQUE_PICKUPS, LocationGroup.ACT_2], ItemName.white_key),
-    item_location("Pickup Key of Indolent", RegionName.the_slab, [LocationGroup.UNIQUE_PICKUPS, LocationGroup.ACT_1], ItemName.key_of_indolent),
-    item_location("Pickup Key of Heretic", RegionName.the_slab, [LocationGroup.UNIQUE_PICKUPS, LocationGroup.ACT_1], ItemName.key_of_heretic),
+    item_location("Pickup Key of Indolent", RegionName.the_slab, [LocationGroup.UNIQUE_PICKUPS, LocationGroup.ACT_2], ItemName.key_of_indolent),
+    item_location("Pickup Key of Heretic", RegionName.the_slab, [LocationGroup.UNIQUE_PICKUPS, LocationGroup.ACT_2], ItemName.key_of_heretic),
     item_location("Pickup Key of Apostate", RegionName.putrified_ducts, [LocationGroup.UNIQUE_PICKUPS, LocationGroup.ACT_2], ItemName.key_of_apostate),
     item_location("Pickup Surgeon's Key", RegionName.whiteward_ceiling, [LocationGroup.UNIQUE_PICKUPS, LocationGroup.ACT_3], ItemName.surgeon_key),
     item_location("Pickup Twisted Bud", RegionName.bilewater_upper, [LocationGroup.UNIQUE_PICKUPS, LocationGroup.ACT_2], ItemName.twisted_bud),
@@ -234,7 +242,7 @@ all_locations_items_pairs: List[LocationItemData] = [
     item_location("Lost Flea - Hunter's March - Cage", RegionName.hunters_march, [LocationGroup.LOST_FLEA, LocationGroup.ACT_1], ItemName.lost_flea),
     item_location("Lost Flea - Deep Docks - Lava Falls Room", RegionName.deep_docks_bellway_flea_room, [LocationGroup.LOST_FLEA, LocationGroup.ACT_1], ItemName.lost_flea),
     item_location("Lost Flea - Deep Docks - Stuck Above Swift Step", RegionName.deep_docks_swift_step_upper, [LocationGroup.LOST_FLEA, LocationGroup.ACT_1], ItemName.lost_flea),
-    item_location("Lost Flea - Deep Docks - Underground After Arena", RegionName.deep_docks_diving_bell, [LocationGroup.LOST_FLEA, LocationGroup.ACT_1], ItemName.lost_flea),
+    item_location("Lost Flea - Deep Docks - Underground After Arena", RegionName.deep_docks_diving_bell, [LocationGroup.LOST_FLEA, LocationGroup.ACT_2], ItemName.lost_flea),
     item_location("Lost Flea - Far Fields - Pressure Plate Cage", RegionName.far_fields_entrance, [LocationGroup.LOST_FLEA, LocationGroup.ACT_1], ItemName.lost_flea),
     item_location("Lost Flea - Far Fields - Pilgrim's Rest Behind Rhinogrund", RegionName.far_fields_pilgrims_rest_rhinogrund, [LocationGroup.LOST_FLEA, LocationGroup.ACT_1], ItemName.lost_flea),
     item_location("Lost Flea - Greymoor - Stuck Above Craw Lake", RegionName.greymoor_craw_lake, [LocationGroup.LOST_FLEA, LocationGroup.ACT_1], ItemName.lost_flea),
@@ -259,6 +267,7 @@ all_locations_items_pairs: List[LocationItemData] = [
     item_location("Giant Lost Flea - Memorium", RegionName.memorium_giant_flea, [LocationGroup.LOST_FLEA, LocationGroup.ACT_2], ItemName.giant_lost_flea),
     item_location("Lost Vog - Putrified Ducts", RegionName.putrified_ducts_vog_passage, [LocationGroup.LOST_FLEA, LocationGroup.ACT_2], ItemName.vog),
     item_location("Lost Flea - Sands Of Karak - Stuck In Spikes", RegionName.sands_of_karak_lower_right, [LocationGroup.LOST_FLEA, LocationGroup.ACT_2], ItemName.lost_flea),
+    item_location("Obtain Egg of Flealia", RegionName.fleatopia, [LocationGroup.LOST_FLEA, LocationGroup.BLUE_TOOL, LocationGroup.ACT_2], ItemName.egg_of_flealia),
 
     item_location("Visit Greymoor", RegionName.greymoor_spires, [LocationGroup.EVENT_ONLY, LocationGroup.ACT_1], EventName.visited_greymoor),
     item_location("Visit Shellwood", RegionName.shellwood, [LocationGroup.EVENT_ONLY, LocationGroup.ACT_1], EventName.visited_shellwood),
@@ -275,7 +284,7 @@ all_locations_items_pairs: List[LocationItemData] = [
     item_location("Unlock Far Fields Bellway", RegionName.far_fields_bellway, [LocationGroup.BELLWAY, LocationGroup.ACT_1], ItemName.far_fields_bell_beast),
     item_location("Unlock Greymoor Bellway", RegionName.greymoor_bellway, [LocationGroup.BELLWAY, LocationGroup.ACT_1], ItemName.greymoor_bell_beast),
     item_location("Unlock Shellwood Bellway", RegionName.shellwood_bellway, [LocationGroup.BELLWAY, LocationGroup.ACT_1], ItemName.shellwood_bell_beast),
-    item_location("Unlock The Slab Bellway", RegionName.the_slab_bellway, [LocationGroup.BELLWAY, LocationGroup.ACT_1], ItemName.the_slab_bell_beast),
+    item_location("Unlock The Slab Bellway", RegionName.the_slab_bellway, [LocationGroup.BELLWAY, LocationGroup.ACT_2], ItemName.the_slab_bell_beast),
     item_location("Unlock Choral Chambers Bellway", RegionName.choral_chambers_bellway, [LocationGroup.BELLWAY, LocationGroup.ACT_2], ItemName.choral_chambers_bell_beast),
     item_location("Unlock Putrified Ducts Bellway", RegionName.putrified_ducts_bellway, [LocationGroup.BELLWAY, LocationGroup.ACT_2], ItemName.putrified_ducts_bell_beast),
 
@@ -286,6 +295,13 @@ all_locations_items_pairs: List[LocationItemData] = [
     item_location("Unlock Choral Chambers Ventrica", RegionName.choral_chambers_ventrica, [LocationGroup.VENTRICA, LocationGroup.ACT_2], ItemName.choral_chambers_ventrica),
     item_location("Unlock Grand Bellway Ventrica", RegionName.grand_bellway_ventrica, [LocationGroup.VENTRICA, LocationGroup.ACT_2], ItemName.grand_bellway_ventrica),
     item_location("Unlock Underworks Ventrica", RegionName.underworks_ventrica, [LocationGroup.VENTRICA, LocationGroup.ACT_2], ItemName.underworks_ventrica),
+
+    item_location("Start Great Taste of Pharloom", RegionName.choral_chambers_great_gourmand, [LocationGroup.EVENT_ONLY, LocationGroup.ACT_2], EventName.started_great_tasted_of_pharloom),
+    item_location("Obtain Mossberry Stew", RegionName.mosshome, [LocationGroup.EVENT_ONLY, LocationGroup.ACT_2], EventName.mossberry_stew),
+    item_location("Obtain Vintage Nectar", RegionName.halfway_home_basement, [LocationGroup.EVENT_ONLY, LocationGroup.ACT_2], EventName.vintage_nectar),
+    item_location("Obtain Courier's Rasher", RegionName.bellhart_delivery_wishes, [LocationGroup.EVENT_ONLY, LocationGroup.ACT_2], EventName.courier_rasher),
+    item_location("Obtain Crustnut", RegionName.sands_of_karak_crustnut_room, [LocationGroup.EVENT_ONLY, LocationGroup.ACT_2], EventName.crustnut),
+    item_location("Obtain Pickled Muckmaggot", RegionName.sinners_road_after_chef_lugoli, [LocationGroup.EVENT_ONLY, LocationGroup.ACT_2], EventName.pickled_muckmaggot),
 ]
 
 locations_items_pairs_by_name = {pair.location_name: pair for pair in all_locations_items_pairs}

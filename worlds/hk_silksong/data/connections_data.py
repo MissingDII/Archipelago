@@ -49,6 +49,7 @@ all_connections = [
     ConnectionData(RegionName.wormways_entrance, RegionName.weavenest_karn, requirements=ItemName.faydown_cloak),
     ConnectionData(RegionName.wormways_entrance, RegionName.bonegrave),
 
+    ConnectionData(RegionName.marrow_west, RegionName.mosshome, requirements=[(ItemName.silkspear, ItemName.cling_grip)]),
     ConnectionData(RegionName.marrow_west, RegionName.marrow_bell_beast_fight, requirements=ItemName.silkspear),
     ConnectionData(RegionName.marrow_bell_beast_fight, RegionName.marrow_bellway, requirements=ItemName.silkspear),
     ConnectionData(RegionName.marrow_bellway, RegionName.marrow_east),
@@ -99,9 +100,11 @@ all_connections = [
     ConnectionData(RegionName.yarnaby, RegionName.yarnaby_with_steel_spines),  # Add requirement to get cursed
     ConnectionData(RegionName.greymoor_craw_lake, RegionName.verdania),
     ConnectionData(RegionName.halfway_home, RegionName.halfway_home_alcove, requirements=ItemName.faydown_cloak),
+    ConnectionData(RegionName.halfway_home, RegionName.halfway_home_basement, requirements=EventName.started_great_tasted_of_pharloom),
 
     ConnectionData(RegionName.sinners_road, RegionName.bilewater),
     ConnectionData(RegionName.sinners_road, RegionName.sinners_road_chef_lugoli, requirements=ItemName.faydown_cloak),
+    ConnectionData(RegionName.sinners_road_chef_lugoli, RegionName.sinners_road_after_chef_lugoli),# , requirements=ItemName.wreath_of_purity),
 
     one_way_connection(RegionName.bilewater, RegionName.bilewater_bellway),
     one_way_connection(RegionName.bilewater_bellway, RegionName.bilewater, requirements=[(ItemName.faydown_cloak, ItemName.silk_soar)]),
@@ -123,6 +126,9 @@ all_connections = [
 
     ConnectionData(RegionName.bellhart_upper, RegionName.bellhart_saved),
     ConnectionData(RegionName.bellhart_saved, RegionName.pinmaster_home),
+    ConnectionData(RegionName.pinmaster_home, RegionName.pinmaster_home_1_pale_oil, requirements={ItemName.pale_oil: 1, ItemName.needle_upgrade: 1}),
+    ConnectionData(RegionName.pinmaster_home_1_pale_oil, RegionName.pinmaster_home_2_pale_oils, requirements={ItemName.pale_oil: 2, ItemName.needle_upgrade: 2}),
+    ConnectionData(RegionName.pinmaster_home_2_pale_oils, RegionName.pinmaster_home_3_pale_oils, requirements={ItemName.pale_oil: 3, ItemName.needle_upgrade: 3}),
     ConnectionData(RegionName.bellhart_saved, RegionName.bellhart_wishwall),
     ConnectionData(RegionName.bellhart_saved, RegionName.bellhart_bellway),
     ConnectionData(RegionName.bellhart_bellway, RegionName.bellhart_lower),
@@ -131,13 +137,12 @@ all_connections = [
     one_way_connection(RegionName.bellhart_wishwall, RegionName.bellhart_wishwall_after_tipp, requirements={ItemName.tipp_and_pill: 1}),
     one_way_connection(RegionName.bellhart_wishwall_after_tipp, RegionName.wish_sinners_road_missing_brother, requirements={ItemName.tipp_and_pill: 1}),
     one_way_connection(RegionName.bellhart_wishwall_after_tipp, RegionName.bellhart_delivery_wishes, requirements={ItemName.tipp_and_pill: 2}),
-    one_way_connection(RegionName.bellhart_wishwall, RegionName.bellhart_wishwall_after_needle),  # TODO: Write logic for this
-    one_way_connection(RegionName.bellhart_wishwall_after_needle, RegionName.bellhart_wishwall_after_needle_and_relic),  # TODO: Write logic for this
-    one_way_connection(RegionName.bellhart_wishwall_after_needle, RegionName.wish_pinmaster_oil, requirements=ItemName.pale_oil),  # TODO: Write logic for this
+    one_way_connection(RegionName.bellhart_wishwall, RegionName.bellhart_wishwall_after_needle, requirements=[ItemName.needle_upgrade]),
+    one_way_connection(RegionName.bellhart_wishwall_after_needle, RegionName.bellhart_wishwall_after_needle_and_relic),  # TODO: Write logic for the relic
     one_way_connection(RegionName.bellhart_wishwall, RegionName.bellhart_wishwall_all_maps_faydown_and_two_melodies),  # TODO: Write logic for this
     one_way_connection(RegionName.bellhart_wishwall_all_maps_faydown_and_two_melodies, RegionName.trail_end, requirements=[ItemName.cling_grip, ItemName.faydown_cloak]),
     one_way_connection(RegionName.bellhart_wishwall, RegionName.bellhart_wishwall_after_beastfy, requirements=[EventName.beastfly_defeated, EventName.fourth_chorus_defeat, EventName.visited_songclave]), # Not sure if beast crest, or just killing first beastfly here
-    one_way_connection(RegionName.bellhart_wishwall, RegionName.bellhart_wishwall_bellhart_restored, requirements=[ItemName.bellhart_restoration, ItemName.clawline]), # TODO: Add one needle upgrade to this
+    one_way_connection(RegionName.bellhart_wishwall_after_needle_and_relic, RegionName.bellhart_wishwall_bellhart_restored, requirements=[ItemName.bellhart_restoration, ItemName.clawline, ItemName.needle_upgrade]),
 
     one_way_connection(RegionName.bellhart_wishwall, RegionName.bellhart_wishwall_act_3, requirements=[ItemName.act_3]),
     one_way_connection(RegionName.bellhart_wishwall_act_3, RegionName.bellhart_wishwall_with_strike, requirements=[ItemName.needle_strike]),
@@ -177,9 +182,11 @@ all_connections = [
     ConnectionData(RegionName.choral_chambers, RegionName.cogwork_core),
     ConnectionData(RegionName.choral_chambers, RegionName.memorium, requirements=ItemName.faydown_cloak),
     ConnectionData(RegionName.choral_chambers, RegionName.cradle, requirements=[ItemName.needolin, ItemName.architect_melody, ItemName.vaultkeeper_melody, ItemName.conductor_melody]),
-    ConnectionData(RegionName.choral_chambers, RegionName.high_halls),
+    ConnectionData(RegionName.choral_chambers, RegionName.high_halls, requirements=ItemName.clawline),
     ConnectionData(RegionName.choral_chambers, RegionName.the_slab),
     ConnectionData(RegionName.choral_chambers, RegionName.songclave),
+    ConnectionData(RegionName.choral_chambers, RegionName.choral_chambers_great_gourmand),
+    ConnectionData(RegionName.choral_chambers_great_gourmand, RegionName.choral_chambers_great_gourmand_with_5_delicacies, requirements=[EventName.mossberry_stew, EventName.vintage_nectar, EventName.courier_rasher, EventName.crustnut, EventName.pickled_muckmaggot]),
     ConnectionData(RegionName.choral_chambers, RegionName.choral_chambers_vent, requirements=ItemName.drifters_cloak),
     ConnectionData(RegionName.memorium, RegionName.memorium_ventrica),
     ConnectionData(RegionName.memorium, RegionName.memorium_giant_flea),
@@ -191,7 +198,10 @@ all_connections = [
     ConnectionData(RegionName.putrified_ducts, RegionName.putrified_ducts_bellway),
     ConnectionData(RegionName.putrified_ducts, RegionName.putrified_ducts_vog_passage),
     ConnectionData(RegionName.putrified_ducts, RegionName.fleatopia, requirements={ItemName.needolin: 1, ItemName.lost_flea: 27, ItemName.kratt: 1, ItemName.vog: 1, ItemName.giant_lost_flea: 1}),
+    ConnectionData(RegionName.fleatopia, RegionName.festival_of_the_flea, requirements=[ItemName.silk_soar, ItemName.egg_of_flealia, ItemName.crest_hunter_progressive]),
     ConnectionData(RegionName.cogwork_core, RegionName.whispering_vaults),
+    ConnectionData(RegionName.whispering_vaults, RegionName.choral_chambers_pale_oil_room),
+    one_way_connection(RegionName.choral_chambers_pale_oil_room, RegionName.choral_chambers),
     ConnectionData(RegionName.whispering_vaults, RegionName.whispering_vaults_east),
     ConnectionData(RegionName.whispering_vaults_east, RegionName.choral_chambers_outside),
     ConnectionData(RegionName.choral_chambers_outside, RegionName.choral_chambers_outside_alcove, requirements=ItemName.clawline),
@@ -200,6 +210,7 @@ all_connections = [
     ConnectionData(RegionName.sands_of_karak_shaft, RegionName.sands_of_karak_lower_right),
     ConnectionData(RegionName.sands_of_karak_lower_right, RegionName.sands_of_karak_upper_right),
     ConnectionData(RegionName.sands_of_karak_upper_right, RegionName.sands_of_karak_upper_left),
+    ConnectionData(RegionName.sands_of_karak_upper_right, RegionName.sands_of_karak_crustnut_room),
     ConnectionData(RegionName.sands_of_karak_upper_right, RegionName.sands_of_karak_voltnest, requirements=ItemName.faydown_cloak),
     ConnectionData(RegionName.sands_of_karak_upper_left, RegionName.sands_of_karak_coral_tower),
     ConnectionData(RegionName.sands_of_karak_coral_tower, RegionName.sands_of_karak_coral_tower_dream, requirements=ItemName.elegy_of_the_deep),

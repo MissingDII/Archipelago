@@ -5,7 +5,7 @@ from typing import List, Dict, Optional, Protocol
 from BaseClasses import Location
 from .options.options import SilksongOptions, Goal, RandomizeMovementAbilities, RandomizeCombatAbilities, RandomizeOtherAbilities, RandomizeBossRewards, \
     RandomizeEvaRewards, RandomizeMemoryLockets, RandomizeWishRewards, RandomizeCrests, RandomStartingCrest, RandomizeShopItems, RandomizePickups, \
-    RandomizeLostFleas, RandomizeStations
+    RandomizeLostFleas, RandomizeStations, RandomizeNeedleUpgrades
 from .strings.generic_strings import GAME_NAME
 from .strings.goal_names import GoalName
 from .strings.region_names import RegionName
@@ -45,6 +45,7 @@ class LocationGroup(enum.Enum):
     LOST_FLEA = enum.auto()
     BELLWAY = enum.auto()
     VENTRICA = enum.auto()
+    NEEDLE_UPGRADE = enum.auto()
 
     UNIQUE_PICKUPS = enum.auto()
     PICKUP = enum.auto()
@@ -132,6 +133,9 @@ def create_locations(location_collector: SilksongLocationCollector,
     if options.randomize_other_abilities == RandomizeOtherAbilities.option_true:
         enabled_groups.append(LocationGroup.SILK_OTHER_ABILITY)
 
+    if options.randomize_needle_upgrades == RandomizeNeedleUpgrades.option_true:
+        enabled_groups.append(LocationGroup.NEEDLE_UPGRADE)
+
     if options.randomize_boss_rewards == RandomizeBossRewards.option_true:
         enabled_groups.append(LocationGroup.BOSS_FIGHT)
 
@@ -175,8 +179,10 @@ def create_locations(location_collector: SilksongLocationCollector,
             allowed_acts.append(LocationGroup.ACT_3)
 
     for loc_item_pair in all_locations_items_pairs:
+        if not any([act in loc_item_pair.location_data.groups for act in allowed_acts]):
+            continue
         for group in enabled_groups:
-            if group in loc_item_pair.location_data.groups and any([act in loc_item_pair.location_data.groups for act in allowed_acts]):
+            if group in loc_item_pair.location_data.groups:
                 randomized_locations.append(loc_item_pair.location_data)
                 break
 
