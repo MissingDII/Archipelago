@@ -5,7 +5,7 @@ from typing import List, Dict, Optional, Protocol
 from BaseClasses import Location
 from .options.options import SilksongOptions, Goal, RandomizeMovementAbilities, RandomizeCombatAbilities, RandomizeOtherAbilities, RandomizeBossRewards, \
     RandomizeEvaRewards, RandomizeMemoryLockets, RandomizeWishRewards, RandomizeCrests, RandomStartingCrest, RandomizeShopItems, RandomizePickups, \
-    RandomizeLostFleas, RandomizeBellways
+    RandomizeLostFleas, RandomizeStations
 from .strings.generic_strings import GAME_NAME
 from .strings.goal_names import GoalName
 from .strings.region_names import RegionName
@@ -44,6 +44,7 @@ class LocationGroup(enum.Enum):
     SPOOL_FRAGMENT = enum.auto()
     LOST_FLEA = enum.auto()
     BELLWAY = enum.auto()
+    VENTRICA = enum.auto()
 
     UNIQUE_PICKUPS = enum.auto()
     PICKUP = enum.auto()
@@ -163,8 +164,9 @@ def create_locations(location_collector: SilksongLocationCollector,
     if options.randomize_lost_fleas == RandomizeLostFleas.option_true:
         enabled_groups.append(LocationGroup.LOST_FLEA)
 
-    if options.randomize_bellways == RandomizeBellways.option_true:
+    if options.randomize_stations == RandomizeStations.option_true:
         enabled_groups.append(LocationGroup.BELLWAY)
+        enabled_groups.append(LocationGroup.VENTRICA)
 
     allowed_acts = [LocationGroup.ACT_1]
     if options.goal >= Goal.option_weaver_queen:

@@ -120,10 +120,10 @@ class RandomizeLostFleas(DefaultOnToggle):
     display_name = "Randomize Lost Fleas"
 
 
-class RandomizeBellways(DefaultOnToggle):
-    """Shuffles access to the Bell Beast in various Bellways"""
-    internal_name = "randomize_bellways"
-    display_name = "Randomize Bellways"
+class RandomizeStations(DefaultOnToggle):
+    """Shuffles access to the various Bellway and Ventrica stations"""
+    internal_name = "randomize_stations"
+    display_name = "Randomize Stations"
 
 
 @dataclass
@@ -141,5 +141,5 @@ class SilksongOptions(PerGameCommonOptions):
     randomize_shop_items: RandomizeShopItems
     randomize_pickups: RandomizePickups
     randomize_lost_fleas: RandomizeLostFleas
-    randomize_bellways: RandomizeBellways
+    randomize_stations: RandomizeStations
     death_link: DeathLink

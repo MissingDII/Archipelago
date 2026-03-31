@@ -40,7 +40,7 @@ all_connections = [
     ConnectionData(RegionName.bonegrave, RegionName.chapel_of_the_wanderer),
     ConnectionData(RegionName.bone_bottom, RegionName.craggler_cavern, requirements=[(ItemName.swift_step, ItemName.faydown_cloak, ItemName.clawline)]),
     ConnectionData(RegionName.bone_bottom, RegionName.marrow_west),
-    ConnectionData(RegionName.bone_bottom, RegionName.bone_bottom_bellway, requirements=[ItemName.bone_bottom_bell_beast, ItemName.the_marrow_bell_beast]),
+    ConnectionData(RegionName.bone_bottom, RegionName.bone_bottom_bellway, requirements=[ItemName.the_marrow_bell_beast]),
     ConnectionData(RegionName.bone_bottom, RegionName.bone_bottom_wishwall, requirements=ItemName.bone_bottom_wishwall),
 
     ConnectionData(RegionName.craggler_cavern, RegionName.wormways_entrance), # Add Simple Key Requirement
@@ -159,14 +159,18 @@ all_connections = [
     ConnectionData(RegionName.underworks_act_2, RegionName.underworks, requirements=[EventName.act_2_reached]),
     ConnectionData(RegionName.underworks, RegionName.underworks_confessional),
     ConnectionData(RegionName.underworks, RegionName.choral_chambers_above_bellway),
+    ConnectionData(RegionName.underworks, RegionName.underworks_ventrica),
     ConnectionData(RegionName.underworks_cauldron, RegionName.underworks),
     ConnectionData(RegionName.underworks_cauldron, RegionName.twelfth_architect),
     ConnectionData(RegionName.twelfth_architect, RegionName.chapel_of_the_architect, requirements=ItemName.architect_key),
+
     one_way_connection(RegionName.choral_chambers_above_bellway, RegionName.choral_chambers_bellway),
     ConnectionData(RegionName.choral_chambers_bellway, RegionName.choral_chambers),
+    ConnectionData(RegionName.choral_chambers_bellway, RegionName.grand_bellway_ventrica),
     ConnectionData(RegionName.choral_chambers, RegionName.whiteward),
     ConnectionData(RegionName.whiteward, RegionName.whiteward_ceiling, requirements=[ItemName.cling_grip, ItemName.clawline]),
     ConnectionData(RegionName.whiteward, RegionName.underworks_cauldron),
+    ConnectionData(RegionName.choral_chambers, RegionName.choral_chambers_ventrica),
     ConnectionData(RegionName.choral_chambers, RegionName.cogwork_core),
     ConnectionData(RegionName.choral_chambers, RegionName.memorium, requirements=ItemName.faydown_cloak),
     ConnectionData(RegionName.choral_chambers, RegionName.cradle, requirements=[ItemName.needolin, ItemName.architect_melody, ItemName.vaultkeeper_melody, ItemName.conductor_melody]),
@@ -174,9 +178,13 @@ all_connections = [
     ConnectionData(RegionName.choral_chambers, RegionName.the_slab),
     ConnectionData(RegionName.choral_chambers, RegionName.songclave),
     ConnectionData(RegionName.choral_chambers, RegionName.choral_chambers_vent, requirements=ItemName.drifters_cloak),
+    ConnectionData(RegionName.memorium, RegionName.memorium_ventrica),
     ConnectionData(RegionName.memorium, RegionName.memorium_giant_flea),
     ConnectionData(RegionName.memorium, RegionName.memorium_outside, requirements=ItemName.faydown_cloak),
     ConnectionData(RegionName.memorium_outside, RegionName.putrified_ducts, requirements=ItemName.cling_grip),
+    ConnectionData(RegionName.high_halls, RegionName.high_halls_ventrica),
+    ConnectionData(RegionName.songclave, RegionName.first_shrine_ventrica),
+
     ConnectionData(RegionName.putrified_ducts, RegionName.putrified_ducts_bellway),
     ConnectionData(RegionName.putrified_ducts, RegionName.putrified_ducts_vog_passage),
     ConnectionData(RegionName.putrified_ducts, RegionName.fleatopia, requirements={ItemName.needolin: 1, ItemName.lost_flea: 27, ItemName.kratt: 1, ItemName.vog: 1, ItemName.giant_lost_flea: 1}),
@@ -213,6 +221,7 @@ all_connections = [
     one_way_connection(RegionName.cogwork_core, RegionName.citadel),
     one_way_connection(RegionName.whiteward, RegionName.citadel),
 
+    one_way_connection(RegionName.cradle, RegionName.terminus_ventrica),
     one_way_connection(RegionName.cradle, RegionName.cradle_with_soul_snare, requirements=[ItemName.soul_snare, ItemName.needolin]),
     one_way_connection(RegionName.cradle_with_soul_snare, RegionName.cradle_act_3, requirements=ItemName.act_3),
     one_way_connection(RegionName.cradle_act_3, RegionName.escaped_cradle_act_3),
@@ -280,6 +289,14 @@ all_connections = [
     ConnectionData(RegionName.shellwood_bellway, RegionName.bellway_travel, requirements=ItemName.shellwood_bell_beast),
     ConnectionData(RegionName.marrow_bellway, RegionName.bellway_travel, requirements=ItemName.the_marrow_bell_beast),
     ConnectionData(RegionName.the_slab_bellway, RegionName.bellway_travel, requirements=ItemName.the_slab_bell_beast),
+
+    ConnectionData(RegionName.terminus_ventrica, RegionName.ventrica_travel, requirements=ItemName.terminus_ventrica),
+    ConnectionData(RegionName.memorium_ventrica, RegionName.ventrica_travel, requirements=ItemName.memorium_ventrica),
+    ConnectionData(RegionName.high_halls_ventrica, RegionName.ventrica_travel, requirements=ItemName.high_halls_ventrica),
+    ConnectionData(RegionName.first_shrine_ventrica, RegionName.ventrica_travel, requirements=ItemName.first_shrine_ventrica),
+    ConnectionData(RegionName.choral_chambers_ventrica, RegionName.ventrica_travel, requirements=ItemName.choral_chambers_ventrica),
+    ConnectionData(RegionName.grand_bellway_ventrica, RegionName.ventrica_travel, requirements=ItemName.grand_bellway_ventrica),
+    ConnectionData(RegionName.underworks_ventrica, RegionName.ventrica_travel, requirements=ItemName.underworks_ventrica),
 ]
 
 # Create all the inverse connections
