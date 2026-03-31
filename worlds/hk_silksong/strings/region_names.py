@@ -25,6 +25,9 @@ class RegionName:
     marrow_bellway_north = region("The Marrow - North After Bellway")
     marrow_east = region("The Marrow - East")
     marrow_bellway_north_alcove = region("The Marrow - North Alcove")
+    flea_caravan_marrow = region("The Marrow - Flea Caravan")
+    lost_flea_wish = region("The Marrow - Lost Flea Wish")
+    flea_caravan_marrow_with_5_fleas = region("The Marrow - Flea Caravan With 5 Fleas")
 
     marrow_east_bone_bottom_wishes = region("The Marrow - East Started Bone Bottom Wishes")
     marrow_east_flintbeetles = region("The Marrow - East - Volatile FlintBeetles")

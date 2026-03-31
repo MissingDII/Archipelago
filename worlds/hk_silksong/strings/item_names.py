@@ -1,5 +1,4 @@
 class ItemName:
-
     needolin = "Needolin"
     beastling_call = "Beastling Call"
     elegy_of_the_deep = "Elegy of the Deep"
@@ -80,6 +79,7 @@ class ItemName:
     tipp_and_pill = "Progressive Tipp and Pill"
 
     throwing_ring = "Throwing Ring"
+    flea_brew = "Flea Brew"
 
     bone_bottom_wishwall = "Bone Bottom Wishwall"
     bellhart_restoration = "Bellhart Restored"

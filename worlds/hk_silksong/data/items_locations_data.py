@@ -203,8 +203,8 @@ all_locations_items_pairs: List[LocationItemData] = [
     item_location("Memory locket - Bellhart Ceiling", RegionName.bellhart, [LocationGroup.MEMORY_LOCKET, LocationGroup.ACT_3], ItemName.memory_locket),
     item_location("Memory locket - Far Fields East", RegionName.far_fields_fields, [LocationGroup.MEMORY_LOCKET, LocationGroup.ACT_3], ItemName.memory_locket),
 
-    # item_location("Wayfarer Wish: The Lost Fleas", RegionName.wish_lost_fleas, [LocationGroup.RED_TOOL, LocationGroup.WISH, LocationGroup.ACT_1]),
-    # item_location("Wayfarer Wish: Pinmaster's Oil", RegionName.wish_pinmaster_oil, [LocationGroup.WISH, LocationGroup.ACT_2], ItemName.needle_upgrade),
+    item_location("Wayfarer Wish: The Lost Fleas", RegionName.flea_caravan_marrow_with_5_fleas, [LocationGroup.RED_TOOL, LocationGroup.WISH, LocationGroup.ACT_1], ItemName.flea_brew),
+    # item_location("Wayfarer Wish: Pinmaster's Oil", RegionName.wish_pinmaster_oil_with_pale_oil, [LocationGroup.WISH, LocationGroup.NEEDLE_UPGRADE, LocationGroup.ACT_2], ItemName.needle_upgrade),
     item_location("Wayfarer Wish: My Missing Courier", RegionName.wish_shellwood_missing_courrier, [LocationGroup.WISH, LocationGroup.SHOP, LocationGroup.ACT_1], ItemName.tipp_and_pill),
     item_location("Wayfarer Wish: My Missing Brother", RegionName.wish_sinners_road_missing_brother, [LocationGroup.WISH, LocationGroup.ACT_2], ItemName.tipp_and_pill),
     # item_location("Wayfarer Wish: Balm For The Wounded", RegionName.wish_whiteward, [LocationGroup.WISH, LocationGroup.SPOOL_FRAGMENT, LocationGroup.ACT_2]),
