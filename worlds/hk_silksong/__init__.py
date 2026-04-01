@@ -7,7 +7,7 @@ from worlds.hk_silksong.data.crests_data import crest_purchasable_slots, crest_d
 from .data.items_locations_data import all_locations_items_pairs, locations_items_pairs_by_name
 from .events import create_events
 from .items.items import items_by_name, create_items, SilksongItem, filler_items, item_data_by_name, ItemData
-from .locations import SilksongLocation, create_locations, locations_by_name, LocationData, goal_events_locations
+from .locations import SilksongLocation, create_locations, locations_by_name, LocationData, goal_events_locations, set_item_rules
 from .options.option_groups import silksong_option_groups
 from .options.options import SilksongOptions, Goal, RandomStartingCrest, RandomizeMovementAbilities, RandomizeCombatAbilities, RandomizePickups, \
     RandomizeShopItems, RandomizeCrests, RandomizeWishRewards, RandomizeMemoryLockets, RandomizeEvaRewards, RandomizeBossRewards, RandomizeOtherAbilities
@@ -72,7 +72,8 @@ class SilksongWorld(World):
         self.multiworld.regions.extend(world_regions.values())
 
     def set_rules(self):
-        set_entrance_rules(self.multiworld, self.player, self.options)
+        set_entrance_rules(self.multiworld, self.player)
+        set_item_rules(self.multiworld, self.player, self.enabled_locations)
         self.multiworld.completion_condition[self.player] = lambda state: state.has("Victory", self.player)
 
     def create_items(self):

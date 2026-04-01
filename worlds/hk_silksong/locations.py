@@ -2,13 +2,15 @@ import enum
 from random import Random
 from typing import List, Dict, Optional, Protocol
 
-from BaseClasses import Location
+from BaseClasses import Location, MultiWorld
 from .options.options import SilksongOptions, Goal, RandomizeMovementAbilities, RandomizeCombatAbilities, RandomizeOtherAbilities, RandomizeBossRewards, \
     RandomizeEvaRewards, RandomizeMemoryLockets, RandomizeWishRewards, RandomizeCrests, RandomStartingCrest, RandomizeShopItems, RandomizePickups, \
     RandomizeLostFleas, RandomizeStations, RandomizeNeedleUpgrades
 from .strings.generic_strings import GAME_NAME
 from .strings.goal_names import GoalName
+from .strings.item_names import ItemName
 from .strings.region_names import RegionName
+from ..generic.Rules import forbid_item
 
 
 class SilksongLocationCollector(Protocol):
@@ -190,3 +192,18 @@ def create_locations(location_collector: SilksongLocationCollector,
 
     for location_data in randomized_locations:
         location_collector(location_data.name, location_data.id, location_data.region)
+
+
+def set_item_rules(multiworld: MultiWorld, player: int, enabled_locations: List[str]) -> None:
+    # These can end a chain of lockets, so they can self-lock if placed there
+    set_item_rule(multiworld, player, enabled_locations, "Eva: 17 Slots", ItemName.memory_locket)
+    set_item_rule(multiworld, player, enabled_locations, "Eva: 32 Slots", ItemName.memory_locket)
+    set_item_rule(multiworld, player, enabled_locations, "Eva: 37 Slots", ItemName.memory_locket)
+
+
+def set_item_rule(multiworld: MultiWorld, player: int, enabled_locations: List[str], location_name: str, forbidden_item: str = None):
+    if location_name not in enabled_locations:
+        return
+    location = multiworld.get_location(location_name, player)
+    if forbidden_item:
+        forbid_item(location, forbidden_item, player)

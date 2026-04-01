@@ -33,7 +33,7 @@ def has_requirement(state, requirement: str | tuple[str, ...], player, count):
     return state.has_from_list([*requirement], player, count)
 
 
-def set_entrance_rules(multiworld: MultiWorld, player: int, world_options: SilksongOptions) -> None:
+def set_entrance_rules(multiworld: MultiWorld, player: int) -> None:
     for entrance_name, entrance in multiworld.regions.entrance_cache[player].items():
         entrance_data = connections_by_name[entrance_name]
         if entrance_data.requirements:
