@@ -4,6 +4,19 @@ from ..strings.item_names import ItemName, EventName
 from ..strings.region_names import RegionName
 
 
+def standardize_requirements(requirements):
+    if isinstance(requirements, str):
+        requirements = [requirements]
+    if isinstance(requirements, list):
+        requirements_dict = dict()
+        for requirement in requirements:
+            if requirement not in requirements_dict:
+                requirements_dict[requirement] = 0
+            requirements_dict[requirement] += 1
+        requirements = requirements_dict
+    return requirements
+
+
 class ConnectionData:
     origin: str
     destination: str
@@ -15,16 +28,7 @@ class ConnectionData:
         self.origin = origin
         self.destination = destination
         self.entrance = entrance if entrance else ""
-        if isinstance(requirements, str):
-            requirements = [requirements]
-        if isinstance(requirements, list):
-            requirements_dict = dict()
-            for requirement in requirements:
-                if requirement not in requirements_dict:
-                    requirements_dict[requirement] = 0
-                requirements_dict[requirement] += 1
-            requirements = requirements_dict
-        self.requirements = requirements
+        self.requirements = standardize_requirements(requirements)
         self.include_reverse = include_reverse
 
 
@@ -34,24 +38,41 @@ def one_way_connection(origin: str, destination: str, entrance: str = "", requir
 
 all_connections = [
     ConnectionData(RegionName.menu, RegionName.moss_grotto),
-    ConnectionData(RegionName.moss_grotto, RegionName.bone_bottom),
+
+    one_way_connection(RegionName.moss_grotto, RegionName.moss_mother_arena),
+    one_way_connection(RegionName.moss_mother_defeated, RegionName.bone_bottom),
+    one_way_connection(RegionName.moss_mother_arena, RegionName.moss_mother_defeated),
+    one_way_connection(RegionName.moss_mother_defeated, RegionName.moss_grotto),
+    one_way_connection(RegionName.bone_bottom, RegionName.moss_mother_arena),
+
     ConnectionData(RegionName.moss_grotto, RegionName.bonegrave, requirements=ItemName.cling_grip),
     ConnectionData(RegionName.moss_grotto, RegionName.weavenest_atla, requirements=ItemName.needolin),
     ConnectionData(RegionName.bonegrave, RegionName.chapel_of_the_wanderer),
     ConnectionData(RegionName.bone_bottom, RegionName.craggler_cavern, requirements=[(ItemName.swift_step, ItemName.faydown_cloak, ItemName.clawline)]),
+
+    one_way_connection(RegionName.craggler_cavern, RegionName.craggler_arena),
+    one_way_connection(RegionName.craggler_defeated, RegionName.wormways_entrance),
+    one_way_connection(RegionName.craggler_arena, RegionName.craggler_defeated),
+    one_way_connection(RegionName.craggler_defeated, RegionName.craggler_cavern),
+    one_way_connection(RegionName.wormways_entrance, RegionName.craggler_arena), # Add Simple Key Requirement
+
     ConnectionData(RegionName.bone_bottom, RegionName.marrow_west),
     ConnectionData(RegionName.bone_bottom, RegionName.bone_bottom_bellway, requirements=[ItemName.the_marrow_bell_beast]),
     ConnectionData(RegionName.bone_bottom, RegionName.bone_bottom_wishwall, requirements=ItemName.bone_bottom_wishwall),
 
-    ConnectionData(RegionName.craggler_cavern, RegionName.wormways_entrance), # Add Simple Key Requirement
     ConnectionData(RegionName.wormways_entrance, RegionName.wormways_bottom_left, requirements=ItemName.cling_grip),
     ConnectionData(RegionName.wormways_entrance, RegionName.wormways_upper, requirements=ItemName.cling_grip),
     ConnectionData(RegionName.wormways_entrance, RegionName.weavenest_karn, requirements=ItemName.faydown_cloak),
     ConnectionData(RegionName.wormways_entrance, RegionName.bonegrave),
 
     ConnectionData(RegionName.marrow_west, RegionName.mosshome, requirements=[(ItemName.silkspear, ItemName.cling_grip)]),
-    ConnectionData(RegionName.marrow_west, RegionName.marrow_bell_beast_fight, requirements=ItemName.silkspear),
-    ConnectionData(RegionName.marrow_bell_beast_fight, RegionName.marrow_bellway, requirements=ItemName.silkspear),
+
+    one_way_connection(RegionName.marrow_west, RegionName.bell_beast_arena, requirements=ItemName.silkspear),
+    one_way_connection(RegionName.bell_beast_defeated, RegionName.marrow_bellway),
+    one_way_connection(RegionName.bell_beast_arena, RegionName.bell_beast_defeated),
+    one_way_connection(RegionName.bell_beast_defeated, RegionName.marrow_west),
+    one_way_connection(RegionName.marrow_bellway, RegionName.bell_beast_arena, requirements=ItemName.silkspear),
+
     ConnectionData(RegionName.marrow_bellway, RegionName.marrow_east),
     ConnectionData(RegionName.marrow_bellway, RegionName.marrow_bellway_north),
     ConnectionData(RegionName.marrow_bellway_north, RegionName.marrow_bellway_north_alcove, requirements=ItemName.cling_grip),
@@ -249,6 +270,8 @@ all_connections = [
     ConnectionData(RegionName.moss_grotto_act_3, RegionName.ruined_chapel),
 
     ConnectionData(RegionName.weavenest_atla, RegionName.weavenest_atla_moss_mothers, requirements=[ItemName.swift_step]),
+    ConnectionData(RegionName.weavenest_atla_moss_mothers, RegionName.double_moss_mother_arena),
+    one_way_connection(RegionName.double_moss_mother_arena, RegionName.double_moss_mother_defeated),
     one_way_connection(RegionName.weavenest_atla, RegionName.eva_0),
     one_way_connection(RegionName.eva_0, RegionName.eva_1, requirements={ItemName.crest_slots: 1}),
     one_way_connection(RegionName.eva_1, RegionName.eva_2, requirements={ItemName.crest_slots: 2}),

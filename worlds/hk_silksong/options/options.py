@@ -132,6 +132,27 @@ class RandomizeStations(DefaultOnToggle):
     display_name = "Randomize Stations"
 
 
+class CombatLogic(Choice):
+    """
+    How much logic should exist to make sure proper equipment is provided before encounters are in logic
+    None: You could be expected to beat any boss with zero upgrades. Not recommended, very challenging
+    Minimal: The bare minimum logic requirements are active. For example, upsladh for Craggler, Cling grip for Nyleth.
+    Usual: Logic expects equivalent upgrades to the vanilla loadout accessible before a given boss
+    Nice Tools: Set of "good tools" are expected for some bosses. Subjective, based on my opinion. Also includes "minimal" logic
+    Usual and Nice Tools: Combination of "Usual" and "Nice Tools" logic
+    Skill Issue: Extra logic is in place to make everything easier than vanilla.
+    """
+    internal_name = "combat_logic"
+    display_name = "Combat Logic"
+    default = 2
+    option_none = 0
+    option_minimal = 1
+    option_usual = 2
+    option_nice_tools = 3
+    option_usual_and_nice_tools = 4
+    option_skill_issue = 5
+
+
 @dataclass
 class SilksongOptions(PerGameCommonOptions):
     goal: Goal
@@ -149,4 +170,5 @@ class SilksongOptions(PerGameCommonOptions):
     randomize_pickups: RandomizePickups
     randomize_lost_fleas: RandomizeLostFleas
     randomize_stations: RandomizeStations
+    combat_logic: CombatLogic
     death_link: DeathLink

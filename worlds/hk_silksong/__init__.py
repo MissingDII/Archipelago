@@ -12,7 +12,7 @@ from .options.option_groups import silksong_option_groups
 from .options.options import SilksongOptions, Goal, RandomStartingCrest, RandomizeMovementAbilities, RandomizeCombatAbilities, RandomizePickups, \
     RandomizeShopItems, RandomizeCrests, RandomizeWishRewards, RandomizeMemoryLockets, RandomizeEvaRewards, RandomizeBossRewards, RandomizeOtherAbilities
 from .options.presets import silksong_options_presets
-from .regions import create_regions, set_entrance_rules
+from .regions import create_regions, set_entrance_rules, set_combat_logic_entrance_rules
 from .strings.generic_strings import GAME_NAME
 from .strings.goal_names import GoalName
 from .strings.item_names import ItemName
@@ -73,6 +73,7 @@ class SilksongWorld(World):
 
     def set_rules(self):
         set_entrance_rules(self.multiworld, self.player)
+        set_combat_logic_entrance_rules(self.multiworld, self.player, self.options)
         set_item_rules(self.multiworld, self.player, self.enabled_locations)
         self.multiworld.completion_condition[self.player] = lambda state: state.has("Victory", self.player)
 
