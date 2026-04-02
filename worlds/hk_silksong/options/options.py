@@ -56,6 +56,24 @@ class RandomizeNeedleUpgrades(DefaultOnToggle):
     display_name = "Randomize Needle Upgrades"
 
 
+class StartingSlashes(Choice):
+    """Which slash directions to start with"""
+    internal_name = "starting_slashes"
+    display_name = "Starting Slashes"
+    default = 0
+    option_all = 0
+    option_down = 1
+    option_random_direction = 2
+    option_two_random_directions = 3
+    option_down_and_random_direction = 4
+
+
+class StartingBind(DefaultOnToggle):
+    """Whether Hornet should start with the ability to bind (heal), or find it randomized somewhere"""
+    internal_name = "starting_bind"
+    display_name = "Starting Bind"
+
+
 class RandomizeBossRewards(DefaultOnToggle):
     """Shuffles rewards from beating every boss in the game. This also adds a location reward to bosses that don't usually have a reward, increasing filler."""
     internal_name = "randomize_boss_rewards"
@@ -160,6 +178,8 @@ class SilksongOptions(PerGameCommonOptions):
     randomize_combat_abilities: RandomizeCombatAbilities
     randomize_other_abilities: RandomizeOtherAbilities
     randomize_needle_upgrades: RandomizeNeedleUpgrades
+    starting_slashes: StartingSlashes
+    starting_bind: StartingBind
     randomize_boss_rewards: RandomizeBossRewards
     randomize_eva_rewards: RandomizeEvaRewards
     randomize_memory_lockets: RandomizeMemoryLockets

@@ -10,7 +10,8 @@ from .items.items import items_by_name, create_items, SilksongItem, filler_items
 from .locations import SilksongLocation, create_locations, locations_by_name, LocationData, goal_events_locations, set_item_rules
 from .options.option_groups import silksong_option_groups
 from .options.options import SilksongOptions, Goal, RandomStartingCrest, RandomizeMovementAbilities, RandomizeCombatAbilities, RandomizePickups, \
-    RandomizeShopItems, RandomizeCrests, RandomizeWishRewards, RandomizeMemoryLockets, RandomizeEvaRewards, RandomizeBossRewards, RandomizeOtherAbilities
+    RandomizeShopItems, RandomizeCrests, RandomizeWishRewards, RandomizeMemoryLockets, RandomizeEvaRewards, RandomizeBossRewards, RandomizeOtherAbilities, \
+    StartingBind, StartingSlashes, RandomizeNeedleUpgrades, RandomizeLostFleas, RandomizeStations
 from .options.presets import silksong_options_presets
 from .regions import create_regions, set_entrance_rules, set_combat_logic_entrance_rules
 from .strings.generic_strings import GAME_NAME
@@ -79,6 +80,8 @@ class SilksongWorld(World):
 
     def create_items(self):
         self.precollect_starting_crest()
+        self.precollect_starting_bind()
+        self.precollect_starting_slashes()
         self.precollect_wip_stuff()
         my_locations = self.multiworld.get_locations(self.player)
         locations_count = len([location
@@ -122,6 +125,28 @@ class SilksongWorld(World):
             starting_crest = self.random.choice(potential_crests)
         self.multiworld.push_precollected(self.create_item(starting_crest))
 
+    def precollect_starting_bind(self):
+        if self.options.starting_bind == StartingBind.option_true:
+            self.multiworld.push_precollected(self.create_item(ItemName.bind))
+
+    def precollect_starting_slashes(self):
+        all_slashes = [ItemName.downslash, ItemName.upslash, ItemName.leftslash, ItemName.rightslash]
+        starting_slashes = set()
+        if self.options.starting_slashes == StartingSlashes.option_all:
+            starting_slashes += all_slashes
+        elif self.options.starting_slashes == StartingSlashes.option_random_direction:
+            starting_slashes.add(self.random.choice(all_slashes))
+        elif self.options.starting_slashes == StartingSlashes.option_two_random_directions:
+            starting_slashes.add(self.random.sample(all_slashes, k=2))
+        elif self.options.starting_slashes == StartingSlashes.option_down:
+            starting_slashes.add(ItemName.downslash)
+        elif self.options.starting_slashes == StartingSlashes.option_down_and_random_direction:
+            starting_slashes.add(ItemName.downslash)
+            starting_slashes.add(self.random.choice([ItemName.upslash, ItemName.leftslash, ItemName.rightslash]))
+
+        for starting_slash in starting_slashes:
+            self.multiworld.push_precollected(self.create_item(starting_slash))
+
     def precollect_wip_stuff(self):
         pass
         # self.multiworld.push_precollected(self.create_item(ItemName.twisted_bud))
@@ -145,6 +170,9 @@ class SilksongWorld(World):
             RandomizeMovementAbilities.internal_name,
             RandomizeCombatAbilities.internal_name,
             RandomizeOtherAbilities.internal_name,
+            RandomizeNeedleUpgrades.internal_name,
+            StartingSlashes.internal_name,
+            StartingBind.internal_name,
             RandomizeBossRewards.internal_name,
             RandomizeEvaRewards.internal_name,
             RandomizeMemoryLockets.internal_name,
@@ -153,6 +181,8 @@ class SilksongWorld(World):
             RandomStartingCrest.internal_name,
             RandomizeShopItems.internal_name,
             RandomizePickups.internal_name,
+            RandomizeLostFleas.internal_name,
+            RandomizeStations.internal_name,
             "death_link"
         )
         options_dict.update({

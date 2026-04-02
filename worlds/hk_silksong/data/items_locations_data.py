@@ -29,10 +29,10 @@ def item_location(location: str, region: str, groups: List[LocationGroup], item:
 all_locations_items_pairs: List[LocationItemData] = [
     item_location("Bound the Needle", RegionName.moss_grotto, [LocationGroup.RANDOMIZED_BIND, LocationGroup.ACT_1], ItemName.bind),
     item_location("Tutorial: Breakable Walls 1", RegionName.moss_grotto, [LocationGroup.RANDOMIZED_STARTING_CREST, LocationGroup.ACT_1], ItemName.crest_hunter_progressive, ItemClassification.progression),
-    item_location("Tutorial: Breakable Walls 2", RegionName.moss_grotto, [LocationGroup.RANDOMIZED_SLASH, LocationGroup.ACT_1], ItemName.upslash, ItemClassification.progression),
+    item_location("Tutorial: Breakable Walls 2", RegionName.moss_grotto, [LocationGroup.RANDOMIZED_SLASH, LocationGroup.ACT_1], ItemName.leftslash, ItemClassification.progression),
     item_location("Tutorial: Breakable Walls 3", RegionName.moss_grotto, [LocationGroup.RANDOMIZED_SLASH, LocationGroup.ACT_1], ItemName.downslash, ItemClassification.progression),
-    item_location("Tutorial: Mossgrub", RegionName.moss_grotto, [LocationGroup.RANDOMIZED_SLASH, LocationGroup.ACT_1], ItemName.leftslash, ItemClassification.useful),
-    item_location("Tutorial: Mossmir", RegionName.moss_grotto, [LocationGroup.RANDOMIZED_SLASH, LocationGroup.ACT_1], ItemName.rightslash, ItemClassification.useful),
+    item_location("Tutorial: Mossgrub", RegionName.moss_grotto, [LocationGroup.RANDOMIZED_SLASH, LocationGroup.ACT_1], ItemName.rightslash, ItemClassification.useful),
+    item_location("Tutorial: Mossmir", RegionName.moss_grotto, [LocationGroup.RANDOMIZED_SLASH, LocationGroup.ACT_1], ItemName.upslash, ItemClassification.useful),
     item_location("Enter Deep Docks", RegionName.deep_docks_entrance, [LocationGroup.EVENT_ONLY, LocationGroup.ACT_1], ItemName.bone_bottom_wishwall),
 
     item_location("Save: The Threadspun Town", RegionName.citadel, [LocationGroup.OBJECTIVE, LocationGroup.ACT_1]),
