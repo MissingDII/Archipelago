@@ -5,7 +5,7 @@ from typing import List, Dict, Optional, Protocol
 from BaseClasses import Location, MultiWorld
 from .options.options import SilksongOptions, Goal, RandomizeMovementAbilities, RandomizeCombatAbilities, RandomizeOtherAbilities, RandomizeBossRewards, \
     RandomizeEvaRewards, RandomizeMemoryLockets, RandomizeWishRewards, RandomizeCrests, RandomStartingCrest, RandomizeShopItems, RandomizePickups, \
-    RandomizeLostFleas, RandomizeStations, RandomizeNeedleUpgrades
+    RandomizeLostFleas, RandomizeStations, RandomizeNeedleUpgrades, StartingBind, StartingSlashes
 from .strings.generic_strings import GAME_NAME
 from .strings.goal_names import GoalName
 from .strings.item_names import ItemName
@@ -137,6 +137,12 @@ def create_locations(location_collector: SilksongLocationCollector,
 
     if options.randomize_needle_upgrades == RandomizeNeedleUpgrades.option_true:
         enabled_groups.append(LocationGroup.NEEDLE_UPGRADE)
+
+    if options.starting_bind == StartingBind.option_false:
+        enabled_groups.append(LocationGroup.RANDOMIZED_BIND)
+
+    if options.starting_slashes != StartingSlashes.option_all:
+        enabled_groups.append(LocationGroup.RANDOMIZED_SLASH)
 
     if options.randomize_boss_rewards == RandomizeBossRewards.option_true:
         enabled_groups.append(LocationGroup.BOSS_FIGHT)
