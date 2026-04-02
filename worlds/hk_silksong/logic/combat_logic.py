@@ -18,7 +18,7 @@ combat_logic_requirements = {
         CombatLogic.option_minimal: [],
         CombatLogic.option_usual: [ItemName.upslash, ItemName.needle_upgrade],
         CombatLogic.option_nice_tools: [],
-        CombatLogic.option_skill_issue: {ItemName.needle_upgrade: 2},
+        CombatLogic.option_skill_issue: [],
     },
     Boss.bell_beast: {
         CombatLogic.option_minimal: [],
