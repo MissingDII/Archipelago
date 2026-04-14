@@ -38,6 +38,7 @@ def one_way_connection(origin: str, destination: str, entrance: str = "", requir
 
 all_connections = [
     ConnectionData(RegionName.menu, RegionName.moss_grotto),
+    ConnectionData(RegionName.menu, RegionName.use_silk_spear, requirements=[(ItemName.crest_hunter_progressive, ItemName.crest_wanderer, ItemName.crest_reaper, ItemName.crest_beast, ItemName.crest_witch, ItemName.crest_shaman), ItemName.silkspear]),
 
     one_way_connection(RegionName.moss_grotto, RegionName.moss_mother_arena),
     one_way_connection(RegionName.moss_mother_defeated, RegionName.bone_bottom),
@@ -65,13 +66,13 @@ all_connections = [
     ConnectionData(RegionName.wormways_entrance, RegionName.weavenest_karn, requirements=ItemName.faydown_cloak),
     ConnectionData(RegionName.wormways_entrance, RegionName.bonegrave),
 
-    ConnectionData(RegionName.marrow_west, RegionName.mosshome, requirements=[(ItemName.silkspear, ItemName.cling_grip)]),
+    ConnectionData(RegionName.marrow_west, RegionName.mosshome, requirements=[(EventName.use_silkspear, ItemName.cling_grip)]),
 
-    one_way_connection(RegionName.marrow_west, RegionName.bell_beast_arena, requirements=ItemName.silkspear),
+    one_way_connection(RegionName.marrow_west, RegionName.bell_beast_arena, requirements=EventName.use_silkspear),
     one_way_connection(RegionName.bell_beast_defeated, RegionName.marrow_bellway),
     one_way_connection(RegionName.bell_beast_arena, RegionName.bell_beast_defeated),
     one_way_connection(RegionName.bell_beast_defeated, RegionName.marrow_west),
-    one_way_connection(RegionName.marrow_bellway, RegionName.bell_beast_arena, requirements=ItemName.silkspear),
+    one_way_connection(RegionName.marrow_bellway, RegionName.bell_beast_arena, requirements=EventName.use_silkspear),
 
     ConnectionData(RegionName.marrow_bellway, RegionName.marrow_east),
     ConnectionData(RegionName.marrow_bellway, RegionName.marrow_bellway_north),

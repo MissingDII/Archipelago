@@ -22,6 +22,7 @@ class RegionName:
     menu = region("Menu")
     bellway_travel = region("Bellway Travel")
     ventrica_travel = region("Ventrica Travel")
+    use_silk_spear = region("Use SilkSpear")
 
     moss_grotto = region("Moss Grotto")
     bone_bottom = region("Bone Bottom")

@@ -9,9 +9,9 @@ from .events import create_events
 from .items.items import items_by_name, create_items, SilksongItem, filler_items, item_data_by_name, ItemData
 from .locations import SilksongLocation, create_locations, locations_by_name, LocationData, goal_events_locations, set_item_rules
 from .options.option_groups import silksong_option_groups
-from .options.options import SilksongOptions, Goal, RandomStartingCrest, RandomizeMovementAbilities, RandomizeCombatAbilities, RandomizePickups, \
+from .options.options import SilksongOptions, Goal, RandomStartingCrest, RandomizeMovementAbilities, RandomizeCombatAbilities, \
     RandomizeShopItems, RandomizeCrests, RandomizeWishRewards, RandomizeMemoryLockets, RandomizeEvaRewards, RandomizeBossRewards, RandomizeOtherAbilities, \
-    StartingBind, StartingSlashes, RandomizeNeedleUpgrades, RandomizeLostFleas, RandomizeStations
+    StartingBind, StartingSlashes, RandomizeNeedleUpgrades, RandomizeLostFleas, RandomizeStations, RandomizeBasicPickups, RandomizeUniquePickups
 from .options.presets import silksong_options_presets
 from .regions import create_regions, set_entrance_rules, set_combat_logic_entrance_rules
 from .strings.generic_strings import GAME_NAME
@@ -133,11 +133,14 @@ class SilksongWorld(World):
         all_slashes = [ItemName.downslash, ItemName.upslash, ItemName.leftslash, ItemName.rightslash]
         starting_slashes = set()
         if self.options.starting_slashes == StartingSlashes.option_all:
-            starting_slashes += all_slashes
+            for slash in all_slashes:
+                starting_slashes.add(slash)
         elif self.options.starting_slashes == StartingSlashes.option_random_direction:
             starting_slashes.add(self.random.choice(all_slashes))
         elif self.options.starting_slashes == StartingSlashes.option_two_random_directions:
-            starting_slashes.add(self.random.sample(all_slashes, k=2))
+            random_slashes = self.random.sample(all_slashes, k=2)
+            for slash in random_slashes:
+                starting_slashes.add(slash)
         elif self.options.starting_slashes == StartingSlashes.option_down:
             starting_slashes.add(ItemName.downslash)
         elif self.options.starting_slashes == StartingSlashes.option_down_and_random_direction:
@@ -180,7 +183,8 @@ class SilksongWorld(World):
             RandomizeCrests.internal_name,
             RandomStartingCrest.internal_name,
             RandomizeShopItems.internal_name,
-            RandomizePickups.internal_name,
+            RandomizeUniquePickups.internal_name,
+            RandomizeBasicPickups.internal_name,
             RandomizeLostFleas.internal_name,
             RandomizeStations.internal_name,
             "death_link"

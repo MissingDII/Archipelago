@@ -108,6 +108,8 @@ class ItemName:
 
 
 class EventName:
+    use_silkspear = "Can Use SilkSpear"
+
     visited_greymoor = "Visited Greymoor"
     visited_shellwood = "Visited Shellwood"
     visited_blasted_steps = "Visited Blasted Steps"

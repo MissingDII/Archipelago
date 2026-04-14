@@ -31,9 +31,10 @@ all_locations_items_pairs: List[LocationItemData] = [
     item_location("Tutorial: Breakable Walls 1", RegionName.moss_grotto, [LocationGroup.RANDOMIZED_STARTING_CREST, LocationGroup.ACT_1], ItemName.crest_hunter_progressive, ItemClassification.progression),
     item_location("Tutorial: Breakable Walls 2", RegionName.moss_grotto, [LocationGroup.RANDOMIZED_SLASH, LocationGroup.ACT_1], ItemName.leftslash, ItemClassification.progression),
     item_location("Tutorial: Breakable Walls 3", RegionName.moss_grotto, [LocationGroup.RANDOMIZED_SLASH, LocationGroup.ACT_1], ItemName.downslash, ItemClassification.progression),
-    item_location("Tutorial: Mossgrub", RegionName.moss_grotto, [LocationGroup.RANDOMIZED_SLASH, LocationGroup.ACT_1], ItemName.rightslash, ItemClassification.useful),
-    item_location("Tutorial: Mossmir", RegionName.moss_grotto, [LocationGroup.RANDOMIZED_SLASH, LocationGroup.ACT_1], ItemName.upslash, ItemClassification.useful),
+    item_location("Tutorial: Mossgrub", RegionName.moss_grotto, [LocationGroup.RANDOMIZED_SLASH, LocationGroup.ACT_1], ItemName.rightslash, ItemClassification.progression),
+    item_location("Tutorial: Mossmir", RegionName.moss_grotto, [LocationGroup.RANDOMIZED_SLASH, LocationGroup.ACT_1], ItemName.upslash, ItemClassification.progression),
     item_location("Enter Deep Docks", RegionName.deep_docks_entrance, [LocationGroup.EVENT_ONLY, LocationGroup.ACT_1], ItemName.bone_bottom_wishwall),
+    item_location("Can Use SilkSpear", RegionName.use_silk_spear, [LocationGroup.EVENT_ONLY, LocationGroup.ACT_1], EventName.use_silkspear),
 
     item_location("Save: The Threadspun Town", RegionName.citadel, [LocationGroup.OBJECTIVE, LocationGroup.ACT_1]),
     item_location("Seek: The Great Citadel", RegionName.citadel, [LocationGroup.OBJECTIVE, LocationGroup.ACT_2]),
@@ -226,7 +227,8 @@ all_locations_items_pairs: List[LocationItemData] = [
 
     item_location("Gather Wish: Great Taste of Pharloom", RegionName.choral_chambers_great_gourmand_with_5_delicacies, [LocationGroup.WISH, LocationGroup.ACT_2], ItemName.pale_oil),
 
-    item_location("Donate Wish: Restoration of Bellhart", RegionName.bellhart_wishwall_after_needle_and_relic, [LocationGroup.WISH, LocationGroup.ACT_1], ItemName.bellhart_restoration),
+    item_location("Donate Wish: Restoration of Bellhart", RegionName.bellhart_wishwall_after_needle_and_relic, [LocationGroup.WISH, LocationGroup.ACT_1]),
+    item_location("Restoration of Bellhart", RegionName.bellhart_wishwall_after_needle_and_relic, [LocationGroup.EVENT_ONLY, LocationGroup.ACT_1], ItemName.bellhart_restoration),
 
     item_location("Pickup Pale Oil (Choral Chambers)", RegionName.choral_chambers_pale_oil_room, [LocationGroup.UNIQUE_PICKUPS, LocationGroup.ACT_2], ItemName.pale_oil),
     item_location("Twelfth Architect: Architect Key", RegionName.twelfth_architect, [LocationGroup.SHOP, LocationGroup.ACT_2], ItemName.architect_key),

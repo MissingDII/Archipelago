@@ -8,6 +8,21 @@ class SilksongOption(Protocol):
     internal_name: ClassVar[str]
 
 
+class InclusionChoice(Choice):
+    """
+    System for including locations and items in the randomizer.
+    Each location has a set of tags.
+    If *ANY* of the tags are linked to an "enabled" setting, the location is added to the world (and its item is added to the item pool, if applicable)
+    Except if ANY of the tags are linked to an "excluded" setting, then this location is excluded regardless of other settings.
+    This is because a very large number locations fit into more than one setting cleanly. So the default behavior is to shuffle them is you enable any of the settings,
+    but then you have the ability to hard-exclude some things for more flexibility.
+    """
+    default = 1
+    option_excluded = 0
+    option_ignored = 1
+    option_enabled = 2
+
+
 class Goal(Choice):
     """Goal for this playthrough
     Goals lower than weaver queen will exclude the entirety of Act 2 and Act 3
@@ -32,28 +47,32 @@ class Goal(Choice):
     option_completion = 6
 
 
-class RandomizeMovementAbilities(DefaultOnToggle):
+class RandomizeMovementAbilities(InclusionChoice):
     """Shuffle movement abilities, such as Swift Step, Cling Grip, Clawline, Cloaks, etc."""
     internal_name = "randomize_movement_abilities"
     display_name = "Randomize Movement Abilities"
+    default = InclusionChoice.option_enabled
 
 
-class RandomizeCombatAbilities(DefaultOnToggle):
+class RandomizeCombatAbilities(InclusionChoice):
     """Shuffle combat abilities, such as Needle Strike, Thread Storm, Silk Spear, etc."""
     internal_name = "randomize_combat_abilities"
     display_name = "Randomize Combat Abilities"
+    default = InclusionChoice.option_enabled
 
 
-class RandomizeOtherAbilities(DefaultOnToggle):
+class RandomizeOtherAbilities(InclusionChoice):
     """Shuffle other unique abilities, such as Silk Hearts, Sylphsong, Farsight, Everbloom"""
     internal_name = "randomize_other_abilities"
     display_name = "Randomize Other Abilities"
+    default = InclusionChoice.option_enabled
 
 
-class RandomizeNeedleUpgrades(DefaultOnToggle):
+class RandomizeNeedleUpgrades(InclusionChoice):
     """Shuffles the 4 needle upgrades"""
     internal_name = "randomize_needle_upgrades"
     display_name = "Randomize Needle Upgrades"
+    default = InclusionChoice.option_excluded
 
 
 class StartingSlashes(Choice):
@@ -74,10 +93,11 @@ class StartingBind(DefaultOnToggle):
     display_name = "Starting Bind"
 
 
-class RandomizeBossRewards(DefaultOnToggle):
+class RandomizeBossRewards(InclusionChoice):
     """Shuffles rewards from beating every boss in the game. This also adds a location reward to bosses that don't usually have a reward, increasing filler."""
     internal_name = "randomize_boss_rewards"
     display_name = "Randomize Boss Rewards"
+    default = InclusionChoice.option_ignored
 
 
 class RandomizeEvaRewards(Choice):
@@ -94,22 +114,25 @@ class RandomizeEvaRewards(Choice):
     option_evasanity = 2
 
 
-class RandomizeMemoryLockets(DefaultOnToggle):
+class RandomizeMemoryLockets(InclusionChoice):
     """Shuffles memory lockets from all sources"""
     internal_name = "randomize_memory_lockets"
     display_name = "Randomize Memory Lockets"
+    default = InclusionChoice.option_enabled
 
 
-class RandomizeWishRewards(DefaultOnToggle):
+class RandomizeWishRewards(InclusionChoice):
     """Shuffles rewards from all wishes"""
     internal_name = "randomize_wish_rewards"
     display_name = "Randomize Wish Rewards"
+    default = InclusionChoice.option_enabled
 
 
-class RandomizeCrests(DefaultOnToggle):
+class RandomizeCrests(InclusionChoice):
     """Shuffles all crests and crest upgrades"""
     internal_name = "randomize_crests"
     display_name = "Randomize Crests"
+    default = InclusionChoice.option_enabled
 
 
 class RandomStartingCrest(DefaultOnToggle):
@@ -118,36 +141,40 @@ class RandomStartingCrest(DefaultOnToggle):
     display_name = "Randomize Starting Crest"
 
 
-class RandomizeShopItems(DefaultOnToggle):
+class RandomizeShopItems(InclusionChoice):
     """Shuffles unique purchasable items in all shops"""
     internal_name = "randomize_shop_items"
     display_name = "Randomize Shop Items"
+    default = InclusionChoice.option_ignored
 
 
-class RandomizePickups(Choice):
-    """Shuffles items picked up from the floor
-    None: None of the pickups are randomized
-    Unique: The unique item pickups are randomized
-    All: All item pickups are randomized
+class RandomizeUniquePickups(InclusionChoice):
+    """Shuffles unique items picked up from the floor"""
+    internal_name = "randomize_unique_pickups"
+    display_name = "Randomize Unique Pickups"
+    default = InclusionChoice.option_enabled
+
+
+class RandomizeBasicPickups(InclusionChoice):
+    """Shuffles basic items picked up from the floor, such as rosary necklaces
     """
-    internal_name = "randomize_pickups"
-    display_name = "Randomize Pickups"
-    default = 1
-    option_none = 0
-    option_unique = 1
-    option_all = 2
+    internal_name = "randomize_basic_pickups"
+    display_name = "Randomize Basic Pickups"
+    default = InclusionChoice.option_ignored
 
 
-class RandomizeLostFleas(DefaultOnToggle):
+class RandomizeLostFleas(InclusionChoice):
     """Shuffles lost fleas around the world"""
     internal_name = "randomize_lost_fleas"
     display_name = "Randomize Lost Fleas"
+    default = InclusionChoice.option_ignored
 
 
-class RandomizeStations(DefaultOnToggle):
+class RandomizeStations(InclusionChoice):
     """Shuffles access to the various Bellway and Ventrica stations"""
     internal_name = "randomize_stations"
     display_name = "Randomize Stations"
+    default = InclusionChoice.option_enabled
 
 
 class CombatLogic(Choice):
@@ -187,7 +214,8 @@ class SilksongOptions(PerGameCommonOptions):
     randomize_crests: RandomizeCrests
     random_starting_crests: RandomStartingCrest
     randomize_shop_items: RandomizeShopItems
-    randomize_pickups: RandomizePickups
+    randomize_unique_pickups: RandomizeUniquePickups
+    randomize_basic_pickups: RandomizeBasicPickups
     randomize_lost_fleas: RandomizeLostFleas
     randomize_stations: RandomizeStations
     combat_logic: CombatLogic

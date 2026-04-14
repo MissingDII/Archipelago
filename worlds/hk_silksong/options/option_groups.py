@@ -22,7 +22,8 @@ else:
             options.RandomizeCrests,
             options.RandomStartingCrest,
             options.RandomizeShopItems,
-            options.RandomizePickups,
+            options.RandomizeUniquePickups,
+            options.RandomizeBasicPickups,
         ]),
         OptionGroup("Advanced Options", [
             ap_options.DeathLink,

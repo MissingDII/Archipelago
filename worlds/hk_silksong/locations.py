@@ -3,9 +3,7 @@ from random import Random
 from typing import List, Dict, Optional, Protocol
 
 from BaseClasses import Location, MultiWorld
-from .options.options import SilksongOptions, Goal, RandomizeMovementAbilities, RandomizeCombatAbilities, RandomizeOtherAbilities, RandomizeBossRewards, \
-    RandomizeEvaRewards, RandomizeMemoryLockets, RandomizeWishRewards, RandomizeCrests, RandomStartingCrest, RandomizeShopItems, RandomizePickups, \
-    RandomizeLostFleas, RandomizeStations, RandomizeNeedleUpgrades, StartingBind, StartingSlashes
+from .options.options import SilksongOptions, Goal, RandomizeEvaRewards, RandomStartingCrest, InclusionChoice
 from .strings.generic_strings import GAME_NAME
 from .strings.goal_names import GoalName
 from .strings.item_names import ItemName
@@ -50,7 +48,7 @@ class LocationGroup(enum.Enum):
     NEEDLE_UPGRADE = enum.auto()
 
     UNIQUE_PICKUPS = enum.auto()
-    PICKUP = enum.auto()
+    BASIC_PICKUP = enum.auto()
 
     RANDOMIZED_STARTING_CREST = enum.auto()
     RANDOMIZED_SLASH = enum.auto()
@@ -124,61 +122,41 @@ def create_locations(location_collector: SilksongLocationCollector,
     enabled_groups.append(LocationGroup.ALWAYS_ACTIVE)
     enabled_groups.append(LocationGroup.OBJECTIVE)
     enabled_groups.append(LocationGroup.SONG)
+    excluded_groups = []
+    excluded_groups.append(LocationGroup.EVENT_ONLY)
 
-    if options.randomize_movement_abilities == RandomizeMovementAbilities.option_true:
-        enabled_groups.append(LocationGroup.MOVEMENT_ABILITY)
+    option_group_mapping = {
+        options.randomize_movement_abilities.internal_name: [LocationGroup.MOVEMENT_ABILITY],
+        options.randomize_combat_abilities.internal_name: [LocationGroup.COMBAT_ABILITY, LocationGroup.SILK_COMBAT_ABILITY],
+        options.randomize_other_abilities.internal_name: [LocationGroup.SILK_OTHER_ABILITY],
+        options.randomize_needle_upgrades.internal_name: [LocationGroup.NEEDLE_UPGRADE],
+        options.starting_bind.internal_name: [LocationGroup.RANDOMIZED_BIND],
+        options.starting_slashes.internal_name: [LocationGroup.RANDOMIZED_SLASH],
+        options.randomize_boss_rewards.internal_name: [LocationGroup.BOSS_FIGHT],
+        options.randomize_memory_lockets.internal_name: [LocationGroup.MEMORY_LOCKET],
+        options.randomize_wish_rewards.internal_name: [LocationGroup.WISH],
+        options.randomize_crests.internal_name: [LocationGroup.CREST, LocationGroup.CREST_UPGRADE],
+        options.randomize_shop_items.internal_name: [LocationGroup.SHOP],
+        options.randomize_unique_pickups.internal_name: [LocationGroup.UNIQUE_PICKUPS],
+        options.randomize_basic_pickups.internal_name: [LocationGroup.BASIC_PICKUP],
+        options.randomize_lost_fleas.internal_name: [LocationGroup.LOST_FLEA],
+        options.randomize_stations.internal_name: [LocationGroup.BELLWAY, LocationGroup.VENTRICA],
+    }
 
-    if options.randomize_combat_abilities == RandomizeCombatAbilities.option_true:
-        enabled_groups.append(LocationGroup.COMBAT_ABILITY)
-        enabled_groups.append(LocationGroup.SILK_COMBAT_ABILITY)
-
-    if options.randomize_other_abilities == RandomizeOtherAbilities.option_true:
-        enabled_groups.append(LocationGroup.SILK_OTHER_ABILITY)
-
-    if options.randomize_needle_upgrades == RandomizeNeedleUpgrades.option_true:
-        enabled_groups.append(LocationGroup.NEEDLE_UPGRADE)
-
-    if options.starting_bind == StartingBind.option_false:
-        enabled_groups.append(LocationGroup.RANDOMIZED_BIND)
-
-    if options.starting_slashes != StartingSlashes.option_all:
-        enabled_groups.append(LocationGroup.RANDOMIZED_SLASH)
-
-    if options.randomize_boss_rewards == RandomizeBossRewards.option_true:
-        enabled_groups.append(LocationGroup.BOSS_FIGHT)
+    options_dict = options.as_dict(*[name for name in option_group_mapping.keys()])
+    for option_name, groups in option_group_mapping.items():
+        if options_dict[option_name] == InclusionChoice.option_enabled:
+            enabled_groups.extend(groups)
+        elif options_dict[option_name] == InclusionChoice.option_excluded:
+            excluded_groups.extend(groups)
 
     if options.randomize_eva_rewards != RandomizeEvaRewards.option_none:
         enabled_groups.append(LocationGroup.EVA_REWARD)
         if options.randomize_eva_rewards == RandomizeEvaRewards.option_evasanity:
             enabled_groups.append(LocationGroup.EVA_EXTRA_LOCATIONS)
 
-    if options.randomize_memory_lockets == RandomizeMemoryLockets.option_true:
-        enabled_groups.append(LocationGroup.MEMORY_LOCKET)
-
-    if options.randomize_wish_rewards == RandomizeWishRewards.option_true:
-        enabled_groups.append(LocationGroup.WISH)
-
-    if options.randomize_crests == RandomizeCrests.option_true:
-        enabled_groups.append(LocationGroup.CREST)
-        enabled_groups.append(LocationGroup.CREST_UPGRADE)
-
     if options.random_starting_crests == RandomStartingCrest.option_true:
         enabled_groups.append(LocationGroup.RANDOMIZED_STARTING_CREST)
-
-    if options.randomize_shop_items == RandomizeShopItems.option_true:
-        enabled_groups.append(LocationGroup.SHOP)
-
-    if options.randomize_pickups != RandomizePickups.option_none:
-        enabled_groups.append(LocationGroup.UNIQUE_PICKUPS)
-        if options.randomize_pickups == RandomizePickups.option_all:
-            enabled_groups.append(LocationGroup.PICKUP)
-
-    if options.randomize_lost_fleas == RandomizeLostFleas.option_true:
-        enabled_groups.append(LocationGroup.LOST_FLEA)
-
-    if options.randomize_stations == RandomizeStations.option_true:
-        enabled_groups.append(LocationGroup.BELLWAY)
-        enabled_groups.append(LocationGroup.VENTRICA)
 
     allowed_acts = [LocationGroup.ACT_1]
     if options.goal >= Goal.option_weaver_queen:
@@ -189,10 +167,11 @@ def create_locations(location_collector: SilksongLocationCollector,
     for loc_item_pair in all_locations_items_pairs:
         if not any([act in loc_item_pair.location_data.groups for act in allowed_acts]):
             continue
-        for group in enabled_groups:
-            if group in loc_item_pair.location_data.groups:
-                randomized_locations.append(loc_item_pair.location_data)
-                break
+        location_groups = loc_item_pair.location_data.groups
+        if any([excluded_group in location_groups for excluded_group in excluded_groups]):
+            continue
+        if any([enabled_group in location_groups for enabled_group in enabled_groups]):
+            randomized_locations.append(loc_item_pair.location_data)
 
     # randomized_locations = sorted(list(set(randomized_locations)))
 
