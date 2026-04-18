@@ -25,6 +25,7 @@ class RegionName:
     use_silk_spear = region("Use SilkSpear")
 
     moss_grotto = region("Moss Grotto")
+    moss_grotto_after_breakable_walls = region("Moss Grotto - After Breakable Walls")
     bone_bottom = region("Bone Bottom")
     bone_bottom_wishwall = region("Bone Bottom Wishwall")
     bone_bottom_bellway = region("Bone Bottom - Bellway")
@@ -91,6 +92,8 @@ class RegionName:
     bellhart = region("Bellhart")
     shellwood = region("Shellwood")
     shellwood_entrance = region("Shellwood - Entrance")
+    shellwood_spire = region("Shellwood - Weaver Spire")
+
     bellhart_upper = region("Upper Bellhart")
     bellhart_saved = region("Saved Bellhart")
     pinmaster_home = region("Bellhart - Pinmaster Home")
@@ -154,8 +157,9 @@ class RegionName:
     sands_of_karak_coral_tower = region("Sands Of Karak - Coral Tower")
     sands_of_karak_coral_tower_dream = region("Sands Of Karak - Coral Tower Dream")
 
-    the_slab = region("The Slab")
+    the_slab_main_area = region("The Slab - Main Prison Area")
     the_slab_bellway = region("The Slab - Bellway")
+    the_slab_above_bellway = region("The Slab - Above Bellway")
     the_slab_above_bench = region("The Slab - Above Bench")
     the_slab_indolent = region("The Slab - With Indolent Key")
     the_slab_shortcut_cave = region("The Slab - Shortcut Cave")
@@ -182,6 +186,7 @@ class RegionName:
     terminus_ventrica = region("Terminus - Ventrica")
     cradle_with_soul_snare = region("The Cradle - Soul Snare")
     citadel = region("Citadel")
+    pharloom_crown = region("Pharloom's Crown")
 
     underworks_act_2 = region("Underworks - Act 2")
     underworks = region("Underworks")

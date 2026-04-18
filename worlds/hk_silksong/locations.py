@@ -3,7 +3,7 @@ from random import Random
 from typing import List, Dict, Optional, Protocol
 
 from BaseClasses import Location, MultiWorld
-from .options.options import SilksongOptions, Goal, RandomizeEvaRewards, RandomStartingCrest, InclusionChoice
+from .options.options import SilksongOptions, Goal, RandomizeEvaRewards, RandomStartingCrest, InclusionChoice, StartingBind
 from .strings.generic_strings import GAME_NAME
 from .strings.goal_names import GoalName
 from .strings.item_names import ItemName
@@ -130,7 +130,6 @@ def create_locations(location_collector: SilksongLocationCollector,
         options.randomize_combat_abilities.internal_name: [LocationGroup.COMBAT_ABILITY, LocationGroup.SILK_COMBAT_ABILITY],
         options.randomize_other_abilities.internal_name: [LocationGroup.SILK_OTHER_ABILITY],
         options.randomize_needle_upgrades.internal_name: [LocationGroup.NEEDLE_UPGRADE],
-        options.starting_bind.internal_name: [LocationGroup.RANDOMIZED_BIND],
         options.starting_slashes.internal_name: [LocationGroup.RANDOMIZED_SLASH],
         options.randomize_boss_rewards.internal_name: [LocationGroup.BOSS_FIGHT],
         options.randomize_memory_lockets.internal_name: [LocationGroup.MEMORY_LOCKET],
@@ -149,6 +148,9 @@ def create_locations(location_collector: SilksongLocationCollector,
             enabled_groups.extend(groups)
         elif options_dict[option_name] == InclusionChoice.option_excluded:
             excluded_groups.extend(groups)
+
+    if options.starting_bind == StartingBind.option_false:
+        enabled_groups.append(LocationGroup.RANDOMIZED_BIND)
 
     if options.randomize_eva_rewards != RandomizeEvaRewards.option_none:
         enabled_groups.append(LocationGroup.EVA_REWARD)
